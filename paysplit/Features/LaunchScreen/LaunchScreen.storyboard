@@ -15,17 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fQy-wm-LTl">
-                                <rect key="frame" x="40" y="0.0" width="313" height="852"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIconPay" translatesAutoresizingMaskIntoConstraints="NO" id="fQy-wm-LTl">
+                                <rect key="frame" x="67" y="0.0" width="139" height="852"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fQy-wm-LTl" secondAttribute="bottom" id="Anc-Sz-tZd"/>
-                            <constraint firstAttribute="trailing" secondItem="fQy-wm-LTl" secondAttribute="trailing" constant="40" id="JDK-rS-aH3"/>
+                            <constraint firstAttribute="trailing" secondItem="fQy-wm-LTl" secondAttribute="trailing" constant="187" id="JDK-rS-aH3"/>
                             <constraint firstItem="fQy-wm-LTl" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="firstBaseline" id="Kmv-Ms-0t3"/>
-                            <constraint firstItem="fQy-wm-LTl" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="40" id="hNW-y0-bJu"/>
+                            <constraint firstItem="fQy-wm-LTl" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="67" id="hNW-y0-bJu"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appIcon" width="1024" height="1024"/>
+        <image name="appIconPay" width="866" height="882"/>
     </resources>
 </document>
