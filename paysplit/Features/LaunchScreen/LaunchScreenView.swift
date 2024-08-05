@@ -16,6 +16,7 @@ struct LaunchScreenView: View {
     let sizePay: CGFloat = 140
 
     @State private var showSplitImage = false
+    @State private var showLineImage = false
     @State private var paysplitRectangleProgress: CGFloat = 0.0
     @State private var paysplitScale: CGFloat = 1
 
@@ -33,6 +34,16 @@ struct LaunchScreenView: View {
                             y: (reader.size.height/2) - 12
                         )
                         .transition(.offset(x: -130))
+                }
+
+                if showLineImage {
+                    Image("appIconLines")
+                        .resizable()
+                        .frame(width: 107.5, height: 90)
+                        .position(
+                            x: (reader.size.width/2) + 75,
+                            y: (reader.size.height/2) - 12
+                        )
                 }
 
                 PaysplitRectangle()
@@ -67,6 +78,12 @@ struct LaunchScreenView: View {
                 paysplitRectangleProgress += 0.1
             } else {
                 timer.upstream.connect().cancel()
+
+                withAnimation(
+                    .easeInOut(duration: 1)
+                ) {
+                    showLineImage = true
+                }
 
                 withAnimation(
                     .spring(
