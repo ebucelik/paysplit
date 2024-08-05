@@ -8,17 +8,53 @@
 
 /* Begin PBXBuildFile section */
 		7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133237B2C5CE92B00497475 /* paysplitApp.swift */; };
-		7133237E2C5CE92B00497475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133237D2C5CE92B00497475 /* ContentView.swift */; };
 		713323802C5CE92C00497475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7133237F2C5CE92C00497475 /* Assets.xcassets */; };
 		713323832C5CE92C00497475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713323822C5CE92C00497475 /* Preview Assets.xcassets */; };
+		717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 717590FA2C5E56F200BF4763 /* StripePaymentSheet */; };
+		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
+		71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D412C5F6BC8005D3BE0 /* ViewState.swift */; };
+		71B30D442C5F6D01005D3BE0 /* PaymentButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */; };
+		71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */; };
+		71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D482C5F6DC0005D3BE0 /* APIClient.swift */; };
+		71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D4A2C5F6DD3005D3BE0 /* Call.swift */; };
+		71B30D4D2C5F6E03005D3BE0 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D4C2C5F6E03005D3BE0 /* HttpMethod.swift */; };
+		71B30D4F2C5F7125005D3BE0 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D4E2C5F7125005D3BE0 /* Services.swift */; };
+		71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D502C5F71B5005D3BE0 /* APIError.swift */; };
+		71B30D532C5F7D0C005D3BE0 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D522C5F7D0C005D3BE0 /* ErrorResponse.swift */; };
+		71B30D562C5F7F22005D3BE0 /* PaymentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D552C5F7F22005D3BE0 /* PaymentStore.swift */; };
+		71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D572C5F7FDA005D3BE0 /* PaymentSheetCall.swift */; };
+		71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D592C5F8038005D3BE0 /* PaymentSheetService.swift */; };
+		71B30D5E2C5FBE9F005D3BE0 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D5D2C5FBE9F005D3BE0 /* AppCore.swift */; };
+		71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D5F2C5FBECE005D3BE0 /* AppView.swift */; };
+		71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D612C5FC1FE005D3BE0 /* AppService.swift */; };
+		71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D692C5FC9EB005D3BE0 /* LaunchScreenView.swift */; };
+		71B30D702C5FCF3A005D3BE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B30D6F2C5FCF3A005D3BE0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		713323782C5CE92B00497475 /* paysplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paysplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7133237B2C5CE92B00497475 /* paysplitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paysplitApp.swift; sourceTree = "<group>"; };
-		7133237D2C5CE92B00497475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7133237F2C5CE92C00497475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		713323822C5CE92C00497475 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButtonView.swift; sourceTree = "<group>"; };
+		71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetResponse.swift; sourceTree = "<group>"; };
+		71B30D482C5F6DC0005D3BE0 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		71B30D4A2C5F6DD3005D3BE0 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		71B30D4C2C5F6E03005D3BE0 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		71B30D4E2C5F7125005D3BE0 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		71B30D502C5F71B5005D3BE0 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		71B30D522C5F7D0C005D3BE0 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		71B30D552C5F7F22005D3BE0 /* PaymentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStore.swift; sourceTree = "<group>"; };
+		71B30D572C5F7FDA005D3BE0 /* PaymentSheetCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetCall.swift; sourceTree = "<group>"; };
+		71B30D592C5F8038005D3BE0 /* PaymentSheetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetService.swift; sourceTree = "<group>"; };
+		71B30D5B2C5F9BF7005D3BE0 /* paysplit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = paysplit.entitlements; sourceTree = "<group>"; };
+		71B30D5D2C5FBE9F005D3BE0 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
+		71B30D5F2C5FBECE005D3BE0 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		71B30D612C5FC1FE005D3BE0 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		71B30D632C5FC2F4005D3BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		71B30D692C5FC9EB005D3BE0 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		71B30D6F2C5FCF3A005D3BE0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */,
+				717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +89,13 @@
 		7133237A2C5CE92B00497475 /* paysplit */ = {
 			isa = PBXGroup;
 			children = (
+				71B30D632C5FC2F4005D3BE0 /* Info.plist */,
+				71B30D5B2C5F9BF7005D3BE0 /* paysplit.entitlements */,
+				71B30D452C5F6D71005D3BE0 /* Models */,
+				71B30D402C5F6BB7005D3BE0 /* Network */,
+				71B30D3F2C5F6BB1005D3BE0 /* Features */,
+				71B30D3E2C5F6BAB005D3BE0 /* Shared */,
 				7133237B2C5CE92B00497475 /* paysplitApp.swift */,
-				7133237D2C5CE92B00497475 /* ContentView.swift */,
 				7133237F2C5CE92C00497475 /* Assets.xcassets */,
 				713323812C5CE92C00497475 /* Preview Content */,
 			);
@@ -65,6 +108,75 @@
 				713323822C5CE92C00497475 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		71B30D3E2C5F6BAB005D3BE0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D412C5F6BC8005D3BE0 /* ViewState.swift */,
+				71B30D4E2C5F7125005D3BE0 /* Services.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		71B30D3F2C5F6BB1005D3BE0 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D642C5FC956005D3BE0 /* LaunchScreen */,
+				71B30D5C2C5FBE86005D3BE0 /* App */,
+				71B30D542C5F7F12005D3BE0 /* Payment */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		71B30D402C5F6BB7005D3BE0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D482C5F6DC0005D3BE0 /* APIClient.swift */,
+				71B30D4A2C5F6DD3005D3BE0 /* Call.swift */,
+				71B30D4C2C5F6E03005D3BE0 /* HttpMethod.swift */,
+				71B30D502C5F71B5005D3BE0 /* APIError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		71B30D452C5F6D71005D3BE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */,
+				71B30D522C5F7D0C005D3BE0 /* ErrorResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		71B30D542C5F7F12005D3BE0 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */,
+				71B30D552C5F7F22005D3BE0 /* PaymentStore.swift */,
+				71B30D572C5F7FDA005D3BE0 /* PaymentSheetCall.swift */,
+				71B30D592C5F8038005D3BE0 /* PaymentSheetService.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		71B30D5C2C5FBE86005D3BE0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D5D2C5FBE9F005D3BE0 /* AppCore.swift */,
+				71B30D5F2C5FBECE005D3BE0 /* AppView.swift */,
+				71B30D612C5FC1FE005D3BE0 /* AppService.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		71B30D642C5FC956005D3BE0 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				71B30D692C5FC9EB005D3BE0 /* LaunchScreenView.swift */,
+				71B30D6F2C5FCF3A005D3BE0 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +195,10 @@
 			dependencies = (
 			);
 			name = paysplit;
+			packageProductDependencies = (
+				717590FA2C5E56F200BF4763 /* StripePaymentSheet */,
+				71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */,
+			);
 			productName = paysplit;
 			productReference = 713323782C5CE92B00497475 /* paysplit.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +227,10 @@
 				Base,
 			);
 			mainGroup = 7133236F2C5CE92B00497475;
+			packageReferences = (
+				717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
+				71B30D3B2C5F6BA5005D3BE0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 713323792C5CE92B00497475 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B30D702C5FCF3A005D3BE0 /* LaunchScreen.storyboard in Resources */,
 				713323832C5CE92C00497475 /* Preview Assets.xcassets in Resources */,
 				713323802C5CE92C00497475 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +258,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7133237E2C5CE92B00497475 /* ContentView.swift in Sources */,
+				71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */,
+				71B30D442C5F6D01005D3BE0 /* PaymentButtonView.swift in Sources */,
+				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */,
+				71B30D5E2C5FBE9F005D3BE0 /* AppCore.swift in Sources */,
+				71B30D4D2C5F6E03005D3BE0 /* HttpMethod.swift in Sources */,
+				71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */,
+				71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */,
+				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
+				71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */,
+				71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */,
+				71B30D562C5F7F22005D3BE0 /* PaymentStore.swift in Sources */,
+				71B30D532C5F7D0C005D3BE0 /* ErrorResponse.swift in Sources */,
+				71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */,
+				71B30D4F2C5F7125005D3BE0 /* Services.swift in Sources */,
+				71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */,
+				71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -269,17 +405,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = paysplit/paysplit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"paysplit/Preview Content\"";
 				DEVELOPMENT_TEAM = 7UZH6B548Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = paysplit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Paysplit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +430,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ebucelik.paysplit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -298,17 +445,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = paysplit/paysplit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"paysplit/Preview Content\"";
 				DEVELOPMENT_TEAM = 7UZH6B548Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = paysplit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Paysplit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +470,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ebucelik.paysplit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -344,6 +502,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.28.1;
+			};
+		};
+		71B30D3B2C5F6BA5005D3BE0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		717590FA2C5E56F200BF4763 /* StripePaymentSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePaymentSheet;
+		};
+		71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71B30D3B2C5F6BA5005D3BE0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 713323702C5CE92B00497475 /* Project object */;
 }
