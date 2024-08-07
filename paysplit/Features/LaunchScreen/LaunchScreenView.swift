@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LaunchScreenView: View {
     @Binding
-    var showHomeScreen: Bool
+    var showOverview: Bool
 
     let sizeSplitText: CGFloat = 140
     let sizeSplitRect: CGFloat = 110
@@ -110,7 +110,7 @@ struct LaunchScreenView: View {
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                     withAnimation(.easeInOut(duration: 1)) {
-                        showHomeScreen = true
+                        showOverview = true
                     }
                 }
             }

@@ -13,7 +13,14 @@ import ComposableArchitecture
 struct paysplitApp: App {
     var body: some Scene {
         WindowGroup {
-            AppView()
+            AppView(
+                store: Store(
+                    initialState: AppCore.State(),
+                    reducer: {
+                        AppCore()
+                    }
+                )
+            )
 //            PaymentButtonView(
 //                store: Store(
 //                    initialState: PaymentCore.State(),
