@@ -12,9 +12,19 @@ struct AppCore {
     @ObservableState
     struct State: Equatable {
         var showOverview = false
+        var selectedTab = 0
+        var previousSelectedTab = 0
 
         @Presents
         var addPaymentCoreState: AddPaymentCore.State?
+
+        mutating func setSelectedTab() {
+            selectedTab = previousSelectedTab
+        }
+
+        mutating func setPreviousSelectedTab() {
+            previousSelectedTab = selectedTab
+        }
     }
 
     @CasePathable
@@ -27,6 +37,8 @@ struct AppCore {
     }
 
     var body: some ReducerOf<AppCore> {
+        BindingReducer()
+        
         Reduce { state, action in
             switch action {
             case .onViewAppear:

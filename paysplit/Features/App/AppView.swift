@@ -13,68 +13,63 @@ struct AppView: View {
     @Bindable
     var store: StoreOf<AppCore>
 
-    @State
-    var selectedTab = 0
-    @State
-    var previousSelectedTab = 0
-
     var body: some View {
         // TODO: comment out again later.
-        //        if showHomeScreen {
-        TabView(selection: $selectedTab) {
-            OverviewView(
-                store: Store(
-                    initialState: OverviewCore.State(),
-                    reducer: {
-                        OverviewCore()
-                    }
+        if store.showOverview {
+            TabView(selection: $store.selectedTab) {
+                OverviewView(
+                    store: Store(
+                        initialState: OverviewCore.State(),
+                        reducer: {
+                            OverviewCore()
+                        }
+                    )
                 )
-            )
-            .tabItem {
-                Image(systemName: "globe.europe.africa")
-            }
-            .tag(0)
-
-            Color
-                .clear
                 .tabItem {
-                    Image(systemName: "plus.square.fill")
+                    Image(systemName: "globe.europe.africa")
                 }
-                .tag(1)
+                .tag(0)
 
-            VStack {
-                Spacer()
+                Color
+                    .clear
+                    .tabItem {
+                        Image(systemName: "plus.square.fill")
+                    }
+                    .tag(1)
 
-                Text("Account")
-                    .foregroundStyle(.black)
-                    .frame(maxWidth: .infinity)
+                VStack {
+                    Spacer()
 
-                Spacer()
+                    Text("Account")
+                        .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity)
+
+                    Spacer()
+                }
+                .tabItem {
+                    Image(systemName: "person.crop.square.fill")
+                }
+                .tag(2)
             }
-            .tabItem {
-                Image(systemName: "person.crop.square.fill")
-            }
-            .tag(2)
-        }
-        .onChange(of: selectedTab) {
-            if selectedTab == 1 {
-                selectedTab = previousSelectedTab
+            .onChange(of: store.selectedTab) {
+                if store.selectedTab == 1 {
+                    store.state.setSelectedTab()
 
-                store.send(.showAddPaymentView)
-            } else {
-                previousSelectedTab = selectedTab
+                    store.send(.showAddPaymentView)
+                } else {
+                    store.state.setPreviousSelectedTab()
+                }
             }
+            .sheet(
+                item: $store.scope(
+                    state: \.addPaymentCoreState,
+                    action: \.addPayment
+                )
+            ) { addPaymentCore in
+                AddPaymentView(store: addPaymentCore)
+            }
+        } else {
+            LaunchScreenView(showOverview: $store.showOverview)
         }
-        .sheet(
-            item: $store.scope(
-                state: \.addPaymentCoreState,
-                action: \.addPayment
-            )
-        ) { addPaymentCore in
-            AddPaymentView(store: addPaymentCore)
-        }
-        //        } else {
-        //            LaunchScreenView(showHomeScreen: $store.showOverview)
-        //        }
     }
 }
