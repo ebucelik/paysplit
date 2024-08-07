@@ -12,8 +12,6 @@ struct AppCore {
     @ObservableState
     struct State: Equatable {
         var showOverview = false
-        var selectedTab = 0
-        var previousSelectedTab = 0
 
         @Presents
         var addPaymentCoreState: AddPaymentCore.State?

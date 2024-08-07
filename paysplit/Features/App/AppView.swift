@@ -13,10 +13,15 @@ struct AppView: View {
     @Bindable
     var store: StoreOf<AppCore>
 
+    @State
+    var selectedTab = 0
+    @State
+    var previousSelectedTab = 0
+
     var body: some View {
         // TODO: comment out again later.
         //        if showHomeScreen {
-        TabView(selection: $store.selectedTab) {
+        TabView(selection: $selectedTab) {
             OverviewView(
                 store: Store(
                     initialState: OverviewCore.State(),
@@ -30,19 +35,12 @@ struct AppView: View {
             }
             .tag(0)
 
-            VStack {
-                Spacer()
-
-                Text("Add pay")
-                    .foregroundStyle(.black)
-                    .frame(maxWidth: .infinity)
-
-                Spacer()
-            }
-            .tabItem {
-                Image(systemName: "plus.square.fill")
-            }
-            .tag(1)
+            Color
+                .clear
+                .tabItem {
+                    Image(systemName: "plus.square.fill")
+                }
+                .tag(1)
 
             VStack {
                 Spacer()
@@ -58,14 +56,21 @@ struct AppView: View {
             }
             .tag(2)
         }
-        .onChange(of: store.selectedTab) {
-            if store.selectedTab == 1 {
-                store.selectedTab = store.previousSelectedTab
+        .onChange(of: selectedTab) {
+            if selectedTab == 1 {
+                selectedTab = previousSelectedTab
 
                 store.send(.showAddPaymentView)
+            } else {
+                previousSelectedTab = selectedTab
             }
         }
-        .sheet(item: $store.scope(state: \.addPaymentCoreState, action: \.addPayment)) { addPaymentCore in
+        .sheet(
+            item: $store.scope(
+                state: \.addPaymentCoreState,
+                action: \.addPayment
+            )
+        ) { addPaymentCore in
             AddPaymentView(store: addPaymentCore)
         }
         //        } else {

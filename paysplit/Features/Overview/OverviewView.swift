@@ -12,7 +12,6 @@ struct OverviewView: View {
 
     @Bindable
     var store: StoreOf<OverviewCore>
-    
 
     init(store: StoreOf<OverviewCore>) {
         self.store = store
@@ -43,7 +42,14 @@ struct OverviewView: View {
 
                 switch store.selection {
                 case .people:
-                    PeopleView()
+                    PeopleView(
+                        store: Store(
+                            initialState: PeopleCore.State(),
+                            reducer: {
+                                PeopleCore()
+                            }
+                        )
+                    )
 
                 case .open:
                     OpenPaymentView()
@@ -60,6 +66,18 @@ struct OverviewView: View {
                     Image("appIconNoBackground")
                         .resizable()
                         .frame(width: 70, height: 70)
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(
+                        action: {
+                            print("add people")
+                        }, label: {
+                            Image(systemName: "person.fill.badge.plus")
+                                .renderingMode(.template)
+                                .tint(.black)
+                        }
+                    )
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
