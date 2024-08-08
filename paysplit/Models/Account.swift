@@ -42,7 +42,6 @@ struct Account: Codable, Equatable, Identifiable {
     }
 }
 
-#if DEBUG
 extension Account.BankDetail {
     static var mock: Account.BankDetail {
         Account.BankDetail(
@@ -118,4 +117,3 @@ extension Sequence where Element == Account {
         ]
     }
 }
-#endif

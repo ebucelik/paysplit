@@ -1,5 +1,5 @@
 //
-//  PaymentStore.swift
+//  PaymentCore.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 04.08.24.

@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-@Reducer
+@Reducer 
 struct PeopleCore {
     @ObservableState
     struct State: Equatable {
@@ -25,13 +25,13 @@ struct PeopleCore {
         Reduce { state, action in
             switch action {
             case .onViewAppear:
-                guard state.people == .none else { return .none }
+                guard state.people == ViewState.none else { return .none }
 
                 return .send(.loadAddedPeople)
 
             case .loadAddedPeople:
-                return .run { [state = state] send in
-                    if case let .loaded(people) = state.people {
+                return .run { [peopleState = state.people] send in
+                    if case let .loaded(people) = peopleState {
                         await send(.setPeopleState(.refreshing(people)))
                     } else {
                         await send(.setPeopleState(.loading))

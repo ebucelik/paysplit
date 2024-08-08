@@ -14,14 +14,16 @@ struct PaidPaymentCore {
 
     }
 
-    @CasePathable
     enum Action {
-
+        case onViewAppear
     }
 
     var body: some ReducerOf<PaidPaymentCore> {
         Reduce { state, action in
-            switch action {}
+            switch action {
+            case .onViewAppear:
+                return .none
+            }
         }
     }
 }

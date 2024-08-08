@@ -16,12 +16,15 @@ struct OpenPaymentCore {
 
     @CasePathable
     enum Action {
-
+        case onViewAppear
     }
 
     var body: some ReducerOf<OpenPaymentCore> {
         Reduce { state, action in
-            switch action {}
+            switch action {
+            case .onViewAppear:
+                return .none
+            }
         }
     }
 }
