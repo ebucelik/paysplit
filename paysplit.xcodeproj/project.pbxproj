@@ -30,6 +30,7 @@
 		7138F48E2C63D13B0067CE35 /* AddPaymentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F48D2C63D13B0067CE35 /* AddPaymentCore.swift */; };
 		716DE7752C651ECF00A80817 /* PeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* PeopleCore.swift */; };
 		716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7762C65593800A80817 /* OpenPaymentAccount.swift */; };
+		716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */; };
 		717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 717590FA2C5E56F200BF4763 /* StripePaymentSheet */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
@@ -77,6 +78,7 @@
 		7138F48D2C63D13B0067CE35 /* AddPaymentCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentCore.swift; sourceTree = "<group>"; };
 		716DE7742C651ECF00A80817 /* PeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCore.swift; sourceTree = "<group>"; };
 		716DE7762C65593800A80817 /* OpenPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPaymentAccount.swift; sourceTree = "<group>"; };
+		716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidPaymentAccount.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButtonView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				71B30D522C5F7D0C005D3BE0 /* ErrorResponse.swift */,
 				7197B6772C64243F00272918 /* Account.swift */,
 				716DE7762C65593800A80817 /* OpenPaymentAccount.swift */,
+				716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				713419F12C64C1E9000648A2 /* AccountCore.swift in Sources */,
 				71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */,
 				71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */,
+				716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */,
 				716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */,
 				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
 				713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */,
