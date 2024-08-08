@@ -13,6 +13,75 @@ struct OpenPaymentView: View {
     let store: StoreOf<OpenPaymentCore>
 
     var body: some View {
-        Text("Open payment view")
+        VStack {
+            switch store.openPayments {
+            case .none, .loading:
+                VStack {
+                    Spacer()
+
+                    ProgressView()
+                        .progressViewStyle(.circular)
+
+                    Spacer()
+                }
+
+            case .loaded(let openPayments), .refreshing(let openPayments):
+                List(openPayments, id: \.id) { openPayment in
+                    HStack(spacing: 16) {
+                        Group {
+                            if openPayment.expectsPayment {
+                                Image("givePayment")
+                                    .renderingMode(.template)
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundStyle(Color.app(.error))
+                            } else {
+                                Image("getPayment")
+                                    .renderingMode(.template)
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundStyle(Color.app(.success))
+                            }
+
+                            VStack {
+                                Spacer()
+
+                                Text("\(openPayment.firstname) \(openPayment.lastname)")
+                                    .font(.app(.subtitle1(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Text(openPayment.username)
+                                    .font(.app(.body2(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Spacer()
+                            }
+
+                            Spacer()
+
+                            Text("\(openPayment.amount) \(openPayment.currencyCode)")
+                                .font(.app(.subtitle1(.regular)))
+                                .frame(alignment: .trailing)
+                        }
+                        .foregroundStyle(Color.app(openPayment.expectsPayment ? .error : .success))
+                    }
+                    .padding(8)
+                    .ignoresSafeArea()
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
+                }
+                .listStyle(.plain)
+                .refreshable {
+                    await store.send(.loadOpenPayments).finish()
+                }
+
+            case .error:
+                Text("Error occurde")
+            }
+        }
+        .onAppear {
+            store.send(.onViewAppear)
+        }
+        .padding(.horizontal, 4)
     }
 }

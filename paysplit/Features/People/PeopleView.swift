@@ -27,7 +27,7 @@ struct PeopleView: View {
 
             case .loaded(let people), .refreshing(let people):
                 List(people, id: \.id) { person in
-                    HStack(spacing: 8) {
+                    HStack(spacing: 16) {
                         if let image = person.image {
                             // TODO: load image from server
                             Image(systemName: "person.circle.fill")
@@ -44,7 +44,9 @@ struct PeopleView: View {
                         }
 
                         VStack {
-                            Text(person.firstname)
+                            Spacer()
+
+                            Text("\(person.firstname) \(person.lastname)")
                                 .font(.app(.subtitle1(.regular)))
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -73,6 +75,6 @@ struct PeopleView: View {
         .onAppear {
             store.send(.onViewAppear)
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 4)
     }
 }

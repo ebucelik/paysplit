@@ -15,7 +15,7 @@ struct AppView: View {
 
     var body: some View {
         // TODO: comment out again later.
-        if store.showOverview {
+//        if store.showOverview {
             TabView(selection: $store.selectedTab) {
                 OverviewView(
                     store: store.scope(state: \.overview, action: \.overview)
@@ -57,8 +57,8 @@ struct AppView: View {
             ) { addPaymentCore in
                 AddPaymentView(store: addPaymentCore)
             }
-        } else {
-            LaunchScreenView(showOverview: $store.showOverview)
-        }
+//        } else {
+//            LaunchScreenView(showOverview: $store.showOverview)
+//        }
     }
 }

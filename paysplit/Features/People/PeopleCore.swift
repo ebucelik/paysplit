@@ -25,7 +25,7 @@ struct PeopleCore {
         Reduce { state, action in
             switch action {
             case .onViewAppear:
-                guard state.people == ViewState.none else { return .none }
+                guard state.people == .none else { return .none }
 
                 return .send(.loadAddedPeople)
 

@@ -23,7 +23,7 @@ struct OverviewView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 0) {
                 Picker(
                     "",
                     selection: $store.selection
