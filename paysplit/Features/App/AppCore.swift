@@ -15,8 +15,10 @@ struct AppCore {
         var selectedTab = 0
         var previousSelectedTab = 0
 
+        var overview = OverviewCore.State()
         @Presents
-        var addPaymentCoreState: AddPaymentCore.State?
+        var addPayment: AddPaymentCore.State?
+        var account = AccountCore.State()
 
         mutating func setSelectedTab() {
             selectedTab = previousSelectedTab
@@ -32,31 +34,53 @@ struct AppCore {
         case onViewAppear
 
         case showAddPaymentView
+        case overview(OverviewCore.Action)
         case addPayment(PresentationAction<AddPaymentCore.Action>)
+        case account(AccountCore.Action)
         case binding(BindingAction<State>)
     }
 
     var body: some ReducerOf<AppCore> {
         BindingReducer()
-        
+
+        Scope(
+            state: \.overview,
+            action: \.overview
+        ) {
+            OverviewCore()
+        }
+
+        Scope(
+            state: \.account,
+            action: \.account
+        ) {
+            AccountCore()
+        }
+
         Reduce { state, action in
             switch action {
             case .onViewAppear:
                 return .none
 
             case .showAddPaymentView:
-                state.addPaymentCoreState = AddPaymentCore.State()
+                state.addPayment = AddPaymentCore.State()
                 
                 return .none
 
+            case .overview:
+                return .none
+
             case .addPayment:
+                return .none
+
+            case .account:
                 return .none
 
             case .binding:
                 return .none
             }
         }
-        .ifLet(\.$addPaymentCoreState, action: \.addPayment) {
+        .ifLet(\.$addPayment, action: \.addPayment) {
             AddPaymentCore()
         }
     }

@@ -42,20 +42,13 @@ struct OverviewView: View {
 
                 switch store.selection {
                 case .people:
-                    PeopleView(
-                        store: Store(
-                            initialState: PeopleCore.State(),
-                            reducer: {
-                                PeopleCore()
-                            }
-                        )
-                    )
+                    PeopleView(store: store.scope(state: \.people, action: \.people))
 
                 case .open:
-                    OpenPaymentView()
+                    OpenPaymentView(store: store.scope(state: \.openPayment, action: \.openPayment))
 
                 case .paid:
-                    PaidPaymentView()
+                    PaidPaymentView(store: store.scope(state: \.paidPayment, action: \.paidPayment))
                 }
 
                 Spacer()
@@ -75,6 +68,8 @@ struct OverviewView: View {
                         }, label: {
                             Image(systemName: "person.fill.badge.plus")
                                 .renderingMode(.template)
+                                .resizable()
+                                .frame(width: 30, height: 30)
                                 .tint(.black)
                         }
                     )

@@ -18,12 +18,7 @@ struct AppView: View {
         if store.showOverview {
             TabView(selection: $store.selectedTab) {
                 OverviewView(
-                    store: Store(
-                        initialState: OverviewCore.State(),
-                        reducer: {
-                            OverviewCore()
-                        }
-                    )
+                    store: store.scope(state: \.overview, action: \.overview)
                 )
                 .tabItem {
                     Image(systemName: "globe.europe.africa")
@@ -37,15 +32,9 @@ struct AppView: View {
                     }
                     .tag(1)
 
-                VStack {
-                    Spacer()
-
-                    Text("Account")
-                        .foregroundStyle(.black)
-                        .frame(maxWidth: .infinity)
-
-                    Spacer()
-                }
+                AccountView(
+                    store: store.scope(state: \.account, action: \.account)
+                )
                 .tabItem {
                     Image(systemName: "person.crop.square.fill")
                 }
@@ -62,7 +51,7 @@ struct AppView: View {
             }
             .sheet(
                 item: $store.scope(
-                    state: \.addPaymentCoreState,
+                    state: \.addPayment,
                     action: \.addPayment
                 )
             ) { addPaymentCore in

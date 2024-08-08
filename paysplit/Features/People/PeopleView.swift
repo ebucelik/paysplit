@@ -26,37 +26,45 @@ struct PeopleView: View {
                 }
 
             case .loaded(let people), .refreshing(let people):
-                ScrollView {
-                    VStack(spacing: 16) {
-                        ForEach(people, id: \.id) { person in
-                            HStack(spacing: 8) {
-                                if let image = person.image {
-                                    // TODO: load image from server
-                                    Image(systemName: "person.circle.fill")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundStyle(.gray)
-                                } else {
-                                    Image(systemName: "person.circle.fill")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundStyle(.gray)
-                                }
+                List(people, id: \.id) { person in
+                    HStack(spacing: 8) {
+                        if let image = person.image {
+                            // TODO: load image from server
+                            Image(systemName: "person.circle.fill")
+                                .renderingMode(.template)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundStyle(.gray)
+                        } else {
+                            Image(systemName: "person.circle.fill")
+                                .renderingMode(.template)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundStyle(.gray)
+                        }
 
-                                Text(person.firstname)
-                                    .font(.title2)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
+                        VStack {
+                            Text(person.firstname)
+                                .font(.app(.subtitle1(.regular)))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Text(person.username)
+                                .font(.app(.body2(.regular)))
+                                .foregroundStyle(Color.app(.divider))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Spacer()
                         }
                     }
-                    .frame(maxWidth: .infinity)
+                    .padding(8)
+                    .ignoresSafeArea()
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
                 }
+                .listStyle(.plain)
                 .refreshable {
                     await store.send(.loadAddedPeople).finish()
                 }
-                .padding(.top)
 
             case .error:
                 Text("Error occurde")
@@ -65,5 +73,6 @@ struct PeopleView: View {
         .onAppear {
             store.send(.onViewAppear)
         }
+        .padding(.horizontal)
     }
 }

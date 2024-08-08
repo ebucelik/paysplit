@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct PaidPaymentView: View {
+
+    let store: StoreOf<PaidPaymentCore>
+
     var body: some View {
         Text("Paid payment view")
     }

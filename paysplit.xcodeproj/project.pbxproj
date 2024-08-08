@@ -10,6 +10,17 @@
 		7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133237B2C5CE92B00497475 /* paysplitApp.swift */; };
 		713323802C5CE92C00497475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7133237F2C5CE92C00497475 /* Assets.xcassets */; };
 		713323832C5CE92C00497475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713323822C5CE92C00497475 /* Preview Assets.xcassets */; };
+		713419EF2C64C1D3000648A2 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713419EE2C64C1D3000648A2 /* AccountView.swift */; };
+		713419F12C64C1E9000648A2 /* AccountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713419F02C64C1E9000648A2 /* AccountCore.swift */; };
+		713419F32C64C314000648A2 /* OpenPaymentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713419F22C64C314000648A2 /* OpenPaymentCore.swift */; };
+		713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713419F42C64C34F000648A2 /* PaidPaymentCore.swift */; };
+		713419F72C64FB5E000648A2 /* AppStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713419F62C64FB5E000648A2 /* AppStyler.swift */; };
+		71341A202C650396000648A2 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A162C650396000648A2 /* Lato-Light.ttf */; };
+		71341A222C650396000648A2 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A182C650396000648A2 /* Lato-Regular.ttf */; };
+		71341A242C650396000648A2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A1A2C650396000648A2 /* Lato-Bold.ttf */; };
+		71341A252C650396000648A2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A1B2C650396000648A2 /* Lato-Black.ttf */; };
+		71341A272C650396000648A2 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A1D2C650396000648A2 /* Lato-Hairline.ttf */; };
+		71341A282C650396000648A2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A1E2C650396000648A2 /* Lato-Italic.ttf */; };
 		7138F47D2C63C9290067CE35 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F47C2C63C9290067CE35 /* OverviewView.swift */; };
 		7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F47E2C63CB010067CE35 /* OverviewCore.swift */; };
 		7138F4822C63CD700067CE35 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F4812C63CD700067CE35 /* PeopleView.swift */; };
@@ -45,6 +56,17 @@
 		7133237B2C5CE92B00497475 /* paysplitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paysplitApp.swift; sourceTree = "<group>"; };
 		7133237F2C5CE92C00497475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		713323822C5CE92C00497475 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		713419EE2C64C1D3000648A2 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		713419F02C64C1E9000648A2 /* AccountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCore.swift; sourceTree = "<group>"; };
+		713419F22C64C314000648A2 /* OpenPaymentCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPaymentCore.swift; sourceTree = "<group>"; };
+		713419F42C64C34F000648A2 /* PaidPaymentCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidPaymentCore.swift; sourceTree = "<group>"; };
+		713419F62C64FB5E000648A2 /* AppStyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyler.swift; sourceTree = "<group>"; };
+		71341A162C650396000648A2 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../../../Downloads/lato/Lato-Light.ttf"; sourceTree = "<group>"; };
+		71341A182C650396000648A2 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../../Downloads/lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		71341A1A2C650396000648A2 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../../../Downloads/lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		71341A1B2C650396000648A2 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "../../../../../../Downloads/lato/Lato-Black.ttf"; sourceTree = "<group>"; };
+		71341A1D2C650396000648A2 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Hairline.ttf"; path = "../../../../../../Downloads/lato/Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		71341A1E2C650396000648A2 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "../../../../../../Downloads/lato/Lato-Italic.ttf"; sourceTree = "<group>"; };
 		7138F47C2C63C9290067CE35 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7138F47E2C63CB010067CE35 /* OverviewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCore.swift; sourceTree = "<group>"; };
 		7138F4812C63CD700067CE35 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
@@ -128,6 +150,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		713419ED2C64C1C9000648A2 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				713419EE2C64C1D3000648A2 /* AccountView.swift */,
+				713419F02C64C1E9000648A2 /* AccountCore.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		713419F82C64FEBA000648A2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				71341A1B2C650396000648A2 /* Lato-Black.ttf */,
+				71341A1A2C650396000648A2 /* Lato-Bold.ttf */,
+				71341A1D2C650396000648A2 /* Lato-Hairline.ttf */,
+				71341A1E2C650396000648A2 /* Lato-Italic.ttf */,
+				71341A162C650396000648A2 /* Lato-Light.ttf */,
+				71341A182C650396000648A2 /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		7138F47B2C63C91C0067CE35 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				7138F4842C63CD920067CE35 /* OpenPaymentView.swift */,
+				713419F22C64C314000648A2 /* OpenPaymentCore.swift */,
 			);
 			path = OpenPayment;
 			sourceTree = "<group>";
@@ -158,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				7138F4872C63CDB70067CE35 /* PaidPaymentView.swift */,
+				713419F42C64C34F000648A2 /* PaidPaymentCore.swift */,
 			);
 			path = PaidPayment;
 			sourceTree = "<group>";
@@ -174,8 +220,10 @@
 		71B30D3E2C5F6BAB005D3BE0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				713419F82C64FEBA000648A2 /* Fonts */,
 				71B30D412C5F6BC8005D3BE0 /* ViewState.swift */,
 				71B30D4E2C5F7125005D3BE0 /* Services.swift */,
+				713419F62C64FB5E000648A2 /* AppStyler.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -183,6 +231,7 @@
 		71B30D3F2C5F6BB1005D3BE0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				713419ED2C64C1C9000648A2 /* Account */,
 				7138F4892C63D1070067CE35 /* AddPayment */,
 				7138F4862C63CDA50067CE35 /* PaidPayment */,
 				7138F4832C63CD810067CE35 /* OpenPayment */,
@@ -312,7 +361,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71341A272C650396000648A2 /* Lato-Hairline.ttf in Resources */,
+				71341A202C650396000648A2 /* Lato-Light.ttf in Resources */,
 				71B30D702C5FCF3A005D3BE0 /* LaunchScreen.storyboard in Resources */,
+				71341A252C650396000648A2 /* Lato-Black.ttf in Resources */,
+				71341A222C650396000648A2 /* Lato-Regular.ttf in Resources */,
+				71341A282C650396000648A2 /* Lato-Italic.ttf in Resources */,
+				71341A242C650396000648A2 /* Lato-Bold.ttf in Resources */,
 				713323832C5CE92C00497475 /* Preview Assets.xcassets in Resources */,
 				713323802C5CE92C00497475 /* Assets.xcassets in Resources */,
 			);
@@ -331,12 +386,17 @@
 				7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
+				713419EF2C64C1D3000648A2 /* AccountView.swift in Sources */,
 				7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */,
+				713419F32C64C314000648A2 /* OpenPaymentCore.swift in Sources */,
+				713419F72C64FB5E000648A2 /* AppStyler.swift in Sources */,
 				71B30D5E2C5FBE9F005D3BE0 /* AppCore.swift in Sources */,
 				71B30D4D2C5F6E03005D3BE0 /* HttpMethod.swift in Sources */,
+				713419F12C64C1E9000648A2 /* AccountCore.swift in Sources */,
 				71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */,
 				71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */,
 				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
+				713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */,
 				71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */,
 				7138F4822C63CD700067CE35 /* PeopleView.swift in Sources */,
 				71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */,
