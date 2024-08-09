@@ -69,6 +69,42 @@ extension Account.BankDetail {
             lastname: "Otto"
         )
     }
+
+    static var mock3: Account.BankDetail {
+        Account.BankDetail(
+            iban: "AT12 1428 8150 3109 2221",
+            bic: "INATWIES",
+            firstname: "Christoph",
+            lastname: "Mihle"
+        )
+    }
+
+    static var mock4: Account.BankDetail {
+        Account.BankDetail(
+            iban: "AT12 1112 8150 3109 2221",
+            bic: "INATWIES",
+            firstname: "Hakan",
+            lastname: "Aktürk"
+        )
+    }
+
+    static var mock5: Account.BankDetail {
+        Account.BankDetail(
+            iban: "AT12 1112 8150 0011 2221",
+            bic: "INATWIES",
+            firstname: "Abdullah",
+            lastname: "Oguz"
+        )
+    }
+
+    static var mock6: Account.BankDetail {
+        Account.BankDetail(
+            iban: "AT12 1112 8150 0011 1665",
+            bic: "INATWIES",
+            firstname: "Neymar",
+            lastname: "Junior Aguero"
+        )
+    }
 }
 extension Account {
     static var mock: Account {
@@ -106,6 +142,54 @@ extension Account {
             bankDetail: .mock2
         )
     }
+
+    static var mock3: Account {
+        Account(
+            id: "3",
+            username: "crisi",
+            firstname: "Christoph",
+            lastname: "Mihle",
+            password: nil,
+            image: nil,
+            bankDetail: .mock3
+        )
+    }
+
+    static var mock4: Account {
+        Account(
+            id: "4",
+            username: "haki54",
+            firstname: "Hakan",
+            lastname: "Aktürk",
+            password: nil,
+            image: nil,
+            bankDetail: .mock4
+        )
+    }
+
+    static var mock5: Account {
+        Account(
+            id: "5",
+            username: "abdul.zeyn",
+            firstname: "Abdullah",
+            lastname: "Oguz",
+            password: nil,
+            image: nil,
+            bankDetail: .mock5
+        )
+    }
+
+    static var mock6: Account {
+        Account(
+            id: "6",
+            username: "neymar",
+            firstname: "Neymar",
+            lastname: "JR",
+            password: nil,
+            image: nil,
+            bankDetail: .mock6
+        )
+    }
 }
 
 extension Sequence where Element == Account {
@@ -113,7 +197,11 @@ extension Sequence where Element == Account {
         [
             .mock,
             .mock1,
-            .mock2
+            .mock2,
+            .mock3,
+            .mock4,
+            .mock5,
+            .mock6
         ]
     }
 }

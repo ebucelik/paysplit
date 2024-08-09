@@ -12,21 +12,22 @@ struct OverviewCore {
     @ObservableState
     struct State: Equatable {
         enum OverviewSelection: String {
-            case people = "People"
             case open = "Open"
             case paid = "Paid"
         }
 
-        var selection: OverviewSelection = .people
+        var selection: OverviewSelection = .open
 
-        var people = PeopleCore.State()
+        @Presents
+        var addPeople: AddPeopleCore.State?
         var openPayment = OpenPaymentCore.State()
         var paidPayment = PaidPaymentCore.State()
     }
 
     @CasePathable
     enum Action: BindableAction {
-        case people(PeopleCore.Action)
+        case showAddPeopleView
+        case addPeople(PresentationAction<AddPeopleCore.Action>)
         case openPayment(OpenPaymentCore.Action)
         case paidPayment(PaidPaymentCore.Action)
         case binding(BindingAction<State>)
@@ -34,13 +35,6 @@ struct OverviewCore {
 
     var body: some ReducerOf<OverviewCore> {
         BindingReducer()
-
-        Scope(
-            state: \.people,
-            action: \.people
-        ) {
-            PeopleCore()
-        }
 
         Scope(
             state: \.openPayment,
@@ -58,7 +52,16 @@ struct OverviewCore {
 
         Reduce { state, action in
             switch action {
-            case .people:
+            case .showAddPeopleView:
+                state.addPeople = AddPeopleCore.State()
+                return .none
+
+            case .addPeople(.presented):
+                return .none
+
+            case .addPeople(.dismiss):
+                state.addPeople = nil
+
                 return .none
 
             case .openPayment:
@@ -70,6 +73,9 @@ struct OverviewCore {
             case .binding:
                 return .none
             }
+        }
+        .ifLet(\.$addPeople, action: \.addPeople) {
+            AddPeopleCore()
         }
     }
 }

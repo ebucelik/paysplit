@@ -70,7 +70,17 @@ struct AppCore {
             case .overview:
                 return .none
 
-            case .addPayment:
+            case let .addPayment(.presented(action)):
+                switch action {
+                case .delegate(.dismiss):
+                    return .send(.addPayment(.dismiss))
+                default:
+                    return .none
+                }
+
+            case .addPayment(.dismiss):
+                state.addPayment = nil
+
                 return .none
 
             case .account:

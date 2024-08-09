@@ -23,12 +23,12 @@
 		71341A282C650396000648A2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71341A1E2C650396000648A2 /* Lato-Italic.ttf */; };
 		7138F47D2C63C9290067CE35 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F47C2C63C9290067CE35 /* OverviewView.swift */; };
 		7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F47E2C63CB010067CE35 /* OverviewCore.swift */; };
-		7138F4822C63CD700067CE35 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F4812C63CD700067CE35 /* PeopleView.swift */; };
+		7138F4822C63CD700067CE35 /* AddPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F4812C63CD700067CE35 /* AddPeopleView.swift */; };
 		7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F4842C63CD920067CE35 /* OpenPaymentView.swift */; };
 		7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F4872C63CDB70067CE35 /* PaidPaymentView.swift */; };
 		7138F48C2C63D11C0067CE35 /* AddPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F48B2C63D11C0067CE35 /* AddPaymentView.swift */; };
 		7138F48E2C63D13B0067CE35 /* AddPaymentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F48D2C63D13B0067CE35 /* AddPaymentCore.swift */; };
-		716DE7752C651ECF00A80817 /* PeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* PeopleCore.swift */; };
+		716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* AddPeopleCore.swift */; };
 		716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7762C65593800A80817 /* OpenPaymentAccount.swift */; };
 		716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */; };
 		717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 717590FA2C5E56F200BF4763 /* StripePaymentSheet */; };
@@ -71,12 +71,12 @@
 		71341A1E2C650396000648A2 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "../../../../../../Downloads/lato/Lato-Italic.ttf"; sourceTree = "<group>"; };
 		7138F47C2C63C9290067CE35 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		7138F47E2C63CB010067CE35 /* OverviewCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCore.swift; sourceTree = "<group>"; };
-		7138F4812C63CD700067CE35 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
+		7138F4812C63CD700067CE35 /* AddPeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleView.swift; sourceTree = "<group>"; };
 		7138F4842C63CD920067CE35 /* OpenPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPaymentView.swift; sourceTree = "<group>"; };
 		7138F4872C63CDB70067CE35 /* PaidPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidPaymentView.swift; sourceTree = "<group>"; };
 		7138F48B2C63D11C0067CE35 /* AddPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentView.swift; sourceTree = "<group>"; };
 		7138F48D2C63D13B0067CE35 /* AddPaymentCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentCore.swift; sourceTree = "<group>"; };
-		716DE7742C651ECF00A80817 /* PeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCore.swift; sourceTree = "<group>"; };
+		716DE7742C651ECF00A80817 /* AddPeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleCore.swift; sourceTree = "<group>"; };
 		716DE7762C65593800A80817 /* OpenPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPaymentAccount.swift; sourceTree = "<group>"; };
 		716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidPaymentAccount.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -185,13 +185,13 @@
 			path = Overview;
 			sourceTree = "<group>";
 		};
-		7138F4802C63CD650067CE35 /* People */ = {
+		7138F4802C63CD650067CE35 /* AddPeople */ = {
 			isa = PBXGroup;
 			children = (
-				7138F4812C63CD700067CE35 /* PeopleView.swift */,
-				716DE7742C651ECF00A80817 /* PeopleCore.swift */,
+				7138F4812C63CD700067CE35 /* AddPeopleView.swift */,
+				716DE7742C651ECF00A80817 /* AddPeopleCore.swift */,
 			);
-			path = People;
+			path = AddPeople;
 			sourceTree = "<group>";
 		};
 		7138F4832C63CD810067CE35 /* OpenPayment */ = {
@@ -239,7 +239,7 @@
 				7138F4892C63D1070067CE35 /* AddPayment */,
 				7138F4862C63CDA50067CE35 /* PaidPayment */,
 				7138F4832C63CD810067CE35 /* OpenPayment */,
-				7138F4802C63CD650067CE35 /* People */,
+				7138F4802C63CD650067CE35 /* AddPeople */,
 				7138F47B2C63C91C0067CE35 /* Overview */,
 				71B30D642C5FC956005D3BE0 /* LaunchScreen */,
 				71B30D5C2C5FBE86005D3BE0 /* App */,
@@ -392,7 +392,7 @@
 				7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
-				716DE7752C651ECF00A80817 /* PeopleCore.swift in Sources */,
+				716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */,
 				713419EF2C64C1D3000648A2 /* AccountView.swift in Sources */,
 				7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */,
 				713419F32C64C314000648A2 /* OpenPaymentCore.swift in Sources */,
@@ -407,7 +407,7 @@
 				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
 				713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */,
 				71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */,
-				7138F4822C63CD700067CE35 /* PeopleView.swift in Sources */,
+				7138F4822C63CD700067CE35 /* AddPeopleView.swift in Sources */,
 				71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */,
 				7138F48E2C63D13B0067CE35 /* AddPaymentCore.swift in Sources */,
 				71B30D562C5F7F22005D3BE0 /* PaymentCore.swift in Sources */,

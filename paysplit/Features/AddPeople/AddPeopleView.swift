@@ -8,9 +8,9 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct PeopleView: View {
+struct AddPeopleView: View {
 
-    let store: StoreOf<PeopleCore>
+    let store: StoreOf<AddPeopleCore>
 
     var body: some View {
         VStack {
@@ -69,12 +69,18 @@ struct PeopleView: View {
                 }
 
             case .error:
-                Text("Error occurde")
+                Text("Error occured")
             }
         }
         .onAppear {
             store.send(.onViewAppear)
         }
-        .padding(.horizontal, 4)
+        .padding(.horizontal)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Added People")
+                    .font(.app(.body(.bold)))
+            }
+        }
     }
 }

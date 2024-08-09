@@ -1,5 +1,5 @@
 //
-//  PeopleCore.swift
+//  AddPeopleCore.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 08.08.24.
@@ -8,7 +8,7 @@
 import ComposableArchitecture
 
 @Reducer 
-struct PeopleCore {
+struct AddPeopleCore {
     @ObservableState
     struct State: Equatable {
         var people: ViewState<[Account]> = .none
@@ -21,7 +21,7 @@ struct PeopleCore {
         case setPeopleState(ViewState<[Account]>)
     }
 
-    var body: some ReducerOf<PeopleCore> {
+    var body: some ReducerOf<AddPeopleCore> {
         Reduce { state, action in
             switch action {
             case .onViewAppear:

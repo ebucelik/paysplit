@@ -28,9 +28,6 @@ struct OverviewView: View {
                     "",
                     selection: $store.selection
                 ) {
-                    Text(OverviewCore.State.OverviewSelection.people.rawValue)
-                        .tag(OverviewCore.State.OverviewSelection.people)
-
                     Text(OverviewCore.State.OverviewSelection.open.rawValue)
                         .tag(OverviewCore.State.OverviewSelection.open)
 
@@ -41,9 +38,6 @@ struct OverviewView: View {
                 .tint(.black)
 
                 switch store.selection {
-                case .people:
-                    PeopleView(store: store.scope(state: \.people, action: \.people))
-
                 case .open:
                     OpenPaymentView(store: store.scope(state: \.openPayment, action: \.openPayment))
 
@@ -64,7 +58,7 @@ struct OverviewView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(
                         action: {
-                            print("add people")
+                            store.send(.showAddPeopleView)
                         }, label: {
                             Image(systemName: "person.fill.badge.plus")
                                 .renderingMode(.template)
@@ -76,6 +70,14 @@ struct OverviewView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(
+                item: $store.scope(
+                    state: \.addPeople,
+                    action: \.addPeople
+                )
+            ) { addPeopleStore in
+                AddPeopleView(store: addPeopleStore)
+            }
         }
     }
 }
