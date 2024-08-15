@@ -22,7 +22,7 @@ struct PaysplitButton: View {
                     Spacer()
 
                     Text(title)
-                        .font(.app(.title2(.bold)))
+                        .font(.app(.subtitle(.bold)))
                         .foregroundStyle(Color.app(.secondary))
 
                     Spacer()

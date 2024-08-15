@@ -50,12 +50,12 @@ struct InfoView: View {
                     LottieView(animation: .named(state.rawValue))
                         .resizable()
                         .playing(loopMode: .playOnce)
-                        .frame(width: 125, height: 125)
+                        .frame(width: 100, height: 100)
                 } else {
                     Image(state.rawValue)
                         .resizable()
                         .renderingMode(.template)
-                        .frame(width: 100, height: 100)
+                        .frame(width: 80, height: 80)
                         .foregroundStyle(state.colorForFailedPayment)
                 }
 
@@ -72,7 +72,7 @@ struct InfoView: View {
                     Spacer()
                 }
             }
-            .font(.app(.subtitle(.bold)))
+            .font(.app(.body(.bold)))
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .center)
