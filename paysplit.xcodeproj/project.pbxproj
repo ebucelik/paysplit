@@ -31,6 +31,10 @@
 		716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* AddPeopleCore.swift */; };
 		716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7762C65593800A80817 /* OpenPaymentAccount.swift */; };
 		716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */; };
+		71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D3C2C6E0D4000577E22 /* InfoView.swift */; };
+		71744D402C6E1E0000577E22 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 71744D3F2C6E1E0000577E22 /* Lottie */; };
+		71744D432C6E1F4100577E22 /* successPayment.json in Resources */ = {isa = PBXBuildFile; fileRef = 71744D422C6E1F4100577E22 /* successPayment.json */; };
+		71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D442C6E22E700577E22 /* PaysplitButton.swift */; };
 		717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 717590FA2C5E56F200BF4763 /* StripePaymentSheet */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
@@ -79,6 +83,9 @@
 		716DE7742C651ECF00A80817 /* AddPeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleCore.swift; sourceTree = "<group>"; };
 		716DE7762C65593800A80817 /* OpenPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPaymentAccount.swift; sourceTree = "<group>"; };
 		716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidPaymentAccount.swift; sourceTree = "<group>"; };
+		71744D3C2C6E0D4000577E22 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		71744D422C6E1F4100577E22 /* successPayment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = successPayment.json; path = ../../../../../../Downloads/successPayment.json; sourceTree = "<group>"; };
+		71744D442C6E22E700577E22 /* PaysplitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaysplitButton.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButtonView.swift; sourceTree = "<group>"; };
@@ -108,6 +115,7 @@
 			files = (
 				71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */,
 				717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */,
+				71744D402C6E1E0000577E22 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,13 +229,24 @@
 			path = AddPayment;
 			sourceTree = "<group>";
 		};
+		71744D412C6E1F2F00577E22 /* LottieAssets */ = {
+			isa = PBXGroup;
+			children = (
+				71744D422C6E1F4100577E22 /* successPayment.json */,
+			);
+			path = LottieAssets;
+			sourceTree = "<group>";
+		};
 		71B30D3E2C5F6BAB005D3BE0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				71744D412C6E1F2F00577E22 /* LottieAssets */,
 				713419F82C64FEBA000648A2 /* Fonts */,
 				71B30D412C5F6BC8005D3BE0 /* ViewState.swift */,
 				71B30D4E2C5F7125005D3BE0 /* Services.swift */,
 				713419F62C64FB5E000648A2 /* AppStyler.swift */,
+				71744D3C2C6E0D4000577E22 /* InfoView.swift */,
+				71744D442C6E22E700577E22 /* PaysplitButton.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -320,6 +339,7 @@
 			packageProductDependencies = (
 				717590FA2C5E56F200BF4763 /* StripePaymentSheet */,
 				71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */,
+				71744D3F2C6E1E0000577E22 /* Lottie */,
 			);
 			productName = paysplit;
 			productReference = 713323782C5CE92B00497475 /* paysplit.app */;
@@ -352,6 +372,7 @@
 			packageReferences = (
 				717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
 				71B30D3B2C5F6BA5005D3BE0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				71744D3E2C6E1E0000577E22 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 713323792C5CE92B00497475 /* Products */;
 			projectDirPath = "";
@@ -367,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71744D432C6E1F4100577E22 /* successPayment.json in Resources */,
 				71341A272C650396000648A2 /* Lato-Hairline.ttf in Resources */,
 				71341A202C650396000648A2 /* Lato-Light.ttf in Resources */,
 				71B30D702C5FCF3A005D3BE0 /* LaunchScreen.storyboard in Resources */,
@@ -387,9 +409,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */,
+				71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */,
 				7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */,
 				71B30D442C5F6D01005D3BE0 /* PaymentButtonView.swift in Sources */,
 				7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */,
+				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
 				716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */,
@@ -652,6 +676,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		71744D3E2C6E1E0000577E22 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 		717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
@@ -671,6 +703,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		71744D3F2C6E1E0000577E22 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71744D3E2C6E1E0000577E22 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		717590FA2C5E56F200BF4763 /* StripePaymentSheet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
