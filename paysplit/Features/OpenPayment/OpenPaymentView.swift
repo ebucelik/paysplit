@@ -27,7 +27,13 @@ struct OpenPaymentView: View {
 
             case .loaded(let openPayments), .refreshing(let openPayments):
                 if openPayments.isEmpty {
-
+                    InfoView(
+                        state: .emptyPayments,
+                        message: "No open payments available at the moment. All splitted bills were paid.",
+                        buttonTitle: "Retry"
+                    ) {
+                        store.send(.loadOpenPayments)
+                    }
                 } else {
                     List(openPayments, id: \.id) { openPayment in
                         HStack(spacing: 16) {

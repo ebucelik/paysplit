@@ -40,6 +40,7 @@ struct AppView: View {
                 }
                 .tag(2)
             }
+            .tint(.app(.primary))
             .onChange(of: store.selectedTab) {
                 if store.selectedTab == 1 {
                     store.state.setSelectedTab()
