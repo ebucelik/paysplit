@@ -31,7 +31,7 @@ struct OpenPaymentCore {
 
             case .loadOpenPayments:
                 return .run { [openPaymentsState = state.openPayments] send in
-                    if case let .loaded(openPayments) = openPaymentsState, !openPayments.isEmpty {
+                    if case let .loaded(openPayments) = openPaymentsState {
                         await send(.setOpenPayments(.refreshing(openPayments)))
                     } else {
                         await send(.setOpenPayments(.loading))

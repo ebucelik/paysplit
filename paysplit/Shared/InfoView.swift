@@ -28,55 +28,63 @@ struct InfoView: View {
     let message: String
     let buttonTitle: String?
     let buttonAction: (() -> Void)?
+    let refreshableAction: (@MainActor @Sendable () async -> Void)?
 
     init(
         state: State,
         message: String,
         buttonTitle: String? = nil,
-        buttonAction: (() -> Void)? = nil
+        buttonAction: (() -> Void)? = nil,
+        refreshableAction: (@MainActor @Sendable () async -> Void)? = nil
     ) {
         self.state = state
         self.message = message
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
+        self.refreshableAction = refreshableAction
     }
 
     var body: some View {
-        VStack(alignment: .center, spacing: 48) {
-            Spacer()
+        ScrollView {
+            VStack(alignment: .center, spacing: 48) {
+                Spacer()
 
-            Group {
-                if case .successPayment = state {
-                    LottieView(animation: .named(state.rawValue))
-                        .resizable()
-                        .playing(loopMode: .playOnce)
-                        .frame(width: 100, height: 100)
-                } else {
-                    Image(state.rawValue)
-                        .resizable()
-                        .renderingMode(.template)
-                        .frame(width: 80, height: 80)
-                        .foregroundStyle(state.colorForFailedPayment)
+                Group {
+                    if case .successPayment = state {
+                        LottieView(animation: .named(state.rawValue))
+                            .resizable()
+                            .playing(loopMode: .playOnce)
+                            .frame(width: 100, height: 100)
+                    } else {
+                        Image(state.rawValue)
+                            .resizable()
+                            .renderingMode(.template)
+                            .frame(width: 80, height: 80)
+                            .foregroundStyle(state.colorForFailedPayment)
+                    }
+
+                    Text(message)
+
+                    if let buttonTitle, let buttonAction {
+                        Spacer()
+
+                        PaysplitButton(
+                            title: buttonTitle,
+                            action: buttonAction
+                        )
+                    } else {
+                        Spacer()
+                    }
                 }
-
-                Text(message)
-
-                if let buttonTitle, let buttonAction {
-                    Spacer()
-
-                    PaysplitButton(
-                        title: buttonTitle,
-                        action: buttonAction
-                    )
-                } else {
-                    Spacer()
-                }
+                .font(.app(.body(.bold)))
             }
-            .font(.app(.body(.bold)))
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .center)
+            .multilineTextAlignment(.center)
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .center)
-        .multilineTextAlignment(.center)
+        .refreshable { @MainActor in
+            await refreshableAction?()
+        }
     }
 }
 

@@ -30,10 +30,10 @@ struct OpenPaymentView: View {
                     InfoView(
                         state: .emptyPayments,
                         message: "No open payments available at the moment. All splitted bills were paid.",
-                        buttonTitle: "Retry"
-                    ) {
-                        store.send(.loadOpenPayments)
-                    }
+                        refreshableAction: {
+                            await store.send(.loadOpenPayments).finish()
+                        }
+                    )
                 } else {
                     List(openPayments, id: \.id) { openPayment in
                         HStack(spacing: 16) {
