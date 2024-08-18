@@ -35,6 +35,9 @@
 		71744D402C6E1E0000577E22 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 71744D3F2C6E1E0000577E22 /* Lottie */; };
 		71744D432C6E1F4100577E22 /* successPayment.json in Resources */ = {isa = PBXBuildFile; fileRef = 71744D422C6E1F4100577E22 /* successPayment.json */; };
 		71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D442C6E22E700577E22 /* PaysplitButton.swift */; };
+		71744D472C72311B00577E22 /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D462C72311B00577E22 /* AuthorizationToken.swift */; };
+		71744D492C7244B000577E22 /* RefreshAccessTokenCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D482C7244B000577E22 /* RefreshAccessTokenCall.swift */; };
+		71744D4B2C72452800577E22 /* RefreshAccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */; };
 		717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 717590FA2C5E56F200BF4763 /* StripePaymentSheet */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
@@ -86,6 +89,9 @@
 		71744D3C2C6E0D4000577E22 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		71744D422C6E1F4100577E22 /* successPayment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = successPayment.json; path = ../../../../../../Downloads/successPayment.json; sourceTree = "<group>"; };
 		71744D442C6E22E700577E22 /* PaysplitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaysplitButton.swift; sourceTree = "<group>"; };
+		71744D462C72311B00577E22 /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
+		71744D482C7244B000577E22 /* RefreshAccessTokenCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenCall.swift; sourceTree = "<group>"; };
+		71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenRequest.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButtonView.swift; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 				71B30D4A2C5F6DD3005D3BE0 /* Call.swift */,
 				71B30D4C2C5F6E03005D3BE0 /* HttpMethod.swift */,
 				71B30D502C5F71B5005D3BE0 /* APIError.swift */,
+				71744D482C7244B000577E22 /* RefreshAccessTokenCall.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -286,6 +293,8 @@
 				7197B6772C64243F00272918 /* Account.swift */,
 				716DE7762C65593800A80817 /* OpenPaymentAccount.swift */,
 				716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */,
+				71744D462C72311B00577E22 /* AuthorizationToken.swift */,
+				71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,7 +426,9 @@
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
 				716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */,
+				71744D472C72311B00577E22 /* AuthorizationToken.swift in Sources */,
 				713419EF2C64C1D3000648A2 /* AccountView.swift in Sources */,
+				71744D492C7244B000577E22 /* RefreshAccessTokenCall.swift in Sources */,
 				7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */,
 				713419F32C64C314000648A2 /* OpenPaymentCore.swift in Sources */,
 				713419F72C64FB5E000648A2 /* AppStyler.swift in Sources */,
@@ -441,6 +452,7 @@
 				7197B6782C64243F00272918 /* Account.swift in Sources */,
 				71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */,
 				71B30D4F2C5F7125005D3BE0 /* Services.swift in Sources */,
+				71744D4B2C72452800577E22 /* RefreshAccessTokenRequest.swift in Sources */,
 				71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */,
 				71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */,
 			);
