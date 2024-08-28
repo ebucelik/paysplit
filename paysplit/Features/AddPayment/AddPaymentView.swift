@@ -107,51 +107,19 @@ struct AddPaymentView: View {
 
                     if !store.selectedPeople.isEmpty {
                         VStack {
-                            HStack {
-                                Image(systemName: "square.and.pencil.circle.fill")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(Color.app(store.expenseDescription.isEmpty ? .info : .success))
+                            PaysplitTextField(
+                                imageSystemName: "square.and.pencil.circle.fill",
+                                text: $store.expenseDescription,
+                                prompt: Text("Expense description (e.g. Pizza)")
+                            )
 
-                                TextField(
-                                    "",
-                                    text: $store.expenseDescription,
-                                    prompt: Text("Enter an expense description (e.g. Pizza)")
-                                        .font(.app(.subtitle(.regular)))
-                                )
-                                .frame(maxWidth: .infinity)
-                                .font(.app(.subtitle(.regular)))
-                            }
-                            .padding()
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.app(.primary), lineWidth: 1)
-                            }
-
-                            HStack {
-                                Image(systemName: "eurosign.circle.fill")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(Color.app(store.expenseAmount.isEmpty ? .info : .success))
-
-                                TextField(
-                                    "",
-                                    text: $store.expenseAmount,
-                                    prompt: Text("0,00")
-                                        .font(.app(.subtitle(.regular)))
-                                )
-                                .keyboardType(.decimalPad)
-                                .textSelection(.disabled)
-                                .frame(maxWidth: .infinity)
-                                .font(.app(.subtitle(.regular)))
-                            }
-                            .padding()
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.app(.primary), lineWidth: 1)
-                            }
+                            PaysplitTextField(
+                                imageSystemName: "eurosign.circle.fill",
+                                text: $store.expenseAmount,
+                                prompt: Text("0,00")
+                            )
+                            .keyboardType(.decimalPad)
+                            .textSelection(.disabled)
                         }
                         .padding(.horizontal, 16)
                     }

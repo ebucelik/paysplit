@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712A84412C7F722800AE50EB /* EntryCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84402C7F722800AE50EB /* EntryCore.swift */; };
+		712A84432C7F726600AE50EB /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84422C7F726600AE50EB /* EntryView.swift */; };
+		712A84452C7F72C200AE50EB /* PaysplitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84442C7F72C200AE50EB /* PaysplitTextField.swift */; };
+		712A84472C7F807C00AE50EB /* LoginCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84462C7F807C00AE50EB /* LoginCore.swift */; };
+		712A84492C7F80AF00AE50EB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84482C7F80AF00AE50EB /* LoginView.swift */; };
+		712A844B2C7F80F700AE50EB /* RegisterCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A844A2C7F80F700AE50EB /* RegisterCore.swift */; };
+		712A844D2C7F810A00AE50EB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A844C2C7F810A00AE50EB /* RegisterView.swift */; };
 		7133237C2C5CE92B00497475 /* paysplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133237B2C5CE92B00497475 /* paysplitApp.swift */; };
 		713323802C5CE92C00497475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7133237F2C5CE92C00497475 /* Assets.xcassets */; };
 		713323832C5CE92C00497475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713323822C5CE92C00497475 /* Preview Assets.xcassets */; };
@@ -61,6 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712A84402C7F722800AE50EB /* EntryCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCore.swift; sourceTree = "<group>"; };
+		712A84422C7F726600AE50EB /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		712A84442C7F72C200AE50EB /* PaysplitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaysplitTextField.swift; sourceTree = "<group>"; };
+		712A84462C7F807C00AE50EB /* LoginCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCore.swift; sourceTree = "<group>"; };
+		712A84482C7F80AF00AE50EB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		712A844A2C7F80F700AE50EB /* RegisterCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCore.swift; sourceTree = "<group>"; };
+		712A844C2C7F810A00AE50EB /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		713323782C5CE92B00497475 /* paysplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paysplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7133237B2C5CE92B00497475 /* paysplitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paysplitApp.swift; sourceTree = "<group>"; };
 		7133237F2C5CE92C00497475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +142,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		712A843F2C7F720A00AE50EB /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				712A84402C7F722800AE50EB /* EntryCore.swift */,
+				712A84422C7F726600AE50EB /* EntryView.swift */,
+				712A84462C7F807C00AE50EB /* LoginCore.swift */,
+				712A84482C7F80AF00AE50EB /* LoginView.swift */,
+				712A844A2C7F80F700AE50EB /* RegisterCore.swift */,
+				712A844C2C7F810A00AE50EB /* RegisterView.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
 		7133236F2C5CE92B00497475 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +280,7 @@
 				713419F62C64FB5E000648A2 /* AppStyler.swift */,
 				71744D3C2C6E0D4000577E22 /* InfoView.swift */,
 				71744D442C6E22E700577E22 /* PaysplitButton.swift */,
+				712A84442C7F72C200AE50EB /* PaysplitTextField.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -260,6 +288,7 @@
 		71B30D3F2C5F6BB1005D3BE0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				712A843F2C7F720A00AE50EB /* Entry */,
 				713419ED2C64C1C9000648A2 /* Account */,
 				7138F4892C63D1070067CE35 /* AddPayment */,
 				7138F4862C63CDA50067CE35 /* PaidPayment */,
@@ -417,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712A84472C7F807C00AE50EB /* LoginCore.swift in Sources */,
 				71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */,
 				71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */,
 				7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */,
@@ -424,6 +454,8 @@
 				7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */,
 				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
+				712A84492C7F80AF00AE50EB /* LoginView.swift in Sources */,
+				712A84432C7F726600AE50EB /* EntryView.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
 				716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */,
 				71744D472C72311B00577E22 /* AuthorizationToken.swift in Sources */,
@@ -438,16 +470,19 @@
 				71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */,
 				71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */,
 				716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */,
+				712A84452C7F72C200AE50EB /* PaysplitTextField.swift in Sources */,
 				716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */,
 				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
 				713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */,
 				71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */,
 				7138F4822C63CD700067CE35 /* AddPeopleView.swift in Sources */,
 				71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */,
+				712A844B2C7F80F700AE50EB /* RegisterCore.swift in Sources */,
 				7138F48E2C63D13B0067CE35 /* AddPaymentCore.swift in Sources */,
 				71B30D562C5F7F22005D3BE0 /* PaymentCore.swift in Sources */,
 				7138F48C2C63D11C0067CE35 /* AddPaymentView.swift in Sources */,
 				71B30D532C5F7D0C005D3BE0 /* ErrorResponse.swift in Sources */,
+				712A844D2C7F810A00AE50EB /* RegisterView.swift in Sources */,
 				7138F47D2C63C9290067CE35 /* OverviewView.swift in Sources */,
 				7197B6782C64243F00272918 /* Account.swift in Sources */,
 				71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */,
@@ -455,6 +490,7 @@
 				71744D4B2C72452800577E22 /* RefreshAccessTokenRequest.swift in Sources */,
 				71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */,
 				71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */,
+				712A84412C7F722800AE50EB /* EntryCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

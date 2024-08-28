@@ -66,6 +66,8 @@ class APIClient: NSObject, URLSessionTaskDelegate {
 
                 UserDefaults.standard.set(authorizationToken.accessToken, forKey: "accessToken")
                 UserDefaults.standard.set(authorizationToken.refreshToken, forKey: "refreshToken")
+
+                throw APIError.general
             } else {
                 do {
                     let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: response.0)

@@ -29,8 +29,8 @@ struct PaysplitButton: View {
                 }
                 .padding()
                 .background(Color.app(.primary).opacity(0.8))
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .shadow(color: Color.app(.info), radius: 8)
+                .clipShape(RoundedRectangle(cornerRadius: 6))
+                .shadow(color: Color.app(.info), radius: 6)
             }
         )
         .buttonStyle(.plain)
