@@ -13,6 +13,14 @@ struct LoginView: View {
     let store: StoreOf<LoginCore>
 
     var body: some View {
-        Text("Login")
+        VStack {
+            Text("Login")
+
+            Button {
+                store.send(.delegate(.showRegister))
+            } label: {
+                Text("Show Register")
+            }
+        }
     }
 }

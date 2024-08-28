@@ -6,6 +6,7 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 @Reducer
 struct AppCore {
@@ -18,7 +19,10 @@ struct AppCore {
         var overview = OverviewCore.State()
         @Presents
         var addPayment: AddPaymentCore.State?
-        var account = AccountCore.State()
+        @Presents
+        var account: AccountCore.State?
+        @Presents
+        var entry: EntryCore.State?
 
         mutating func setSelectedTab() {
             selectedTab = previousSelectedTab
@@ -32,11 +36,15 @@ struct AppCore {
     @CasePathable
     enum Action: BindableAction {
         case onViewAppear
+        case checkAccount
+        case showEntry
 
         case showAddPaymentView
         case overview(OverviewCore.Action)
         case addPayment(PresentationAction<AddPaymentCore.Action>)
-        case account(AccountCore.Action)
+        case account(PresentationAction<AccountCore.Action>)
+        case entry(PresentationAction<EntryCore.Action>)
+
         case binding(BindingAction<State>)
     }
 
@@ -50,16 +58,36 @@ struct AppCore {
             OverviewCore()
         }
 
-        Scope(
-            state: \.account,
-            action: \.account
-        ) {
-            AccountCore()
-        }
-
         Reduce { state, action in
             switch action {
             case .onViewAppear:
+                struct DebounceId: Hashable {}
+
+                if state.account == nil {
+                    return .send(.checkAccount)
+                        .debounce(id: DebounceId(), for: 0.5, scheduler: DispatchQueue.main)
+                }
+
+                return .none
+
+            case .checkAccount:
+                if let accountData = UserDefaults.standard.data(forKey: "account") {
+                    do {
+                        let account = try JSONDecoder().decode(Account.self, from: accountData)
+
+                        state.account = AccountCore.State(accountState: .loaded(account))
+
+                        return .none
+                    } catch {
+                        return .send(.showEntry)
+                    }
+                }
+
+                return .send(.showEntry)
+
+            case .showEntry:
+                state.entry = EntryCore.State()
+
                 return .none
 
             case .showAddPaymentView:
@@ -86,12 +114,21 @@ struct AppCore {
             case .account:
                 return .none
 
+            case .entry:
+                return .none
+
             case .binding:
                 return .none
             }
         }
         .ifLet(\.$addPayment, action: \.addPayment) {
             AddPaymentCore()
+        }
+        .ifLet(\.$account, action: \.account) {
+            AccountCore()
+        }
+        .ifLet(\.$entry, action: \.entry) {
+            EntryCore()
         }
     }
 }

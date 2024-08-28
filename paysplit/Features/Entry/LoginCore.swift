@@ -15,13 +15,18 @@ struct LoginCore {
     }
 
     enum Action {
+        enum Delegate {
+            case showRegister
+        }
 
+        case delegate(Delegate)
     }
 
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-                
+            case .delegate:
+                return .none
             }
         }
     }

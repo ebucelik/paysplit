@@ -32,13 +32,18 @@ struct AppView: View {
                     }
                     .tag(1)
 
-                AccountView(
-                    store: store.scope(state: \.account, action: \.account)
-                )
-                .tabItem {
-                    Image(systemName: "person.crop.square.fill")
+                if let accountStore = store.scope(state: \.account, action: \.account.presented) {
+                    AccountView(
+                        store: accountStore
+                    )
+                    .tabItem {
+                        Image(systemName: "person.crop.square.fill")
+                    }
+                    .tag(2)
                 }
-                .tag(2)
+            }
+            .onAppear {
+                store.send(.onViewAppear)
             }
             .tint(.app(.primary))
             .onChange(of: store.selectedTab) {
@@ -57,6 +62,14 @@ struct AppView: View {
                 )
             ) { addPaymentCore in
                 AddPaymentView(store: addPaymentCore)
+            }
+            .sheet(
+                item: $store.scope(
+                    state: \.entry,
+                    action: \.entry
+                )
+            ) { entryCore in
+                EntryView(store: entryCore)
             }
         } else {
             LaunchScreenView(showOverview: $store.showOverview)

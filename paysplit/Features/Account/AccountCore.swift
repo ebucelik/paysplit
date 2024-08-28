@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct AccountCore {
     @ObservableState
     struct State: Equatable {
-
+        let accountState: ViewState<Account>
     }
 
     @CasePathable

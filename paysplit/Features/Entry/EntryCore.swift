@@ -17,6 +17,7 @@ struct EntryCore {
 
     @CasePathable
     enum Action {
+        case onViewAppear
         case showLogin
         case showRegister
         case login(PresentationAction<LoginCore.Action>)
@@ -26,32 +27,37 @@ struct EntryCore {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+            case .onViewAppear:
+                state.login = LoginCore.State()
+                
+                return .none
+
             case .showLogin:
+                state.register = nil
                 state.login = LoginCore.State()
 
                 return .none
 
             case .showRegister:
+                state.login = nil
                 state.register = RegisterCore.State()
 
                 return .none
                 
             case let .login(.presented(action)):
                 switch action {
-
+                case .delegate(.showRegister):
+                    return .send(.showRegister)
                 }
-
-                return .none
 
             case .login(.dismiss):
                 return .none
 
             case let .register(.presented(action)):
                 switch action {
-
+                case .delegate(.showLogin):
+                    return .send(.showLogin)
                 }
-
-                return .none
 
             case .register(.dismiss):
                 return .none
