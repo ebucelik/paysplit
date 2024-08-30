@@ -48,6 +48,9 @@ struct EntryCore {
                 switch action {
                 case .delegate(.showRegister):
                     return .send(.showRegister)
+
+                default:
+                    return .none
                 }
 
             case .login(.dismiss):

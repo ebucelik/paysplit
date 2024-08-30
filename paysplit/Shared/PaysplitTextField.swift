@@ -13,9 +13,21 @@ struct PaysplitTextField: View {
     @Binding
     var text: String
     let prompt: Text
-    let isSecure = false
+    let isSecure: Bool
 
     @FocusState var isFocused: Bool
+
+    init(
+        imageSystemName: String,
+        text: Binding<String>,
+        prompt: Text,
+        isSecure: Bool = false
+    ) {
+        self.imageSystemName = imageSystemName
+        self._text = text
+        self.prompt = prompt
+        self.isSecure = isSecure
+    }
 
     var body: some View {
         HStack(spacing: 16) {
@@ -29,20 +41,20 @@ struct PaysplitTextField: View {
                 SecureField(
                     "",
                     text: $text,
-                    prompt: prompt.font(.app(.subtitle(.regular)))
+                    prompt: prompt.font(.app(.subtitle1(.regular)))
                 )
                 .focused($isFocused)
                 .frame(maxWidth: .infinity)
-                .font(.app(.subtitle(.regular)))
+                .font(.app(.subtitle1(.regular)))
             } else {
                 TextField(
                     "",
                     text: $text,
-                    prompt: prompt.font(.app(.subtitle(.regular)))
+                    prompt: prompt.font(.app(.subtitle1(.regular)))
                 )
                 .focused($isFocused)
                 .frame(maxWidth: .infinity)
-                .font(.app(.subtitle(.regular)))
+                .font(.app(.subtitle1(.regular)))
             }
         }
         .padding()

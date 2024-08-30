@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710D68D92C825438000912DE /* AuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D68D82C825438000912DE /* AuthenticationRequest.swift */; };
 		712A84412C7F722800AE50EB /* EntryCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84402C7F722800AE50EB /* EntryCore.swift */; };
 		712A84432C7F726600AE50EB /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84422C7F726600AE50EB /* EntryView.swift */; };
 		712A84452C7F72C200AE50EB /* PaysplitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84442C7F72C200AE50EB /* PaysplitTextField.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		710D68D82C825438000912DE /* AuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequest.swift; sourceTree = "<group>"; };
 		712A84402C7F722800AE50EB /* EntryCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCore.swift; sourceTree = "<group>"; };
 		712A84422C7F726600AE50EB /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		712A84442C7F72C200AE50EB /* PaysplitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaysplitTextField.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */,
 				71744D462C72311B00577E22 /* AuthorizationToken.swift */,
 				71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */,
+				710D68D82C825438000912DE /* AuthenticationRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				7138F48E2C63D13B0067CE35 /* AddPaymentCore.swift in Sources */,
 				71B30D562C5F7F22005D3BE0 /* PaymentCore.swift in Sources */,
 				7138F48C2C63D11C0067CE35 /* AddPaymentView.swift in Sources */,
+				710D68D92C825438000912DE /* AuthenticationRequest.swift in Sources */,
 				71B30D532C5F7D0C005D3BE0 /* ErrorResponse.swift in Sources */,
 				712A844D2C7F810A00AE50EB /* RegisterView.swift in Sources */,
 				7138F47D2C63C9290067CE35 /* OverviewView.swift in Sources */,

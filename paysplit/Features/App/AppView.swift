@@ -63,7 +63,7 @@ struct AppView: View {
             ) { addPaymentCore in
                 AddPaymentView(store: addPaymentCore)
             }
-            .sheet(
+            .fullScreenCover(
                 item: $store.scope(
                     state: \.entry,
                     action: \.entry
