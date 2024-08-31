@@ -10,17 +10,136 @@ import SwiftUI
 
 struct RegisterView: View {
 
-    let store: StoreOf<RegisterCore>
+    @Bindable
+    var store: StoreOf<RegisterCore>
 
     var body: some View {
         VStack {
-            Text("Register")
+            Text("Create Your Account")
+                .font(.app(.title(.bold)))
+                .foregroundStyle(Color.app(.secondary))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(16)
 
-            Button {
-                store.send(.delegate(.showLogin))
-            } label: {
-                Text("Show Login")
+            VStack(spacing: 16) {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("Welcome to Paysplit")
+                            .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(.primary))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text("To use the app please register with your personal info.")
+                            .font(.app(.body(.regular)))
+                            .foregroundStyle(Color.app(.primary))
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .padding(.top, 16)
+
+                    VStack(spacing: 8) {
+                        PaysplitTextField(
+                            imageSystemName: "doc.circle.fill",
+                            text: $store.registerRequest.firstname,
+                            prompt: Text("Firstname")
+                        )
+                        .autocorrectionDisabled()
+                        .textContentType(.givenName)
+
+                        PaysplitTextField(
+                            imageSystemName: "doc.circle.fill",
+                            text: $store.registerRequest.lastname,
+                            prompt: Text("Lastname")
+                        )
+                        .autocorrectionDisabled()
+                        .textContentType(.familyName)
+
+                        PaysplitTextField(
+                            imageSystemName: "person.circle.fill",
+                            text: $store.registerRequest.username,
+                            prompt: Text("Username")
+                        )
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .textContentType(.username)
+
+                        PaysplitTextField(
+                            imageSystemName: "lock.circle.fill",
+                            text: $store.registerRequest.password,
+                            prompt: Text("Password"),
+                            isSecure: true
+                        )
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .textContentType(.newPassword)
+
+                        PaysplitTextField(
+                            imageSystemName: "lock.circle.fill",
+                            text: $store.passwordAgain,
+                            prompt: Text("Retype Password"),
+                            isSecure: true
+                        )
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .textContentType(.newPassword)
+
+                        if store.registrationState.isError {
+                            Text("Something went wrong. Please try again.")
+                                .font(.app(.body(.regular)))
+                                .foregroundStyle(Color.app(.error))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                    }
+                    .padding(.vertical, 48)
+                    .padding(.horizontal, 1)
+
+                    Spacer()
+
+                    PaysplitButton(
+                        title: "Sign Up",
+                        isDisabled: store.isRegistrationRequestInvalid,
+                        isLoading: store.registrationState.isLoading,
+                        action: {
+                            store.send(.signUp)
+                        }
+                    )
+
+                    HStack {
+                        Spacer()
+
+                        Text("Already have an account?")
+                            .font(.app(.body(.regular)))
+                            .foregroundStyle(Color.app(.primary))
+
+                        Button {
+                            store.send(.delegate(.showLogin))
+                        } label: {
+                            Text("Sign In")
+                                .font(.app(.body(.bold)))
+                                .foregroundStyle(Color.app(.primary))
+                        }
+                        .buttonStyle(.plain)
+
+                        Spacer()
+                    }
+                    .padding(.top, 8)
+                    .padding(.bottom, 32)
+                }
+            }
+            .padding(16)
+            .background(Color.app(.secondary))
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 8,
+                    topTrailingRadius: 8
+                )
+            )
+            .ignoresSafeArea()
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
         }
+        .background(Color.app(.primary))
     }
 }

@@ -45,7 +45,7 @@ struct AddPaymentView: View {
                                     Spacer()
 
                                     ZStack {
-                                        if let image = person.image {
+                                        if !person.picturelink.isEmpty {
                                             // TODO: load image from server
                                             Image(systemName: "person.circle.fill")
                                                 .renderingMode(.template)

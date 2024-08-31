@@ -6,15 +6,16 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 @Reducer
 struct LoginCore {
     @ObservableState
     struct State: Equatable {
-        var accountState: ViewState<Account> = .none
+        var authorizationState: ViewState<AuthorizationToken> = .none
         var authenticationRequest: AuthenticationRequest = .empty
 
-        var isAuthenticationRequestEmpty: Bool {
+        var isAuthenticationRequestInvalid: Bool {
             authenticationRequest.username.isEmpty || authenticationRequest.password.isEmpty
         }
     }
@@ -22,13 +23,16 @@ struct LoginCore {
     enum Action: BindableAction {
         enum Delegate {
             case showRegister
+            case showOverview
         }
 
         case signIn
-        case accountStateChanged(ViewState<Account>)
+        case authorizationStateChanged(ViewState<AuthorizationToken>)
         case delegate(Delegate)
         case binding(BindingAction<State>)
     }
+
+    let service: EntryServiceProtocol
 
     var body: some ReducerOf<Self> {
         BindingReducer()
@@ -36,11 +40,26 @@ struct LoginCore {
         Reduce { state, action in
             switch action {
             case .signIn:
+                return .run { [state = state] send in
+                    await send(.authorizationStateChanged(.loading))
 
-                return .none
+                    let authorizationState = try await self.service.login(authenticationRequest: state.authenticationRequest)
 
-            case let .accountStateChanged(accountState):
-                state.accountState = accountState
+                    await send(.authorizationStateChanged(.loaded(authorizationState)))
+                } catch: { error, send in
+                    await send(.authorizationStateChanged(.error(error as? ErrorResponse ?? error)))
+                }
+
+            case let .authorizationStateChanged(authorizationState):
+                state.authorizationState = authorizationState
+
+                // TODO: get account as well.
+                if case let .loaded(authorizationToken) = authorizationState {
+                    UserDefaults.standard.set(authorizationToken.accessToken, forKey: "accessToken")
+                    UserDefaults.standard.set(authorizationToken.refreshToken, forKey: "refreshToken")
+
+                    return .send(.delegate(.showOverview))
+                }
 
                 return .none
 

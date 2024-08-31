@@ -15,4 +15,8 @@ class Services {
     static var paymentSheetService: PaymentSheetServiceProtocol {
         PaymentSheetService()
     }
+
+    static var entryService: EntryServiceProtocol {
+        EntryService()
+    }
 }

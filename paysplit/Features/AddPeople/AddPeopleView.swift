@@ -28,7 +28,7 @@ struct AddPeopleView: View {
             case .loaded(let people), .refreshing(let people):
                 List(people, id: \.id) { person in
                     HStack(spacing: 16) {
-                        if let image = person.image {
+                        if !person.picturelink.isEmpty {
                             // TODO: load image from server
                             Image(systemName: "person.circle.fill")
                                 .renderingMode(.template)

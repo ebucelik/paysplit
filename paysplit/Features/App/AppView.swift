@@ -32,15 +32,13 @@ struct AppView: View {
                     }
                     .tag(1)
 
-                if let accountStore = store.scope(state: \.account, action: \.account.presented) {
-                    AccountView(
-                        store: accountStore
-                    )
-                    .tabItem {
-                        Image(systemName: "person.crop.square.fill")
-                    }
-                    .tag(2)
+                AccountView(
+                    store: store.scope(state: \.accountState, action: \.account)
+                )
+                .tabItem {
+                    Image(systemName: "person.crop.square.fill")
                 }
+                .tag(2)
             }
             .onAppear {
                 store.send(.onViewAppear)

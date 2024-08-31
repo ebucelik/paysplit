@@ -17,12 +17,19 @@ struct EntryCore {
 
     @CasePathable
     enum Action {
+        enum Delegate {
+            case showOverview
+        }
+
         case onViewAppear
         case showLogin
         case showRegister
         case login(PresentationAction<LoginCore.Action>)
         case register(PresentationAction<RegisterCore.Action>)
+        case delegate(Delegate)
     }
+
+    let service: EntryServiceProtocol
 
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -49,6 +56,9 @@ struct EntryCore {
                 case .delegate(.showRegister):
                     return .send(.showRegister)
 
+                case .delegate(.showOverview):
+                    return .send(.delegate(.showOverview))
+
                 default:
                     return .none
                 }
@@ -60,17 +70,26 @@ struct EntryCore {
                 switch action {
                 case .delegate(.showLogin):
                     return .send(.showLogin)
+
+                case .delegate(.showOverview):
+                    return .send(.delegate(.showOverview))
+
+                default:
+                    return .none
                 }
 
             case .register(.dismiss):
                 return .none
+
+            case .delegate:
+                return .none
             }
         }
         .ifLet(\.$login, action: \.login) {
-            LoginCore()
+            LoginCore(service: service)
         }
         .ifLet(\.$register, action: \.register) {
-            RegisterCore()
+            RegisterCore(service: service)
         }
     }
 }

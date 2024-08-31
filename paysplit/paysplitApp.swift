@@ -17,7 +17,9 @@ struct paysplitApp: App {
                 store: Store(
                     initialState: AppCore.State(),
                     reducer: {
-                        AppCore()
+                        AppCore(
+                            entryService: Services.entryService
+                        )
                     }
                 )
             )

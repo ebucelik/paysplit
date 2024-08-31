@@ -19,10 +19,11 @@ struct AppCore {
         var overview = OverviewCore.State()
         @Presents
         var addPayment: AddPaymentCore.State?
-        @Presents
-        var account: AccountCore.State?
+        var accountState: AccountCore.State = AccountCore.State(accountState: .none)
         @Presents
         var entry: EntryCore.State?
+
+        var account: Account? = nil
 
         mutating func setSelectedTab() {
             selectedTab = previousSelectedTab
@@ -42,11 +43,13 @@ struct AppCore {
         case showAddPaymentView
         case overview(OverviewCore.Action)
         case addPayment(PresentationAction<AddPaymentCore.Action>)
-        case account(PresentationAction<AccountCore.Action>)
+        case account(AccountCore.Action)
         case entry(PresentationAction<EntryCore.Action>)
 
         case binding(BindingAction<State>)
     }
+
+    let entryService: EntryServiceProtocol
 
     var body: some ReducerOf<AppCore> {
         BindingReducer()
@@ -56,6 +59,13 @@ struct AppCore {
             action: \.overview
         ) {
             OverviewCore()
+        }
+
+        Scope(
+            state: \.accountState,
+            action: \.account
+        ) {
+            AccountCore()
         }
 
         Reduce { state, action in
@@ -75,9 +85,11 @@ struct AppCore {
                     do {
                         let account = try JSONDecoder().decode(Account.self, from: accountData)
 
-                        state.account = AccountCore.State(accountState: .loaded(account))
+                        state.accountState = AccountCore.State(accountState: .loaded(account))
+                        state.account = account
+                        state.entry = nil
 
-                        return .none
+                        return .send(.entry(.dismiss))
                     } catch {
                         return .send(.showEntry)
                     }
@@ -114,6 +126,9 @@ struct AppCore {
             case .account:
                 return .none
 
+            case .entry(.presented(.delegate(.showOverview))):
+                return .send(.checkAccount)
+
             case .entry:
                 return .none
 
@@ -124,11 +139,8 @@ struct AppCore {
         .ifLet(\.$addPayment, action: \.addPayment) {
             AddPaymentCore()
         }
-        .ifLet(\.$account, action: \.account) {
-            AccountCore()
-        }
         .ifLet(\.$entry, action: \.entry) {
-            EntryCore()
+            EntryCore(service: entryService)
         }
     }
 }

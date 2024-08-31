@@ -15,30 +15,30 @@ struct Account: Codable, Equatable, Identifiable {
         let lastname: String
     }
 
-    let id: String
+    let id: Int
     let username: String
     let firstname: String
     let lastname: String
     let password: String?
-    let image: String?
-    let bankDetail: BankDetail?
+    let picturelink: String
+    let bankdetail: BankDetail?
 
     init(
-        id: String,
+        id: Int,
         username: String,
         firstname: String,
         lastname: String,
         password: String?,
-        image: String?,
-        bankDetail: BankDetail?
+        picturelink: String,
+        bankdetail: BankDetail?
     ) {
         self.id = id
         self.username = username
         self.firstname = firstname
         self.lastname = lastname
         self.password = password
-        self.image = image
-        self.bankDetail = bankDetail
+        self.picturelink = picturelink
+        self.bankdetail = bankdetail
     }
 }
 
@@ -109,85 +109,85 @@ extension Account.BankDetail {
 extension Account {
     static var mock: Account {
         Account(
-            id: "0",
+            id: 0,
             username: "ebucelik",
             firstname: "Ebu",
             lastname: "Celik",
             password: nil,
-            image: nil,
-            bankDetail: .mock
+            picturelink: "",
+            bankdetail: .mock
         )
     }
 
     static var mock1: Account {
         Account(
-            id: "1",
+            id: 1,
             username: "stefandjudic",
             firstname: "Stefan",
             lastname: "Djudic",
             password: nil,
-            image: nil,
-            bankDetail: .mock1
+            picturelink: "",
+            bankdetail: .mock1
         )
     }
 
     static var mock2: Account {
         Account(
-            id: "2",
+            id: 2,
             username: "haralotto",
             firstname: "Harald",
             lastname: "Otto",
             password: nil,
-            image: nil,
-            bankDetail: .mock2
+            picturelink: "",
+            bankdetail: .mock2
         )
     }
 
     static var mock3: Account {
         Account(
-            id: "3",
+            id: 3,
             username: "crisi",
             firstname: "Christoph",
             lastname: "Mihle",
             password: nil,
-            image: nil,
-            bankDetail: .mock3
+            picturelink: "",
+            bankdetail: .mock3
         )
     }
 
     static var mock4: Account {
         Account(
-            id: "4",
+            id: 4,
             username: "haki54",
             firstname: "Hakan",
             lastname: "Aktürk",
             password: nil,
-            image: nil,
-            bankDetail: .mock4
+            picturelink: "",
+            bankdetail: .mock4
         )
     }
 
     static var mock5: Account {
         Account(
-            id: "5",
+            id: 5,
             username: "abdul.zeyn",
             firstname: "Abdullah",
             lastname: "Oguz",
             password: nil,
-            image: nil,
-            bankDetail: .mock5
+            picturelink: "",
+            bankdetail: .mock5
         )
     }
 
     static var mock6: Account {
         Account(
-            id: "6",
+            id: 6,
             username: "neymar",
             firstname: "Neymar",
             lastname: "JR",
             password: nil,
-            image: nil,
-            bankDetail: .mock6
+            picturelink: "",
+            bankdetail: .mock6
         )
     }
 }

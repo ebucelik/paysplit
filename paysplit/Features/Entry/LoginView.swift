@@ -23,13 +23,17 @@ struct LoginView: View {
 
             VStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Welcome to Paysplit")
+                    Text("Welcome back")
                         .font(.app(.title2(.bold)))
                         .foregroundStyle(Color.app(.primary))
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
                     Text("To use the app please login with your personal info.")
                         .font(.app(.body(.regular)))
                         .foregroundStyle(Color.app(.primary))
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.top, 16)
 
@@ -52,6 +56,13 @@ struct LoginView: View {
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                     .textContentType(.password)
+
+                    if store.authorizationState.isError {
+                        Text("Username or Password invalid.")
+                            .font(.app(.body(.regular)))
+                            .foregroundStyle(Color.app(.error))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
                 }
                 .padding(.vertical, 48)
 
@@ -59,7 +70,8 @@ struct LoginView: View {
 
                 PaysplitButton(
                     title: "Sign In",
-                    isDisabled: store.isAuthenticationRequestEmpty,
+                    isDisabled: store.isAuthenticationRequestInvalid,
+                    isLoading: store.authorizationState.isLoading,
                     action: {
                         store.send(.signIn)
                     }

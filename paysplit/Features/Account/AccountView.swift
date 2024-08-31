@@ -13,6 +13,8 @@ struct AccountView: View {
     let store: StoreOf<AccountCore>
 
     var body: some View {
-        Text("Account view")
+        if case let .loaded(account) = store.accountState {
+            Text(account.username)
+        }
     }
 }

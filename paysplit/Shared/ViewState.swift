@@ -31,3 +31,21 @@ enum ViewState<Item: Decodable & Equatable>: Equatable {
         }
     }
 }
+
+extension ViewState {
+    var isLoading: Bool {
+        if case .loading = self {
+            return true
+        }
+
+        return false
+    }
+
+    var isError: Bool {
+        if case .error = self {
+            return true
+        }
+
+        return false
+    }
+}

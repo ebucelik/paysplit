@@ -47,6 +47,9 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         }
 
         if isStatusCodeOk(code: httpUrlResponse.statusCode) {
+#if DEBUG
+            print(String(data: response.0, encoding: .utf8) ?? "")
+#endif
             return try JSONDecoder().decode(C.Parser.self, from: response.0)
         } else if isStatusCodeNotOk(code: httpUrlResponse.statusCode) {
             if httpUrlResponse.statusCode == 401 {
@@ -74,7 +77,7 @@ class APIClient: NSObject, URLSessionTaskDelegate {
 
                     throw APIError.requestFailed(errorResponse)
                 } catch {
-                    throw APIError.requestFailed(error)
+                    throw APIError.requestFailed(error as? ErrorResponse ?? error)
                 }
             }
         }
