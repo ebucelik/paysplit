@@ -24,6 +24,14 @@ struct OverviewView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
+                if let account = store.account {
+                    Text("Welcome \(account.firstname)")
+                        .font(.app(.subtitle(.bold)))
+                        .foregroundStyle(Color.app(.primary))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 16)
+                }
+
                 Picker(
                     "",
                     selection: $store.selection

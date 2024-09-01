@@ -22,6 +22,8 @@ struct OverviewCore {
         var addPeople: AddPeopleCore.State?
         var openPayment = OpenPaymentCore.State()
         var paidPayment = PaidPaymentCore.State()
+
+        var account: Account?
     }
 
     @CasePathable

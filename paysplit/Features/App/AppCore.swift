@@ -85,11 +85,12 @@ struct AppCore {
                     do {
                         let account = try JSONDecoder().decode(Account.self, from: accountData)
 
+                        state.overview = OverviewCore.State(account: account)
                         state.accountState = AccountCore.State(accountState: .loaded(account))
                         state.account = account
                         state.entry = nil
 
-                        return .send(.entry(.dismiss))
+                        return .none
                     } catch {
                         return .send(.showEntry)
                     }

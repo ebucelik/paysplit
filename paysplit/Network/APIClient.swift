@@ -70,6 +70,13 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                 UserDefaults.standard.set(authorizationToken.accessToken, forKey: "accessToken")
                 UserDefaults.standard.set(authorizationToken.refreshToken, forKey: "refreshToken")
 
+                do {
+                    let accountData = try JSONEncoder().encode(authorizationToken.account)
+                    UserDefaults.standard.set(accountData, forKey: "account")
+                } catch {
+                    print("Encoding failed.")
+                }
+
                 throw APIError.general
             } else {
                 do {

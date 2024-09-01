@@ -53,10 +53,16 @@ struct LoginCore {
             case let .authorizationStateChanged(authorizationState):
                 state.authorizationState = authorizationState
 
-                // TODO: get account as well.
                 if case let .loaded(authorizationToken) = authorizationState {
                     UserDefaults.standard.set(authorizationToken.accessToken, forKey: "accessToken")
                     UserDefaults.standard.set(authorizationToken.refreshToken, forKey: "refreshToken")
+
+                    do {
+                        let accountData = try JSONEncoder().encode(authorizationToken.account)
+                        UserDefaults.standard.set(accountData, forKey: "account")
+                    } catch {
+                        print("Encoding failed.")
+                    }
 
                     return .send(.delegate(.showOverview))
                 }

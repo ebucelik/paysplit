@@ -10,4 +10,5 @@ import Foundation
 struct AuthorizationToken: Decodable, Equatable {
     let accessToken: String
     let refreshToken: String
+    let account: Account
 }
