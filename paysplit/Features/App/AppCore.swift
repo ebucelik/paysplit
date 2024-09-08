@@ -39,8 +39,9 @@ struct AppCore {
         case onViewAppear
         case checkAccount
         case showEntry
-
         case showAddPaymentView
+        case logout
+
         case overview(OverviewCore.Action)
         case addPayment(PresentationAction<AddPaymentCore.Action>)
         case account(AccountCore.Action)
@@ -50,6 +51,7 @@ struct AppCore {
     }
 
     let entryService: EntryServiceProtocol
+    let accountService: AccountServiceProtocol
 
     var body: some ReducerOf<AppCore> {
         BindingReducer()
@@ -65,7 +67,7 @@ struct AppCore {
             state: \.accountState,
             action: \.account
         ) {
-            AccountCore()
+            AccountCore(service: accountService)
         }
 
         Reduce { state, action in
@@ -107,6 +109,13 @@ struct AppCore {
                 state.addPayment = AddPaymentCore.State()
                 
                 return .none
+
+            case .logout:
+                UserDefaults.standard.set(nil, forKey: "account")
+                UserDefaults.standard.set(nil, forKey: "accessToken")
+                UserDefaults.standard.set(nil, forKey: "refreshToken")
+
+                return .send(.showEntry)
 
             case .overview:
                 return .none

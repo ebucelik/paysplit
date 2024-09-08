@@ -19,4 +19,8 @@ class Services {
     static var entryService: EntryServiceProtocol {
         EntryService()
     }
+
+    static var accountService: AccountServiceProtocol {
+        AccountService()
+    }
 }

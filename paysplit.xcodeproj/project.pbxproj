@@ -70,6 +70,9 @@
 		71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D612C5FC1FE005D3BE0 /* AppService.swift */; };
 		71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D692C5FC9EB005D3BE0 /* LaunchScreenView.swift */; };
 		71B30D702C5FCF3A005D3BE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B30D6F2C5FCF3A005D3BE0 /* LaunchScreen.storyboard */; };
+		71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CB2C8E01AE0073A5E8 /* AccountService.swift */; };
+		71F397CE2C8E02030073A5E8 /* LogoutCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CD2C8E02030073A5E8 /* LogoutCall.swift */; };
+		71F397D02C8E051F0073A5E8 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CF2C8E051F0073A5E8 /* NotificationName+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +139,9 @@
 		71B30D632C5FC2F4005D3BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		71B30D692C5FC9EB005D3BE0 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		71B30D6F2C5FCF3A005D3BE0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71F397CB2C8E01AE0073A5E8 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		71F397CD2C8E02030073A5E8 /* LogoutCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCall.swift; sourceTree = "<group>"; };
+		71F397CF2C8E051F0073A5E8 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +219,8 @@
 			children = (
 				713419EE2C64C1D3000648A2 /* AccountView.swift */,
 				713419F02C64C1E9000648A2 /* AccountCore.swift */,
+				71F397CB2C8E01AE0073A5E8 /* AccountService.swift */,
+				71F397CD2C8E02030073A5E8 /* LogoutCall.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 		715DAE8B2C83271F000941B6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				71F397CF2C8E051F0073A5E8 /* NotificationName+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -478,6 +487,7 @@
 				7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */,
 				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
+				71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */,
 				712A84492C7F80AF00AE50EB /* LoginView.swift in Sources */,
 				712A84432C7F726600AE50EB /* EntryView.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
@@ -497,8 +507,10 @@
 				71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */,
 				716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */,
 				712A84452C7F72C200AE50EB /* PaysplitTextField.swift in Sources */,
+				71F397CE2C8E02030073A5E8 /* LogoutCall.swift in Sources */,
 				716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */,
 				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
+				71F397D02C8E051F0073A5E8 /* NotificationName+Extensions.swift in Sources */,
 				713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */,
 				715DAE842C831CE3000941B6 /* EntryService.swift in Sources */,
 				71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */,

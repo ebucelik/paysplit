@@ -62,7 +62,7 @@ struct AccountView: View {
                             Divider()
 
                             Button {
-                                print("logout")
+                                store.send(.logout)
                             } label: {
                                 Text("Logout")
                                     .font(.app(.body(.regular)))

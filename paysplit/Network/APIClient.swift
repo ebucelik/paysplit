@@ -53,6 +53,10 @@ class APIClient: NSObject, URLSessionTaskDelegate {
             return try JSONDecoder().decode(C.Parser.self, from: response.0)
         } else if isStatusCodeNotOk(code: httpUrlResponse.statusCode) {
             if httpUrlResponse.statusCode == 401 {
+                if url.absoluteString.contains("auth/logout") {
+                    throw APIError.unauthorized
+                }
+
                 // If refresh access token call also returns 401.
                 if url.absoluteString.contains("auth/refresh") {
                     throw APIError.unauthorized

@@ -43,6 +43,9 @@ struct AppView: View {
             .onAppear {
                 store.send(.onViewAppear)
             }
+            .onReceive(NotificationCenter.default.publisher(for: .logout)) { @MainActor _ in
+                store.send(.logout)
+            }
             .tint(.app(.primary))
             .onChange(of: store.selectedTab) {
                 if store.selectedTab == 1 {
