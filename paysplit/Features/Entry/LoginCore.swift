@@ -47,7 +47,7 @@ struct LoginCore {
 
                     await send(.authorizationStateChanged(.loaded(authorizationState)))
                 } catch: { error, send in
-                    await send(.authorizationStateChanged(.error(error as? ErrorResponse ?? error)))
+                    await send(.authorizationStateChanged(.error(error as? MessageResponse ?? error)))
                 }
 
             case let .authorizationStateChanged(authorizationState):

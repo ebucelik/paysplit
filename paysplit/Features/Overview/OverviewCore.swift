@@ -35,6 +35,8 @@ struct OverviewCore {
         case binding(BindingAction<State>)
     }
 
+    let addPeopleService: AddPeopleServiceProtocol
+
     var body: some ReducerOf<OverviewCore> {
         BindingReducer()
 
@@ -55,7 +57,7 @@ struct OverviewCore {
         Reduce { state, action in
             switch action {
             case .showAddPeopleView:
-                state.addPeople = AddPeopleCore.State()
+                state.addPeople = AddPeopleCore.State(account: state.account)
                 return .none
 
             case .addPeople(.presented):
@@ -77,7 +79,7 @@ struct OverviewCore {
             }
         }
         .ifLet(\.$addPeople, action: \.addPeople) {
-            AddPeopleCore()
+            AddPeopleCore(service: addPeopleService)
         }
     }
 }

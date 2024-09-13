@@ -52,6 +52,7 @@ struct AppCore {
 
     let entryService: EntryServiceProtocol
     let accountService: AccountServiceProtocol
+    let addPeopleService: AddPeopleServiceProtocol
 
     var body: some ReducerOf<AppCore> {
         BindingReducer()
@@ -60,7 +61,7 @@ struct AppCore {
             state: \.overview,
             action: \.overview
         ) {
-            OverviewCore()
+            OverviewCore(addPeopleService: addPeopleService)
         }
 
         Scope(

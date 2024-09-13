@@ -55,7 +55,7 @@ struct RegisterCore {
 
                     await send(.registrationStateChanged(.loaded(account)))
                 } catch: { error, send in
-                    await send(.registrationStateChanged(.error(error as? ErrorResponse ?? error)))
+                    await send(.registrationStateChanged(.error(error as? MessageResponse ?? error)))
                 }
 
             case let .registrationStateChanged(registrationState):

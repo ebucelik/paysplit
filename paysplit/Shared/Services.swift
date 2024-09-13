@@ -23,4 +23,8 @@ class Services {
     static var accountService: AccountServiceProtocol {
         AccountService()
     }
+
+    static var addPeopleService: AddPeopleServiceProtocol {
+        AddPeopleService()
+    }
 }

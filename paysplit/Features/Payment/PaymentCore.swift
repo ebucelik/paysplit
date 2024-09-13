@@ -35,7 +35,7 @@ struct PaymentCore {
 
                     await send(.setPaymentSheet(.loaded(paymentSheetResponse)))
                 } catch: { error, send in
-                    await send(.setPaymentSheet(.error(error as? ErrorResponse ?? error)))
+                    await send(.setPaymentSheet(.error(error as? MessageResponse ?? error)))
 
                     if let error = error as? APIError,
                         error == .unauthorized {

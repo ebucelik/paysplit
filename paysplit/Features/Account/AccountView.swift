@@ -40,17 +40,22 @@ struct AccountView: View {
                                                 y: (proxy.size.height / 2) + 40
                                             )
 
-                                        VStack(alignment: .leading) {
-                                            Text("\(account.firstname) \(account.lastname)")
-                                                .font(.app(.title2(.bold)))
-                                                .foregroundStyle(Color.app(.secondary))
+                                        HStack {
+                                            Spacer()
 
-                                            Text("@\(account.username)")
-                                                .font(.app(.body1(.regular)))
-                                                .foregroundStyle(Color.app(.secondary))
+                                            VStack(alignment: .trailing) {
+                                                Text("\(account.firstname) \(account.lastname)")
+                                                    .font(.app(.title2(.bold)))
+                                                    .foregroundStyle(Color.app(.secondary))
+
+                                                Text("@\(account.username)")
+                                                    .font(.app(.body1(.regular)))
+                                                    .foregroundStyle(Color.app(.secondary))
+                                            }
                                         }
+                                        .frame(width: proxy.size.width)
                                         .position(
-                                            x: (proxy.size.width / 2) + 20,
+                                            x: (proxy.size.width / 2) - 20,
                                             y: (proxy.size.height / 2) + 20
                                         )
                                     }

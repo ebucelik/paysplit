@@ -84,11 +84,11 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                 throw APIError.general
             } else {
                 do {
-                    let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: response.0)
+                    let errorResponse = try JSONDecoder().decode(MessageResponse.self, from: response.0)
 
                     throw APIError.requestFailed(errorResponse)
                 } catch {
-                    throw APIError.requestFailed(error as? ErrorResponse ?? error)
+                    throw APIError.requestFailed(error as? MessageResponse ?? error)
                 }
             }
         }

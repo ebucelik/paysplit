@@ -19,7 +19,8 @@ struct paysplitApp: App {
                     reducer: {
                         AppCore(
                             entryService: Services.entryService,
-                            accountService: Services.accountService
+                            accountService: Services.accountService,
+                            addPeopleService: Services.addPeopleService
                         )
                     }
                 )
