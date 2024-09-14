@@ -32,13 +32,6 @@ struct AccountCore {
             case .logout:
                 return .run { send in
                     _ = try await self.service.logout()
-                } catch: { error, send in
-                    if let error = error as? APIError,
-                        error == .unauthorized {
-                        DispatchQueue.main.async {
-                            NotificationCenter.default.post(name: .logout, object: nil)
-                        }
-                    }
                 }
             }
         }

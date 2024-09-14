@@ -91,6 +91,7 @@ struct AddPeopleView: View {
                                                 .frame(width: 30, height: 30)
                                                 .foregroundStyle(Color.app(.error))
                                         }
+                                        .buttonStyle(.plain)
                                     }
                                 }
                                 .padding(8)
@@ -177,6 +178,7 @@ struct AddPeopleView: View {
                                                 .resizable()
                                                 .frame(width: 30, height: 30)
                                         }
+                                        .buttonStyle(.plain)
                                     }
                                 }
                                 .padding(8)

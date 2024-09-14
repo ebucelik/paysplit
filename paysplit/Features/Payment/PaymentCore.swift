@@ -36,13 +36,6 @@ struct PaymentCore {
                     await send(.setPaymentSheet(.loaded(paymentSheetResponse)))
                 } catch: { error, send in
                     await send(.setPaymentSheet(.error(error as? MessageResponse ?? error)))
-
-                    if let error = error as? APIError,
-                        error == .unauthorized {
-                        DispatchQueue.main.async {
-                            NotificationCenter.default.post(name: .logout, object: nil)
-                        }
-                    }
                 }
 
             case let .setPaymentSheet(paymentSheet):

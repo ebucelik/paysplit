@@ -27,7 +27,7 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         urlRequest.httpBody = call.body
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        if let accessToken = Services.accessToken {
+        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
             urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
 
@@ -37,7 +37,7 @@ class APIClient: NSObject, URLSessionTaskDelegate {
 
         if let cookies = HTTPCookieStorage.shared.cookies,
            let sidCookie = cookies.first(where: { $0.name == "sid" }) {
-            if let accessToken = Services.accessToken {
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
                 if sidCookie.value != accessToken {
                     UserDefaults.standard.set(sidCookie.value, forKey: "accessToken")
                 }
@@ -52,15 +52,23 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         } else if isStatusCodeNotOk(code: httpUrlResponse.statusCode) {
             if httpUrlResponse.statusCode == 401 {
                 if url.absoluteString.contains("auth/logout") {
+                    NotificationCenter.default.post(name: .logout, object: nil)
+
                     throw APIError.unauthorized
                 }
 
                 // If refresh access token call also returns 401.
                 if url.absoluteString.contains("auth/refresh") {
+                    NotificationCenter.default.post(name: .logout, object: nil)
+
                     throw APIError.unauthorized
                 }
 
-                guard let refreshToken = Services.refreshToken else { throw APIError.unauthorized }
+                guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
+                    NotificationCenter.default.post(name: .logout, object: nil)
+
+                    throw APIError.unauthorized
+                }
 
                 let authorizationToken = try await start(
                     call: RefreshAccessTokenCall(
@@ -75,6 +83,8 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                     let accountData = try JSONEncoder().encode(authorizationToken.account)
                     UserDefaults.standard.set(accountData, forKey: "account")
                 } catch {
+                    NotificationCenter.default.post(name: .logout, object: nil)
+
                     print("Encoding failed.")
                 }
 
