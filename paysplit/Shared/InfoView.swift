@@ -76,7 +76,7 @@ struct InfoView: View {
                         Spacer()
                     }
                 }
-                .font(.app(.body(.bold)))
+                .font(.app(.subtitle(.bold)))
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .center)

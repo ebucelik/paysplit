@@ -17,11 +17,6 @@ struct AddPeopleView: View {
         VStack {
             if store.searchTerm.isEmpty {
                 VStack {
-                    Text("Added People")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.app(.subtitle(.bold)))
-                        .foregroundStyle(Color.app(.primary))
-
                     switch store.people {
                     case .none, .loading:
                         VStack {
@@ -43,6 +38,11 @@ struct AddPeopleView: View {
                                 }
                             )
                         } else {
+                            Text("Persons in your list")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.app(.subtitle(.bold)))
+                                .foregroundStyle(Color.app(.primary))
+
                             List(people, id: \.id) { person in
                                 HStack(spacing: 16) {
                                     if !person.picturelink.isEmpty {
@@ -73,6 +73,24 @@ struct AddPeopleView: View {
                                             .frame(maxWidth: .infinity, alignment: .leading)
 
                                         Spacer()
+                                    }
+
+                                    Spacer()
+
+                                    if store.selectedIdToRemove == person.id {
+                                        ProgressView()
+                                            .progressViewStyle(.circular)
+                                            .frame(width: 30, height: 30)
+                                    } else {
+                                        Button {
+                                            store.send(.removePerson(person.id))
+                                        } label: {
+                                            Image(systemName: "minus.square.fill")
+                                                .renderingMode(.template)
+                                                .resizable()
+                                                .frame(width: 30, height: 30)
+                                                .foregroundStyle(Color.app(.error))
+                                        }
                                     }
                                 }
                                 .padding(8)
@@ -137,6 +155,29 @@ struct AddPeopleView: View {
 
                                         Spacer()
                                     }
+
+                                    Spacer()
+
+                                    if case let .loaded(addedPeople) = store.people,
+                                       addedPeople.contains(where: { $0.id == person.id }) {
+                                        Image(systemName: "checkmark.square.fill")
+                                            .renderingMode(.template)
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                            .foregroundStyle(Color.app(.success))
+                                    } else if store.selectedIdToAdd == person.id {
+                                        ProgressView()
+                                            .progressViewStyle(.circular)
+                                            .frame(width: 30, height: 30)
+                                    } else {
+                                        Button {
+                                            store.send(.addPerson(person.id))
+                                        } label: {
+                                            Image(systemName: "plus.app")
+                                                .resizable()
+                                                .frame(width: 30, height: 30)
+                                        }
+                                    }
                                 }
                                 .padding(8)
                                 .ignoresSafeArea()
@@ -155,6 +196,7 @@ struct AddPeopleView: View {
                 }
             }
         }
+        .navigationTitle("People")
         .onAppear {
             store.send(.onViewAppear)
         }

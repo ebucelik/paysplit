@@ -27,4 +27,12 @@ class Services {
     static var addPeopleService: AddPeopleServiceProtocol {
         AddPeopleService()
     }
+
+    static var accessToken: String? {
+        UserDefaults.standard.string(forKey: "accessToken")
+    }
+
+    static var refreshToken: String? {
+        UserDefaults.standard.string(forKey: "refreshToken")
+    }
 }

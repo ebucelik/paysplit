@@ -27,7 +27,7 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         urlRequest.httpBody = call.body
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+        if let accessToken = Services.accessToken {
             urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
 
@@ -37,13 +37,11 @@ class APIClient: NSObject, URLSessionTaskDelegate {
 
         if let cookies = HTTPCookieStorage.shared.cookies,
            let sidCookie = cookies.first(where: { $0.name == "sid" }) {
-            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+            if let accessToken = Services.accessToken {
                 if sidCookie.value != accessToken {
                     UserDefaults.standard.set(sidCookie.value, forKey: "accessToken")
                 }
             }
-        } else {
-            UserDefaults.standard.set(nil, forKey: "accessToken")
         }
 
         if isStatusCodeOk(code: httpUrlResponse.statusCode) {
@@ -62,8 +60,7 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                     throw APIError.unauthorized
                 }
 
-                guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken")
-                else { throw APIError.unauthorized }
+                guard let refreshToken = Services.refreshToken else { throw APIError.unauthorized }
 
                 let authorizationToken = try await start(
                     call: RefreshAccessTokenCall(

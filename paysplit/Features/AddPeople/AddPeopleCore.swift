@@ -16,16 +16,22 @@ struct AddPeopleCore {
         var people: ViewState<[Account]> = .none
         var searchedPeople: ViewState<[Account]> = .none
 
-        var searchTerm: String = ""
+        var searchTerm = ""
+        var selectedIdToAdd: Int? = nil
+        var selectedIdToRemove: Int? = nil
     }
 
     @CasePathable
     enum Action: BindableAction {
         case onViewAppear
-        case loadSearchedPeople(String)
-        case setSearchedPeople(ViewState<[Account]>)
         case loadAddedPeople
         case setPeopleState(ViewState<[Account]>)
+        case loadSearchedPeople(String)
+        case setSearchedPeople(ViewState<[Account]>)
+        case addPerson(Int)
+        case setSelectedIdToAdd(Int?)
+        case removePerson(Int)
+        case setSelectedIdToRemove(Int?)
 
         case binding(BindingAction<State>)
     }
@@ -41,6 +47,31 @@ struct AddPeopleCore {
                 guard state.people == .none else { return .none }
 
                 return .send(.loadAddedPeople)
+
+            case .loadAddedPeople:
+                guard let account = state.account else { return .none }
+
+                return .run { [
+                    peopleState = state.people,
+                    id = account.id
+                ] send in
+                    if case let .loaded(people) = peopleState {
+                        await send(.setPeopleState(.refreshing(people)))
+                    } else {
+                        await send(.setPeopleState(.loading))
+                    }
+
+                    let people = try await self.service.getAddedPeople(id: id)
+
+                    await send(.setPeopleState(.loaded(people)))
+                } catch: { error, send in
+                    await send(.setPeopleState(.error(error as? MessageResponse ?? error)))
+                }
+
+            case let .setPeopleState(peopleState):
+                state.people = peopleState
+
+                return .none
 
             case let .loadSearchedPeople(searchTerm):
                 guard let account = state.account else { return .none }
@@ -77,28 +108,42 @@ struct AddPeopleCore {
 
                 return .none
 
-            case .loadAddedPeople:
+            case let .addPerson(id):
                 guard let account = state.account else { return .none }
 
-                return .run { [
-                    peopleState = state.people,
-                    id = account.id
-                ] send in
-                    if case let .loaded(people) = peopleState {
-                        await send(.setPeopleState(.refreshing(people)))
-                    } else {
-                        await send(.setPeopleState(.loading))
-                    }
+                return .run { [term = state.searchTerm] send in
+                    await send(.setSelectedIdToAdd(id))
 
-                    let people = try await self.service.getAddedPeople(id: id)
+                    _ = try await self.service.addPerson(firstId: account.id, secondId: id)
 
-                    await send(.setPeopleState(.loaded(people)))
-                } catch: { error, send in
-                    await send(.setPeopleState(.error(error as? MessageResponse ?? error)))
+                    await send(.loadAddedPeople)
+                    await send(.loadSearchedPeople(term))
+                    await send(.setSelectedIdToAdd(nil))
+                } catch: { _, send in
+                    await send(.setSelectedIdToAdd(nil))
                 }
 
-            case let .setPeopleState(peopleState):
-                state.people = peopleState
+            case let .setSelectedIdToAdd(id):
+                state.selectedIdToAdd = id
+
+                return .none
+
+            case let .removePerson(id):
+                guard let account = state.account else { return .none }
+
+                return .run { send in
+                    await send(.setSelectedIdToRemove(id))
+
+                    _ = try await self.service.removePerson(firstId: account.id, secondId: id)
+
+                    await send(.loadAddedPeople)
+                    await send(.setSelectedIdToRemove(nil))
+                } catch: { _, send in
+                    await send(.setSelectedIdToRemove(nil))
+                }
+
+            case let .setSelectedIdToRemove(id):
+                state.selectedIdToRemove = id
 
                 return .none
 
