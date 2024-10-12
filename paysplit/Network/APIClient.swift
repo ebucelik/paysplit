@@ -52,20 +52,26 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         } else if isStatusCodeNotOk(code: httpUrlResponse.statusCode) {
             if httpUrlResponse.statusCode == 401 {
                 if url.absoluteString.contains("auth/logout") {
-                    NotificationCenter.default.post(name: .logout, object: nil)
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .logout, object: nil)
+                    }
 
                     throw APIError.unauthorized
                 }
 
                 // If refresh access token call also returns 401.
                 if url.absoluteString.contains("auth/refresh") {
-                    NotificationCenter.default.post(name: .logout, object: nil)
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .logout, object: nil)
+                    }
 
                     throw APIError.unauthorized
                 }
 
                 guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
-                    NotificationCenter.default.post(name: .logout, object: nil)
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .logout, object: nil)
+                    }
 
                     throw APIError.unauthorized
                 }
@@ -83,7 +89,9 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                     let accountData = try JSONEncoder().encode(authorizationToken.account)
                     UserDefaults.standard.set(accountData, forKey: "account")
                 } catch {
-                    NotificationCenter.default.post(name: .logout, object: nil)
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .logout, object: nil)
+                    }
 
                     print("Encoding failed.")
                 }

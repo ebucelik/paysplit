@@ -36,7 +36,7 @@ struct AddPeopleCore {
         case binding(BindingAction<State>)
     }
 
-    let service: AddPeopleServiceProtocol
+    @Dependency(\.addPeopleService) var service
 
     var body: some ReducerOf<AddPeopleCore> {
         BindingReducer()

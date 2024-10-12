@@ -56,7 +56,7 @@ struct AppView: View {
                     store.state.setPreviousSelectedTab()
                 }
             }
-            .sheet(
+            .fullScreenCover(
                 item: $store.scope(
                     state: \.addPayment,
                     action: \.addPayment

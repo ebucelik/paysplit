@@ -29,8 +29,6 @@ struct EntryCore {
         case delegate(Delegate)
     }
 
-    let service: EntryServiceProtocol
-
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -86,10 +84,10 @@ struct EntryCore {
             }
         }
         .ifLet(\.$login, action: \.login) {
-            LoginCore(service: service)
+            LoginCore()
         }
         .ifLet(\.$register, action: \.register) {
-            RegisterCore(service: service)
+            RegisterCore()
         }
     }
 }

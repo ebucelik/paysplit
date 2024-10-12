@@ -21,7 +21,7 @@ struct AccountCore {
         case logout
     }
 
-    let service: AccountServiceProtocol
+    @Dependency(\.accountService) var service
 
     var body: some ReducerOf<AccountCore> {
         Reduce { state, action in
@@ -32,6 +32,8 @@ struct AccountCore {
             case .logout:
                 return .run { send in
                     _ = try await self.service.logout()
+                } catch: { _, _ in
+                    print("Logged out.")
                 }
             }
         }

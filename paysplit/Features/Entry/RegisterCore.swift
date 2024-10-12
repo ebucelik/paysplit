@@ -40,7 +40,7 @@ struct RegisterCore {
         case binding(BindingAction<State>)
     }
 
-    let service: EntryServiceProtocol
+    @Dependency(\.entryService) var service
 
     var body: some ReducerOf<Self> {
         BindingReducer()

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import StripePaymentSheet
 import ComposableArchitecture
 
 @main
@@ -17,25 +16,15 @@ struct paysplitApp: App {
                 store: Store(
                     initialState: AppCore.State(),
                     reducer: {
-                        AppCore(
-                            entryService: Services.entryService,
-                            accountService: Services.accountService,
-                            addPeopleService: Services.addPeopleService
-                        )
+                        AppCore()
+                    },
+                    withDependencies: {
+                        $0.entryService = EntryServiceKey.liveValue
+                        $0.accountService = AccountServiceKey.liveValue
+                        $0.addPeopleService = AddPeopleServiceKey.liveValue
                     }
                 )
             )
-//            PaymentButtonView(
-//                store: Store(
-//                    initialState: PaymentCore.State(),
-//                    reducer: {
-//                        PaymentCore(service: Services.paymentSheetService)
-//                    }
-//                )
-//            )
-//            .onOpenURL { url in
-//                let stripeHandled = StripeAPI.handleURLCallback(with: url)
-//            }
         }
     }
 }

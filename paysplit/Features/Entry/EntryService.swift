@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ComposableArchitecture
 
 protocol EntryServiceProtocol {
     func login(authenticationRequest: AuthenticationRequest) async throws -> AuthorizationToken
@@ -19,5 +20,16 @@ class EntryService: APIClient, EntryServiceProtocol {
 
     func register(registerRequest: RegisterRequest) async throws -> Account {
         try await start(call: RegisterCall(body: registerRequest))
+    }
+}
+
+enum EntryServiceKey: DependencyKey {
+    static let liveValue: any EntryServiceProtocol = EntryService()
+}
+
+extension DependencyValues {
+    var entryService: EntryServiceProtocol {
+        get { self[EntryServiceKey.self] }
+        set { self[EntryServiceKey.self] = newValue }
     }
 }

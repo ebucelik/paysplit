@@ -50,10 +50,6 @@ struct AppCore {
         case binding(BindingAction<State>)
     }
 
-    let entryService: EntryServiceProtocol
-    let accountService: AccountServiceProtocol
-    let addPeopleService: AddPeopleServiceProtocol
-
     var body: some ReducerOf<AppCore> {
         BindingReducer()
 
@@ -61,14 +57,14 @@ struct AppCore {
             state: \.overview,
             action: \.overview
         ) {
-            OverviewCore(addPeopleService: addPeopleService)
+            OverviewCore()
         }
 
         Scope(
             state: \.accountState,
             action: \.account
         ) {
-            AccountCore(service: accountService)
+            AccountCore()
         }
 
         Reduce { state, action in
@@ -102,13 +98,15 @@ struct AppCore {
                 return .send(.showEntry)
 
             case .showEntry:
-                state.entry = EntryCore.State()
+                if state.entry == nil {
+                    state.entry = EntryCore.State()
+                }
 
                 return .none
 
             case .showAddPaymentView:
-                state.addPayment = AddPaymentCore.State()
-                
+                state.addPayment = AddPaymentCore.State(account: state.account)
+
                 return .none
 
             case .logout:
@@ -151,7 +149,7 @@ struct AppCore {
             AddPaymentCore()
         }
         .ifLet(\.$entry, action: \.entry) {
-            EntryCore(service: entryService)
+            EntryCore()
         }
     }
 }

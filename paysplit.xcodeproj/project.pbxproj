@@ -50,21 +50,15 @@
 		71744D472C72311B00577E22 /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D462C72311B00577E22 /* AuthorizationToken.swift */; };
 		71744D492C7244B000577E22 /* RefreshAccessTokenCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D482C7244B000577E22 /* RefreshAccessTokenCall.swift */; };
 		71744D4B2C72452800577E22 /* RefreshAccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */; };
-		717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 717590FA2C5E56F200BF4763 /* StripePaymentSheet */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
 		71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D412C5F6BC8005D3BE0 /* ViewState.swift */; };
-		71B30D442C5F6D01005D3BE0 /* PaymentButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */; };
 		71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */; };
 		71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D482C5F6DC0005D3BE0 /* APIClient.swift */; };
 		71B30D4B2C5F6DD3005D3BE0 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D4A2C5F6DD3005D3BE0 /* Call.swift */; };
 		71B30D4D2C5F6E03005D3BE0 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D4C2C5F6E03005D3BE0 /* HttpMethod.swift */; };
-		71B30D4F2C5F7125005D3BE0 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D4E2C5F7125005D3BE0 /* Services.swift */; };
 		71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D502C5F71B5005D3BE0 /* APIError.swift */; };
 		71B30D532C5F7D0C005D3BE0 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D522C5F7D0C005D3BE0 /* MessageResponse.swift */; };
-		71B30D562C5F7F22005D3BE0 /* PaymentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D552C5F7F22005D3BE0 /* PaymentCore.swift */; };
-		71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D572C5F7FDA005D3BE0 /* PaymentSheetCall.swift */; };
-		71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D592C5F8038005D3BE0 /* PaymentSheetService.swift */; };
 		71B30D5E2C5FBE9F005D3BE0 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D5D2C5FBE9F005D3BE0 /* AppCore.swift */; };
 		71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D5F2C5FBECE005D3BE0 /* AppView.swift */; };
 		71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D612C5FC1FE005D3BE0 /* AppService.swift */; };
@@ -75,6 +69,10 @@
 		71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CB2C8E01AE0073A5E8 /* AccountService.swift */; };
 		71F397CE2C8E02030073A5E8 /* LogoutCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CD2C8E02030073A5E8 /* LogoutCall.swift */; };
 		71F397D02C8E051F0073A5E8 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CF2C8E051F0073A5E8 /* NotificationName+Extensions.swift */; };
+		71F9AEFA2CBAF96800561697 /* AddPaymentStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9AEF92CBAF95F00561697 /* AddPaymentStep.swift */; };
+		71F9AEFC2CBB18DE00561697 /* AddPaymentCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9AEFB2CBB18D900561697 /* AddPaymentCalls.swift */; };
+		71F9AEFF2CBB240F00561697 /* SearchAddedPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9AEFE2CBB240C00561697 /* SearchAddedPeopleView.swift */; };
+		71F9AF012CBB242E00561697 /* SearchAddedPeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9AF002CBB242B00561697 /* SearchAddedPeopleCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,17 +121,12 @@
 		71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenRequest.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
-		71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButtonView.swift; sourceTree = "<group>"; };
 		71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetResponse.swift; sourceTree = "<group>"; };
 		71B30D482C5F6DC0005D3BE0 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		71B30D4A2C5F6DD3005D3BE0 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		71B30D4C2C5F6E03005D3BE0 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		71B30D4E2C5F7125005D3BE0 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		71B30D502C5F71B5005D3BE0 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		71B30D522C5F7D0C005D3BE0 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
-		71B30D552C5F7F22005D3BE0 /* PaymentCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCore.swift; sourceTree = "<group>"; };
-		71B30D572C5F7FDA005D3BE0 /* PaymentSheetCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetCall.swift; sourceTree = "<group>"; };
-		71B30D592C5F8038005D3BE0 /* PaymentSheetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetService.swift; sourceTree = "<group>"; };
 		71B30D5B2C5F9BF7005D3BE0 /* paysplit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = paysplit.entitlements; sourceTree = "<group>"; };
 		71B30D5D2C5FBE9F005D3BE0 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		71B30D5F2C5FBECE005D3BE0 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -146,6 +139,10 @@
 		71F397CB2C8E01AE0073A5E8 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		71F397CD2C8E02030073A5E8 /* LogoutCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCall.swift; sourceTree = "<group>"; };
 		71F397CF2C8E051F0073A5E8 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
+		71F9AEF92CBAF95F00561697 /* AddPaymentStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentStep.swift; sourceTree = "<group>"; };
+		71F9AEFB2CBB18D900561697 /* AddPaymentCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentCalls.swift; sourceTree = "<group>"; };
+		71F9AEFE2CBB240C00561697 /* SearchAddedPeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddedPeopleView.swift; sourceTree = "<group>"; };
+		71F9AF002CBB242B00561697 /* SearchAddedPeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddedPeopleCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */,
-				717590FB2C5E56F200BF4763 /* StripePaymentSheet in Frameworks */,
 				71744D402C6E1E0000577E22 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +279,9 @@
 		7138F4892C63D1070067CE35 /* AddPayment */ = {
 			isa = PBXGroup;
 			children = (
+				71F9AEFD2CBB23FD00561697 /* SearchAddedPeople */,
+				71F9AEFB2CBB18D900561697 /* AddPaymentCalls.swift */,
+				71F9AEF92CBAF95F00561697 /* AddPaymentStep.swift */,
 				7138F48B2C63D11C0067CE35 /* AddPaymentView.swift */,
 				7138F48D2C63D13B0067CE35 /* AddPaymentCore.swift */,
 			);
@@ -312,7 +311,6 @@
 				71744D412C6E1F2F00577E22 /* LottieAssets */,
 				713419F82C64FEBA000648A2 /* Fonts */,
 				71B30D412C5F6BC8005D3BE0 /* ViewState.swift */,
-				71B30D4E2C5F7125005D3BE0 /* Services.swift */,
 				713419F62C64FB5E000648A2 /* AppStyler.swift */,
 				71744D3C2C6E0D4000577E22 /* InfoView.swift */,
 				71744D442C6E22E700577E22 /* PaysplitButton.swift */,
@@ -333,7 +331,6 @@
 				7138F47B2C63C91C0067CE35 /* Overview */,
 				71B30D642C5FC956005D3BE0 /* LaunchScreen */,
 				71B30D5C2C5FBE86005D3BE0 /* App */,
-				71B30D542C5F7F12005D3BE0 /* Payment */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -366,17 +363,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		71B30D542C5F7F12005D3BE0 /* Payment */ = {
-			isa = PBXGroup;
-			children = (
-				71B30D432C5F6D01005D3BE0 /* PaymentButtonView.swift */,
-				71B30D552C5F7F22005D3BE0 /* PaymentCore.swift */,
-				71B30D572C5F7FDA005D3BE0 /* PaymentSheetCall.swift */,
-				71B30D592C5F8038005D3BE0 /* PaymentSheetService.swift */,
-			);
-			path = Payment;
-			sourceTree = "<group>";
-		};
 		71B30D5C2C5FBE86005D3BE0 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +382,15 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		71F9AEFD2CBB23FD00561697 /* SearchAddedPeople */ = {
+			isa = PBXGroup;
+			children = (
+				71F9AF002CBB242B00561697 /* SearchAddedPeopleCore.swift */,
+				71F9AEFE2CBB240C00561697 /* SearchAddedPeopleView.swift */,
+			);
+			path = SearchAddedPeople;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,7 +408,6 @@
 			);
 			name = paysplit;
 			packageProductDependencies = (
-				717590FA2C5E56F200BF4763 /* StripePaymentSheet */,
 				71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */,
 				71744D3F2C6E1E0000577E22 /* Lottie */,
 			);
@@ -446,7 +440,6 @@
 			);
 			mainGroup = 7133236F2C5CE92B00497475;
 			packageReferences = (
-				717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
 				71B30D3B2C5F6BA5005D3BE0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				71744D3E2C6E1E0000577E22 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
@@ -486,16 +479,18 @@
 			files = (
 				712A84472C7F807C00AE50EB /* LoginCore.swift in Sources */,
 				71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */,
+				71F9AEFC2CBB18DE00561697 /* AddPaymentCalls.swift in Sources */,
 				71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */,
+				71F9AF012CBB242E00561697 /* SearchAddedPeopleCore.swift in Sources */,
 				7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */,
 				715DAE8A2C831E75000941B6 /* RegisterRequest.swift in Sources */,
-				71B30D442C5F6D01005D3BE0 /* PaymentButtonView.swift in Sources */,
 				7138F4882C63CDB70067CE35 /* PaidPaymentView.swift in Sources */,
 				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */,
 				712A84492C7F80AF00AE50EB /* LoginView.swift in Sources */,
 				712A84432C7F726600AE50EB /* EntryView.swift in Sources */,
+				71F9AEFF2CBB240F00561697 /* SearchAddedPeopleView.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,
 				716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */,
 				71F169E32C94CD7400FA2C61 /* AddPeopleCalls.swift in Sources */,
@@ -520,21 +515,18 @@
 				71F397D02C8E051F0073A5E8 /* NotificationName+Extensions.swift in Sources */,
 				713419F52C64C34F000648A2 /* PaidPaymentCore.swift in Sources */,
 				715DAE842C831CE3000941B6 /* EntryService.swift in Sources */,
-				71B30D5A2C5F8038005D3BE0 /* PaymentSheetService.swift in Sources */,
 				71F169E52C94CEDC00FA2C61 /* AddPeopleService.swift in Sources */,
 				7138F4822C63CD700067CE35 /* AddPeopleView.swift in Sources */,
-				71B30D582C5F7FDA005D3BE0 /* PaymentSheetCall.swift in Sources */,
 				712A844B2C7F80F700AE50EB /* RegisterCore.swift in Sources */,
 				7138F48E2C63D13B0067CE35 /* AddPaymentCore.swift in Sources */,
-				71B30D562C5F7F22005D3BE0 /* PaymentCore.swift in Sources */,
 				7138F48C2C63D11C0067CE35 /* AddPaymentView.swift in Sources */,
 				710D68D92C825438000912DE /* AuthenticationRequest.swift in Sources */,
+				71F9AEFA2CBAF96800561697 /* AddPaymentStep.swift in Sources */,
 				71B30D532C5F7D0C005D3BE0 /* MessageResponse.swift in Sources */,
 				712A844D2C7F810A00AE50EB /* RegisterView.swift in Sources */,
 				7138F47D2C63C9290067CE35 /* OverviewView.swift in Sources */,
 				7197B6782C64243F00272918 /* Account.swift in Sources */,
 				71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */,
-				71B30D4F2C5F7125005D3BE0 /* Services.swift in Sources */,
 				71744D4B2C72452800577E22 /* RefreshAccessTokenRequest.swift in Sources */,
 				71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */,
 				71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */,
@@ -780,14 +772,6 @@
 				minimumVersion = 4.5.0;
 			};
 		};
-		717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 23.28.1;
-			};
-		};
 		71B30D3B2C5F6BA5005D3BE0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -803,11 +787,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 71744D3E2C6E1E0000577E22 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
-		};
-		717590FA2C5E56F200BF4763 /* StripePaymentSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 717590F92C5E56F200BF4763 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
-			productName = StripePaymentSheet;
 		};
 		71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
