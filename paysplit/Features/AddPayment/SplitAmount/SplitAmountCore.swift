@@ -6,13 +6,42 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 @Reducer
 struct SplitAmountCore {
     @ObservableState
     struct State {
-        var fullAmount: String
+        var account: Account?
+        var expenseDescription: String
+        var expenseAmount: String
         var addedPeople: [Account]
+
+        var expenses: [Expense]
+
+        init(
+            account: Account?,
+            expenseDescription: String,
+            expenseAmount: String,
+            addedPeople: [Account]
+        ) {
+            self.expenseDescription = expenseDescription
+            self.expenseAmount = expenseAmount
+            self.addedPeople = addedPeople
+
+            let timestamp = Date.now.timeIntervalSinceReferenceDate
+
+            self.expenses = addedPeople.map { person in
+                Expense(
+                    creatorId: account?.id ?? 0,
+                    debtorId: person.id,
+                    expenseDescription: expenseDescription,
+                    expenseAmount: "",
+                    paid: false,
+                    timestamp: timestamp
+                )
+            }
+        }
     }
 
     enum Action: BindableAction {

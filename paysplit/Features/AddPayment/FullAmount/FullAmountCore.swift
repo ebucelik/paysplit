@@ -17,7 +17,7 @@ struct FullAmountCore {
 
     enum Action: BindableAction {
         enum Delegate {
-            case evaluateNextStep(String)
+            case evaluateNextStep(String, String)
         }
 
         case delegate(Delegate)

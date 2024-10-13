@@ -27,13 +27,13 @@ struct SplitAmountView: View {
                 .frame(height: 50)
 
             HStack(spacing: 8) {
-                Text("Full Amount: ")
+                Text("Full Amount for \(store.expenseDescription): ")
                     .font(.app(.subtitle1(.regular)))
                     .frame(alignment: .leading)
 
-                Text("\(store.fullAmount) €")
+                Text("\(store.expenseAmount) €")
                     .font(.app(.subtitle1(.bold)))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(alignment: .leading)
             }
 
             Divider()
@@ -77,7 +77,7 @@ struct SplitAmountView: View {
 
                     PaysplitTextField(
                         imageSystemName: "eurosign.circle.fill",
-                        text: .constant(""),
+                        text: $store.expenses[index].expenseAmount,
                         prompt: Text("0,00")
                     )
                     .keyboardType(.decimalPad)
@@ -92,12 +92,11 @@ struct SplitAmountView: View {
 
             Spacer()
 
-//            if !store.expenseDescription.isEmpty,
-//               !store.expenseAmount.isEmpty {
-//                PaysplitButton(title: "Next Step") {
-//                    store.send(.delegate(.evaluateNextStep))
-//                }
-//            }
+            if store.expenses.allSatisfy({ !$0.expenseAmount.isEmpty }) {
+                PaysplitButton(title: "Next Step") {
+                    store.send(.delegate(.evaluateNextStep))
+                }
+            }
         }
         .padding(.horizontal, 16)
         .contentShape(Rectangle())

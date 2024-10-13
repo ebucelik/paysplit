@@ -44,7 +44,14 @@ struct FullAmountView: View {
             if !store.expenseDescription.isEmpty,
                !store.expenseAmount.isEmpty {
                 PaysplitButton(title: "Next Step") {
-                    store.send(.delegate(.evaluateNextStep(store.expenseAmount)))
+                    store.send(
+                        .delegate(
+                            .evaluateNextStep(
+                                store.expenseDescription,
+                                store.expenseAmount
+                            )
+                        )
+                    )
                 }
             }
         }

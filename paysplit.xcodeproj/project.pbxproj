@@ -53,6 +53,7 @@
 		718E8CDE2CBBF99A00D63FE8 /* FullAmountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CDD2CBBF99600D63FE8 /* FullAmountCore.swift */; };
 		718E8CE12CBBF9D700D63FE8 /* SplitAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE02CBBF9D300D63FE8 /* SplitAmountView.swift */; };
 		718E8CE32CBBF9DE00D63FE8 /* SplitAmountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE22CBBF9DA00D63FE8 /* SplitAmountCore.swift */; };
+		718E8CE52CBC1FFA00D63FE8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE42CBC1FF600D63FE8 /* Expense.swift */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
 		71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D412C5F6BC8005D3BE0 /* ViewState.swift */; };
@@ -125,6 +126,7 @@
 		718E8CDD2CBBF99600D63FE8 /* FullAmountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullAmountCore.swift; sourceTree = "<group>"; };
 		718E8CE02CBBF9D300D63FE8 /* SplitAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAmountView.swift; sourceTree = "<group>"; };
 		718E8CE22CBBF9DA00D63FE8 /* SplitAmountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAmountCore.swift; sourceTree = "<group>"; };
+		718E8CE42CBC1FF600D63FE8 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetResponse.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		71B30D452C5F6D71005D3BE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				718E8CE42CBC1FF600D63FE8 /* Expense.swift */,
 				71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */,
 				71B30D522C5F7D0C005D3BE0 /* MessageResponse.swift */,
 				7197B6772C64243F00272918 /* Account.swift */,
@@ -501,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718E8CE52CBC1FFA00D63FE8 /* Expense.swift in Sources */,
 				712A84472C7F807C00AE50EB /* LoginCore.swift in Sources */,
 				71B30D472C5F6D82005D3BE0 /* PaymentSheetResponse.swift in Sources */,
 				71F9AEFC2CBB18DE00561697 /* AddPaymentCalls.swift in Sources */,

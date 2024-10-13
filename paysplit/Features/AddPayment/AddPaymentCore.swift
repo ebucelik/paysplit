@@ -23,7 +23,8 @@ struct AddPaymentCore {
 
         var path = StackState<Path.State>()
 
-        var fullExpenseAmount: String = ""
+        var expenseDescription: String = ""
+        var expenseAmount: String = ""
 
         init(
             account: Account? = nil,
@@ -106,7 +107,9 @@ struct AddPaymentCore {
                     state.path.append(
                         .splitAmount(
                             SplitAmountCore.State(
-                                fullAmount: state.fullExpenseAmount,
+                                account: state.account,
+                                expenseDescription: state.expenseDescription,
+                                expenseAmount: state.expenseAmount,
                                 addedPeople: state.searchAddedPeople.addedPeopleToSplitAmount
                             )
                         )
@@ -177,8 +180,16 @@ struct AddPaymentCore {
                 switch stackAction {
                 case .element(id: _, action: let action):
                     switch action {
-                    case let .fullAmount(.delegate(.evaluateNextStep(expenseAmount))):
-                        state.fullExpenseAmount = expenseAmount
+                    case let .fullAmount(
+                        .delegate(
+                            .evaluateNextStep(
+                                expenseDescription,
+                                expenseAmount
+                            )
+                        )
+                    ):
+                        state.expenseDescription = expenseDescription
+                        state.expenseAmount = expenseAmount
 
                         return .send(.evaluateNextStep)
 
