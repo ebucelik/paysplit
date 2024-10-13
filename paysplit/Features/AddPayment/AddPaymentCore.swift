@@ -95,7 +95,7 @@ struct AddPaymentCore {
             case .evaluateNextStep:
                 state.addPaymentStep = state.addPaymentStep?.nextStep()
 
-                if state.addPaymentStep == nil {
+                if state.addPaymentStep == nil || state.addPaymentStep == .sendPushNotification {
                     return .send(.delegate(.dismiss))
                 }
 

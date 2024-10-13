@@ -54,6 +54,7 @@
 		718E8CE12CBBF9D700D63FE8 /* SplitAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE02CBBF9D300D63FE8 /* SplitAmountView.swift */; };
 		718E8CE32CBBF9DE00D63FE8 /* SplitAmountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE22CBBF9DA00D63FE8 /* SplitAmountCore.swift */; };
 		718E8CE52CBC1FFA00D63FE8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE42CBC1FF600D63FE8 /* Expense.swift */; };
+		718E8CE92CBC474800D63FE8 /* AddPaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE82CBC474100D63FE8 /* AddPaymentService.swift */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
 		71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D412C5F6BC8005D3BE0 /* ViewState.swift */; };
@@ -127,6 +128,7 @@
 		718E8CE02CBBF9D300D63FE8 /* SplitAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAmountView.swift; sourceTree = "<group>"; };
 		718E8CE22CBBF9DA00D63FE8 /* SplitAmountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAmountCore.swift; sourceTree = "<group>"; };
 		718E8CE42CBC1FF600D63FE8 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		718E8CE82CBC474100D63FE8 /* AddPaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentService.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetResponse.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				718E8CDF2CBBF9CC00D63FE8 /* SplitAmount */,
 				718E8CDA2CBBF98500D63FE8 /* FullAmount */,
 				71F9AEFD2CBB23FD00561697 /* SearchAddedPeople */,
+				718E8CE82CBC474100D63FE8 /* AddPaymentService.swift */,
 				71F9AEFB2CBB18D900561697 /* AddPaymentCalls.swift */,
 				71F9AEF92CBAF95F00561697 /* AddPaymentStep.swift */,
 				7138F48B2C63D11C0067CE35 /* AddPaymentView.swift */,
@@ -518,6 +521,7 @@
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */,
 				712A84492C7F80AF00AE50EB /* LoginView.swift in Sources */,
+				718E8CE92CBC474800D63FE8 /* AddPaymentService.swift in Sources */,
 				712A84432C7F726600AE50EB /* EntryView.swift in Sources */,
 				71F9AEFF2CBB240F00561697 /* SearchAddedPeopleView.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenPaymentView.swift in Sources */,

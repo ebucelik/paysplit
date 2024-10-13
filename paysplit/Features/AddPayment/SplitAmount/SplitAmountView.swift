@@ -18,10 +18,12 @@ struct SplitAmountView: View {
             Text("Last Step")
                 .font(.app(.title2(.bold)))
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(Color.app(.primary))
 
             Text("Split the expense onto the added people.")
                 .font(.app(.subtitle1(.regular)))
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(Color.app(.primary))
 
             Spacer()
                 .frame(height: 50)
@@ -30,10 +32,12 @@ struct SplitAmountView: View {
                 Text("Full Amount for \(store.expenseDescription): ")
                     .font(.app(.subtitle1(.regular)))
                     .frame(alignment: .leading)
+                    .foregroundStyle(Color.app(.primary))
 
                 Text("\(store.expenseAmount) €")
                     .font(.app(.subtitle1(.bold)))
                     .frame(alignment: .leading)
+                    .foregroundStyle(Color.app(store.isExpensesAmountFulfilled ? .success : .primary))
             }
 
             Divider()
@@ -92,9 +96,13 @@ struct SplitAmountView: View {
 
             Spacer()
 
-            if store.expenses.allSatisfy({ !$0.expenseAmount.isEmpty }) {
-                PaysplitButton(title: "Next Step") {
-                    store.send(.delegate(.evaluateNextStep))
+            if store.expenses.allSatisfy({ !$0.expenseAmount.isEmpty }),
+               store.isExpensesAmountFulfilled {
+                PaysplitButton(
+                    title: "Create Payment",
+                    isLoading: store.createdExpenses.isLoading
+                ) {
+                    store.send(.createExpenses)
                 }
             }
         }

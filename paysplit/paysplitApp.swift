@@ -22,6 +22,7 @@ struct paysplitApp: App {
                         $0.entryService = EntryServiceKey.liveValue
                         $0.accountService = AccountServiceKey.liveValue
                         $0.addPeopleService = AddPeopleServiceKey.liveValue
+                        $0.addPaymentService = AddPaymentServiceKey.liveValue
                     }
                 )
             )
