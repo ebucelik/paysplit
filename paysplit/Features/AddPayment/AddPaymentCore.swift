@@ -11,7 +11,7 @@ import ComposableArchitecture
 @Reducer
 struct AddPaymentCore {
     @ObservableState
-    struct State: Equatable {
+    struct State {
         var account: Account?
         
         var addPaymentStep: AddPaymentStep? = .searchPeople
@@ -19,8 +19,29 @@ struct AddPaymentCore {
         var selectedPeople: IdentifiedArrayOf<Account> = IdentifiedArray()
         var searchedPeople: ViewState<[Account]> = .none
 
-        var expenseDescription = ""
-        var expenseAmount = ""
+        var searchAddedPeople: SearchAddedPeopleCore.State
+
+        var path = StackState<Path.State>()
+
+        var fullExpenseAmount: String = ""
+
+        init(
+            account: Account? = nil,
+            addPaymentStep: AddPaymentStep? = nil,
+            searchAddedPeople: SearchAddedPeopleCore.State? = nil,
+            path: StackState<Path.State> = StackState<Path.State>()
+        ) {
+            self.account = account
+            self.addPaymentStep = addPaymentStep
+            self.searchAddedPeople = SearchAddedPeopleCore.State(account: account)
+            self.path = path
+        }
+    }
+
+    @Reducer
+    enum Path {
+        case fullAmount(FullAmountCore)
+        case splitAmount(SplitAmountCore)
     }
 
     @CasePathable
@@ -40,13 +61,20 @@ struct AddPaymentCore {
 
         case delegate(Delegate)
         case binding(BindingAction<State>)
+
+        case searchAddedPeople(SearchAddedPeopleCore.Action)
+        case path(StackActionOf<Path>)
     }
 
     @Dependency(\.addPeopleService) var addPeopleService
 
     var body: some ReducerOf<AddPaymentCore> {
         BindingReducer()
-        
+
+        Scope(state: \.searchAddedPeople, action: \.searchAddedPeople) {
+            SearchAddedPeopleCore()
+        }
+
         Reduce { state, action in
             switch action {
             case .onViewAppear:
@@ -68,6 +96,24 @@ struct AddPaymentCore {
 
                 if state.addPaymentStep == nil {
                     return .send(.delegate(.dismiss))
+                }
+
+                switch state.addPaymentStep {
+                case .fullAmount:
+                    state.path.append(.fullAmount(FullAmountCore.State()))
+
+                case .splitAmount:
+                    state.path.append(
+                        .splitAmount(
+                            SplitAmountCore.State(
+                                fullAmount: state.fullExpenseAmount,
+                                addedPeople: state.searchAddedPeople.addedPeopleToSplitAmount
+                            )
+                        )
+                    )
+
+                default:
+                    break
                 }
 
                 return .none
@@ -117,7 +163,39 @@ struct AddPaymentCore {
 
             case .binding:
                 return .none
+
+            case let .searchAddedPeople(action):
+                switch action {
+                case .delegate(.evaluateNextStep):
+                    return .send(.evaluateNextStep)
+
+                default:
+                    return .none
+                }
+
+            case let .path(stackAction):
+                switch stackAction {
+                case .element(id: _, action: let action):
+                    switch action {
+                    case let .fullAmount(.delegate(.evaluateNextStep(expenseAmount))):
+                        state.fullExpenseAmount = expenseAmount
+
+                        return .send(.evaluateNextStep)
+
+                    case .splitAmount(.delegate(.evaluateNextStep)):
+                        return .send(.evaluateNextStep)
+
+                    default:
+                        break
+                    }
+
+                default:
+                    break
+                }
+
+                return .none
             }
         }
+        .forEach(\.path, action: \.path)
     }
 }

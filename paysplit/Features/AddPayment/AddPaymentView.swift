@@ -13,50 +13,15 @@ struct AddPaymentView: View {
     @Bindable
     var store: StoreOf<AddPaymentCore>
 
-//    VStack {
-//        PaysplitTextField(
-//            imageSystemName: "square.and.pencil.circle.fill",
-//            text: $store.expenseDescription,
-//            prompt: Text("Expense description (e.g. Pizza)")
-//        )
-//
-//        PaysplitTextField(
-//            imageSystemName: "eurosign.circle.fill",
-//            text: $store.expenseAmount,
-//            prompt: Text("0,00")
-//        )
-//        .keyboardType(.decimalPad)
-//        .textSelection(.disabled)
-//    }
-//    .padding(.horizontal, 16)
-
-    @State
-    var navigationPath = NavigationPath()
-
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
             VStack {
                 SearchAddedPeopleView(
-                    store: Store(
-                        initialState: SearchAddedPeopleCore.State(account: store.account),
-                        reducer: {
-                            SearchAddedPeopleCore()
-                        }
+                    store: store.scope(
+                        state: \.searchAddedPeople,
+                        action: \.searchAddedPeople
                     )
                 )
-
-                Spacer()
-
-                PaysplitButton(title: "Next Step") {
-                    store.send(.evaluateNextStep)
-
-                    if let addPaymentStep = store.addPaymentStep {
-                        navigationPath.append(addPaymentStep)
-                    }
-                }
-            }
-            .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             .padding(.horizontal)
             .onAppear {
@@ -64,35 +29,6 @@ struct AddPaymentView: View {
             }
             .navigationTitle("Add Payment")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: AddPaymentStep.self) { destination in
-                switch destination {
-                case .searchPeople:
-                    EmptyView()
-
-                case .fullAmount:
-                    Text("Full")
-                        .onAppear {
-                            store.send(.setCurrentStep(.fullAmount))
-                        }
-
-                case .splitAmount:
-                    Text("Split")
-                        .onAppear {
-                            store.send(.setCurrentStep(.splitAmount))
-                        }
-
-                case .sendPushNotification:
-                    Text("Push")
-                }
-
-                PaysplitButton(title: "Next Step") {
-                    store.send(.evaluateNextStep)
-
-                    if let addPaymentStep = store.addPaymentStep {
-                        navigationPath.append(addPaymentStep)
-                    }
-                }
-            }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(
@@ -106,6 +42,24 @@ struct AddPaymentView: View {
                         }
                     )
                 }
+            }
+        } destination: { store in
+            switch store.case {
+            case .fullAmount(let store):
+                FullAmountView(store: store)
+                    .onAppear {
+                        if self.store.addPaymentStep != .fullAmount {
+                            self.store.send(.setCurrentStep(.fullAmount))
+                        }
+                    }
+
+            case .splitAmount(let store):
+                SplitAmountView(store: store)
+                    .onAppear {
+                        if self.store.addPaymentStep != .splitAmount {
+                            self.store.send(.setCurrentStep(.splitAmount))
+                        }
+                    }
             }
         }
     }

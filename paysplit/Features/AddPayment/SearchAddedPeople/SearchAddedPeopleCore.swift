@@ -14,6 +14,7 @@ struct SearchAddedPeopleCore {
     struct State: Equatable {
         var account: Account?
         var searchAddedPeople: ViewState<[Account]> = .none
+        var addedPeopleToSplitAmount: [Account] = []
         var searchTerm: String = ""
     }
 
@@ -22,10 +23,22 @@ struct SearchAddedPeopleCore {
         case searchAddedPeople(String)
         case setSearchAddedPeople(ViewState<[Account]>)
 
+        case addOrRemovePerson(Account)
+
         case binding(BindingAction<State>)
+
+        enum Delegate {
+            case evaluateNextStep
+        }
+
+        case delegate(Delegate)
     }
 
     @Dependency(\.addPeopleService) var service
+
+    enum CancelID {
+        case search
+    }
 
     var body: some ReducerOf<Self> {
         BindingReducer()
@@ -34,8 +47,6 @@ struct SearchAddedPeopleCore {
             switch action {
             case let .searchAddedPeople(searchTerm):
                 guard let account = state.account else { return .none }
-
-                struct DebounceId: Hashable {}
 
                 var trimmedSearchTerm = searchTerm
 
@@ -59,11 +70,19 @@ struct SearchAddedPeopleCore {
                     await send(.setSearchAddedPeople(.loaded(searchAddedPeople)))
                 } catch: { error, send in
                     await send(.setSearchAddedPeople(.error(error as? MessageResponse ?? error)))
-                }
-                .debounce(id: DebounceId(), for: 1, scheduler: DispatchQueue.main)
+                }.debounce(id: CancelID.search, for: 1, scheduler: DispatchQueue.main)
 
             case let .setSearchAddedPeople(searchAddedPeople):
                 state.searchAddedPeople = searchAddedPeople
+
+                return .none
+
+            case let .addOrRemovePerson(account):
+                if let personIndex = state.addedPeopleToSplitAmount.firstIndex(where: { $0.id == account.id }) {
+                    state.addedPeopleToSplitAmount.remove(at: personIndex)
+                } else {
+                    state.addedPeopleToSplitAmount.append(account)
+                }
 
                 return .none
 
@@ -71,6 +90,9 @@ struct SearchAddedPeopleCore {
                 guard state.searchTerm.count > 2 else { return .send(.setSearchAddedPeople(.none)) }
 
                 return .send(.searchAddedPeople(state.searchTerm))
+
+            case .delegate:
+                return .none
             }
         }
     }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Account: Codable, Equatable, Identifiable {
-    struct BankDetail: Codable, Equatable {
+struct Account: Codable, Hashable, Identifiable {
+    struct BankDetail: Codable, Hashable {
         let iban: String
         let bic: String?
         let firstname: String

@@ -11,7 +11,7 @@ import Foundation
 @Reducer
 struct AppCore {
     @ObservableState
-    struct State: Equatable {
+    struct State {
         var showOverview = false
         var selectedTab = 0
         var previousSelectedTab = 0
@@ -24,14 +24,6 @@ struct AppCore {
         var entry: EntryCore.State?
 
         var account: Account? = nil
-
-        mutating func setSelectedTab() {
-            selectedTab = previousSelectedTab
-        }
-
-        mutating func setPreviousSelectedTab() {
-            previousSelectedTab = selectedTab
-        }
     }
 
     @CasePathable

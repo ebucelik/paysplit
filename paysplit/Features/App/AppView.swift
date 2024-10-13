@@ -49,11 +49,11 @@ struct AppView: View {
             .tint(.app(.primary))
             .onChange(of: store.selectedTab) {
                 if store.selectedTab == 1 {
-                    store.state.setSelectedTab()
+                    store.selectedTab = store.previousSelectedTab
 
                     store.send(.showAddPaymentView)
                 } else {
-                    store.state.setPreviousSelectedTab()
+                    store.previousSelectedTab = store.selectedTab
                 }
             }
             .fullScreenCover(
