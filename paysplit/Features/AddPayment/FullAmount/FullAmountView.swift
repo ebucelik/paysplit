@@ -24,6 +24,7 @@ struct FullAmountView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             Spacer()
+                .frame(height: 50)
 
             PaysplitTextField(
                 imageSystemName: "square.and.pencil.circle.fill",
@@ -55,7 +56,7 @@ struct FullAmountView: View {
                 }
             }
         }
-        .padding(.horizontal, 16)
+        .padding(16)
         .contentShape(Rectangle())
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

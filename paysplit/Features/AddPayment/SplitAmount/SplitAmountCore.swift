@@ -31,6 +31,7 @@ struct SplitAmountCore {
             }.reduce(0, +)
 
             return expensesAmount == numberFormatter.number(from: expenseAmount)?.doubleValue
+            && expenses.allSatisfy({ (numberFormatter.number(from: $0.expenseAmount)?.doubleValue ?? 0) > 0 })
         }
 
         init(
@@ -41,9 +42,21 @@ struct SplitAmountCore {
         ) {
             self.expenseDescription = expenseDescription
             self.expenseAmount = expenseAmount
-            self.addedPeople = addedPeople
 
-            self.expenses = addedPeople.map { person in
+            let addedPeopleIncludingMyself = [
+                Account(
+                    id: account?.id ?? 0,
+                    username: "",
+                    firstname: "You",
+                    lastname: "",
+                    password: nil,
+                    picturelink: account?.picturelink ?? "",
+                    bankdetail: nil
+                )
+            ] + addedPeople
+            self.addedPeople = addedPeopleIncludingMyself
+
+            self.expenses = addedPeopleIncludingMyself.map { person in
                 Expense(
                     creatorId: account?.id ?? 0,
                     debtorId: person.id,

@@ -62,5 +62,6 @@ struct AddPaymentView: View {
                     }
             }
         }
+        .tint(Color.app(.primary))
     }
 }

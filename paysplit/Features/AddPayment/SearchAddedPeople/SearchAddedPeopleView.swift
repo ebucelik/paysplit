@@ -27,69 +27,69 @@ struct SearchAddedPeopleView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     if !store.addedPeopleToSplitAmount.isEmpty {
-                        VStack {
-                            Text("\(store.addedPeopleToSplitAmount.count) persons added")
-                                .font(.app(.body(.regular)))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .foregroundStyle(Color.app(.info))
+                        Spacer()
+                            .frame(height: 50)
 
-                            List(store.addedPeopleToSplitAmount, id: \.id) { person in
-                                HStack(spacing: 16) {
-                                    if !person.picturelink.isEmpty {
-                                        // TODO: load image from server
-                                        Image(systemName: "person.circle.fill")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundStyle(.gray)
-                                    } else {
-                                        Image(systemName: "person.circle.fill")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundStyle(.gray)
-                                    }
+                        Text("\(store.addedPeopleToSplitAmount.count) persons added")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(Color.app(.info))
 
-                                    VStack {
-                                        Spacer()
+                        List(store.addedPeopleToSplitAmount, id: \.id) { person in
+                            HStack(spacing: 16) {
+                                if !person.picturelink.isEmpty {
+                                    // TODO: load image from server
+                                    Image(systemName: "person.circle.fill")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundStyle(.gray)
+                                } else {
+                                    Image(systemName: "person.circle.fill")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundStyle(.gray)
+                                }
 
-                                        Text("\(person.firstname) \(person.lastname)")
-                                            .font(.app(.subtitle1(.regular)))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                                        Text(person.username)
-                                            .font(.app(.body2(.regular)))
-                                            .foregroundStyle(Color.app(.divider))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                                        Spacer()
-                                    }
-
+                                VStack {
                                     Spacer()
 
-                                    Button {
-                                        store.send(.addOrRemovePerson(person))
-                                    } label: {
-                                        Image(systemName: "checkmark.square.fill")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 30, height: 30)
-                                            .foregroundStyle(Color.app(.success))
-                                    }
-                                    .buttonStyle(.plain)
-                                }
-                                .padding(8)
-                                .ignoresSafeArea()
-                                .listRowInsets(EdgeInsets())
-                                .listRowSeparator(.hidden)
-                            }
-                            .listStyle(.plain)
+                                    Text("\(person.firstname) \(person.lastname)")
+                                        .font(.app(.subtitle1(.regular)))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                            PaysplitButton(title: "Next Step") {
-                                store.send(.delegate(.evaluateNextStep))
+                                    Text(person.username)
+                                        .font(.app(.body2(.regular)))
+                                        .foregroundStyle(Color.app(.divider))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                    Spacer()
+                                }
+
+                                Spacer()
+
+                                Button {
+                                    store.send(.addOrRemovePerson(person))
+                                } label: {
+                                    Image(systemName: "checkmark.square.fill")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .foregroundStyle(Color.app(.success))
+                                }
+                                .buttonStyle(.plain)
                             }
+                            .padding(8)
+                            .ignoresSafeArea()
+                            .listRowInsets(EdgeInsets())
+                            .listRowSeparator(.hidden)
                         }
-                        .padding(.top)
+                        .listStyle(.plain)
+
+                        PaysplitButton(title: "Next Step") {
+                            store.send(.delegate(.evaluateNextStep))
+                        }
                     }
 
                     Spacer()
