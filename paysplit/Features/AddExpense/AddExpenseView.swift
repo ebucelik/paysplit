@@ -1,5 +1,5 @@
 //
-//  AddPaymentView.swift
+//  AddExpenseView.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 07.08.24.
@@ -8,10 +8,10 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct AddPaymentView: View {
+struct AddExpenseView: View {
 
     @Bindable
-    var store: StoreOf<AddPaymentCore>
+    var store: StoreOf<AddExpenseCore>
 
     var body: some View {
         NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
@@ -27,7 +27,7 @@ struct AddPaymentView: View {
             .onAppear {
                 store.send(.onViewAppear)
             }
-            .navigationTitle("Add Payment")
+            .navigationTitle("Add Expense")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -48,7 +48,7 @@ struct AddPaymentView: View {
             case .fullAmount(let store):
                 FullAmountView(store: store)
                     .onAppear {
-                        if self.store.addPaymentStep != .fullAmount {
+                        if self.store.addExpenseStep != .fullAmount {
                             self.store.send(.setCurrentStep(.fullAmount))
                         }
                     }
@@ -56,7 +56,7 @@ struct AddPaymentView: View {
             case .splitAmount(let store):
                 SplitAmountView(store: store)
                     .onAppear {
-                        if self.store.addPaymentStep != .splitAmount {
+                        if self.store.addExpenseStep != .splitAmount {
                             self.store.send(.setCurrentStep(.splitAmount))
                         }
                     }

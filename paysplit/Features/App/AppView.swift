@@ -16,21 +16,20 @@ struct AppView: View {
     var body: some View {
         // TODO: comment out again later.
         if store.showOverview {
-            TabView(selection: $store.selectedTab) {
+            TabView {
                 OverviewView(
                     store: store.scope(state: \.overview, action: \.overview)
                 )
                 .tabItem {
                     Image(systemName: "globe.europe.africa")
                 }
-                .tag(0)
 
-                Color
-                    .clear
-                    .tabItem {
-                        Image(systemName: "plus.square.fill")
-                    }
-                    .tag(1)
+                ExpenseOverviewView(
+                    store: store.scope(state: \.expenseOverview, action: \.expenseOverview)
+                )
+                .tabItem {
+                    Image(systemName: "arrow.down.square.fill")
+                }
 
                 AccountView(
                     store: store.scope(state: \.accountState, action: \.account)
@@ -38,7 +37,6 @@ struct AppView: View {
                 .tabItem {
                     Image(systemName: "person.crop.square.fill")
                 }
-                .tag(2)
             }
             .onAppear {
                 store.send(.onViewAppear)
@@ -47,23 +45,6 @@ struct AppView: View {
                 store.send(.logout)
             }
             .tint(.app(.primary))
-            .onChange(of: store.selectedTab) {
-                if store.selectedTab == 1 {
-                    store.selectedTab = store.previousSelectedTab
-
-                    store.send(.showAddPaymentView)
-                } else {
-                    store.previousSelectedTab = store.selectedTab
-                }
-            }
-            .fullScreenCover(
-                item: $store.scope(
-                    state: \.addPayment,
-                    action: \.addPayment
-                )
-            ) { addPaymentCore in
-                AddPaymentView(store: addPaymentCore)
-            }
             .fullScreenCover(
                 item: $store.scope(
                     state: \.entry,

@@ -1,5 +1,5 @@
 //
-//  AddPaymentCore.swift
+//  AddExpenseCore.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 07.08.24.
@@ -9,12 +9,12 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct AddPaymentCore {
+struct AddExpenseCore {
     @ObservableState
     struct State {
         var account: Account?
         
-        var addPaymentStep: AddPaymentStep? = .searchPeople
+        var addExpenseStep: AddExpenseStep? = .searchPeople
 
         var selectedPeople: IdentifiedArrayOf<Account> = IdentifiedArray()
         var searchedPeople: ViewState<[Account]> = .none
@@ -28,12 +28,12 @@ struct AddPaymentCore {
 
         init(
             account: Account? = nil,
-            addPaymentStep: AddPaymentStep? = nil,
+            addExpenseStep: AddExpenseStep? = nil,
             searchAddedPeople: SearchAddedPeopleCore.State? = nil,
             path: StackState<Path.State> = StackState<Path.State>()
         ) {
             self.account = account
-            self.addPaymentStep = addPaymentStep
+            self.addExpenseStep = addExpenseStep
             self.searchAddedPeople = SearchAddedPeopleCore.State(account: account)
             self.path = path
         }
@@ -48,6 +48,7 @@ struct AddPaymentCore {
     @CasePathable
     enum Action: BindableAction {
         enum Delegate {
+            case didCreatedExpense
             case dismiss
         }
 
@@ -55,7 +56,7 @@ struct AddPaymentCore {
         case setSelectedPerson(Account)
 
         case evaluateNextStep
-        case setCurrentStep(AddPaymentStep)
+        case setCurrentStep(AddExpenseStep)
 
         case loadSearchedPeople(String)
         case setSearchedPeople(ViewState<[Account]>)
@@ -69,7 +70,7 @@ struct AddPaymentCore {
 
     @Dependency(\.addPeopleService) var addPeopleService
 
-    var body: some ReducerOf<AddPaymentCore> {
+    var body: some ReducerOf<AddExpenseCore> {
         BindingReducer()
 
         Scope(state: \.searchAddedPeople, action: \.searchAddedPeople) {
@@ -93,13 +94,16 @@ struct AddPaymentCore {
                 return .none
 
             case .evaluateNextStep:
-                state.addPaymentStep = state.addPaymentStep?.nextStep()
+                state.addExpenseStep = state.addExpenseStep?.nextStep()
 
-                if state.addPaymentStep == nil || state.addPaymentStep == .sendPushNotification {
-                    return .send(.delegate(.dismiss))
+                if state.addExpenseStep == nil || state.addExpenseStep == .sendPushNotification {
+                    return .concatenate(
+                        .send(.delegate(.didCreatedExpense)),
+                        .send(.delegate(.dismiss))
+                    )
                 }
 
-                switch state.addPaymentStep {
+                switch state.addExpenseStep {
                 case .fullAmount:
                     state.path.append(.fullAmount(FullAmountCore.State()))
 
@@ -122,7 +126,7 @@ struct AddPaymentCore {
                 return .none
 
             case let .setCurrentStep(step):
-                state.addPaymentStep = step
+                state.addExpenseStep = step
 
                 return .none
 
@@ -161,7 +165,7 @@ struct AddPaymentCore {
 
                 return .none
 
-            case .delegate(.dismiss):
+            case .delegate:
                 return .none
 
             case .binding:

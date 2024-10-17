@@ -8,20 +8,12 @@
 import Foundation
 
 struct Account: Codable, Hashable, Identifiable {
-    struct BankDetail: Codable, Hashable {
-        let iban: String
-        let bic: String?
-        let firstname: String
-        let lastname: String
-    }
-
     let id: Int
     let username: String
     let firstname: String
     let lastname: String
     let password: String?
     let picturelink: String
-    let bankdetail: BankDetail?
 
     init(
         id: Int,
@@ -29,8 +21,7 @@ struct Account: Codable, Hashable, Identifiable {
         firstname: String,
         lastname: String,
         password: String?,
-        picturelink: String,
-        bankdetail: BankDetail?
+        picturelink: String
     ) {
         self.id = id
         self.username = username
@@ -38,74 +29,9 @@ struct Account: Codable, Hashable, Identifiable {
         self.lastname = lastname
         self.password = password
         self.picturelink = picturelink
-        self.bankdetail = bankdetail
     }
 }
 
-extension Account.BankDetail {
-    static var mock: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT41 5212 3216 7712 1009",
-            bic: "RLNWATWWW",
-            firstname: "Ebu Bekir",
-            lastname: "Celik"
-        )
-    }
-
-    static var mock1: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT11 2291 1117 7712 1009",
-            bic: "BLNWWATB",
-            firstname: "Stefan",
-            lastname: "Djudic"
-        )
-    }
-
-    static var mock2: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT32 1428 8150 3109 2221",
-            bic: "INATWIES",
-            firstname: "Harald",
-            lastname: "Otto"
-        )
-    }
-
-    static var mock3: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT12 1428 8150 3109 2221",
-            bic: "INATWIES",
-            firstname: "Christoph",
-            lastname: "Mihle"
-        )
-    }
-
-    static var mock4: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT12 1112 8150 3109 2221",
-            bic: "INATWIES",
-            firstname: "Hakan",
-            lastname: "Aktürk"
-        )
-    }
-
-    static var mock5: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT12 1112 8150 0011 2221",
-            bic: "INATWIES",
-            firstname: "Abdullah",
-            lastname: "Oguz"
-        )
-    }
-
-    static var mock6: Account.BankDetail {
-        Account.BankDetail(
-            iban: "AT12 1112 8150 0011 1665",
-            bic: "INATWIES",
-            firstname: "Neymar",
-            lastname: "Junior Aguero"
-        )
-    }
-}
 extension Account {
     static var mock: Account {
         Account(
@@ -114,8 +40,7 @@ extension Account {
             firstname: "Ebu",
             lastname: "Celik",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock
+            picturelink: ""
         )
     }
 
@@ -126,8 +51,7 @@ extension Account {
             firstname: "Stefan",
             lastname: "Djudic",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock1
+            picturelink: ""
         )
     }
 
@@ -138,8 +62,7 @@ extension Account {
             firstname: "Harald",
             lastname: "Otto",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock2
+            picturelink: ""
         )
     }
 
@@ -150,8 +73,7 @@ extension Account {
             firstname: "Christoph",
             lastname: "Mihle",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock3
+            picturelink: ""
         )
     }
 
@@ -162,8 +84,7 @@ extension Account {
             firstname: "Hakan",
             lastname: "Aktürk",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock4
+            picturelink: ""
         )
     }
 
@@ -174,8 +95,7 @@ extension Account {
             firstname: "Abdullah",
             lastname: "Oguz",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock5
+            picturelink: ""
         )
     }
 
@@ -186,8 +106,7 @@ extension Account {
             firstname: "Neymar",
             lastname: "JR",
             password: nil,
-            picturelink: "",
-            bankdetail: .mock6
+            picturelink: ""
         )
     }
 }

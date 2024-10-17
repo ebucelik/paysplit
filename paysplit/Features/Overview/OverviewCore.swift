@@ -18,18 +18,25 @@ struct OverviewCore {
 
         var selection: OverviewSelection = .open
 
-        @Presents
-        var addPeople: AddPeopleCore.State?
+        var addPeople: AddPeopleCore.State
         var openPayment = OpenPaymentCore.State()
         var paidPayment = PaidPaymentCore.State()
 
         var account: Account?
+
+        init(
+            selection: OverviewSelection = .open,
+            account: Account? = nil
+        ) {
+            self.selection = selection
+            self.addPeople = AddPeopleCore.State(account: account)
+            self.account = account
+        }
     }
 
     @CasePathable
     enum Action: BindableAction {
-        case showAddPeopleView
-        case addPeople(PresentationAction<AddPeopleCore.Action>)
+        case addPeople(AddPeopleCore.Action)
         case openPayment(OpenPaymentCore.Action)
         case paidPayment(PaidPaymentCore.Action)
         case binding(BindingAction<State>)
@@ -37,6 +44,13 @@ struct OverviewCore {
 
     var body: some ReducerOf<OverviewCore> {
         BindingReducer()
+
+        Scope(
+            state: \.addPeople,
+            action: \.addPeople
+        ) {
+            AddPeopleCore()
+        }
 
         Scope(
             state: \.openPayment,
@@ -54,16 +68,7 @@ struct OverviewCore {
 
         Reduce { state, action in
             switch action {
-            case .showAddPeopleView:
-                state.addPeople = AddPeopleCore.State(account: state.account)
-                return .none
-
-            case .addPeople(.presented):
-                return .none
-
-            case .addPeople(.dismiss):
-                state.addPeople = nil
-
+            case .addPeople:
                 return .none
 
             case .openPayment:
@@ -75,9 +80,6 @@ struct OverviewCore {
             case .binding:
                 return .none
             }
-        }
-        .ifLet(\.$addPeople, action: \.addPeople) {
-            AddPeopleCore()
         }
     }
 }

@@ -5,7 +5,10 @@
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 13.10.24.
 //
 
+import Foundation
+
 struct Expense: Codable, Hashable {
+    var id: Int
     var creatorId: Int
     var debtorId: Int
     var expenseDescription: String
@@ -14,6 +17,7 @@ struct Expense: Codable, Hashable {
     var timestamp: Double
 
     init(
+        id: Int,
         creatorId: Int,
         debtorId: Int,
         expenseDescription: String,
@@ -21,6 +25,7 @@ struct Expense: Codable, Hashable {
         paid: Bool,
         timestamp: Double
     ) {
+        self.id = id
         self.creatorId = creatorId
         self.debtorId = debtorId
         self.expenseDescription = expenseDescription
@@ -32,6 +37,7 @@ struct Expense: Codable, Hashable {
 
 extension Expense {
     static var empty = Expense(
+        id: 0,
         creatorId: 0,
         debtorId: 0,
         expenseDescription: "",

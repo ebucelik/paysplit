@@ -64,28 +64,19 @@ struct OverviewView: View {
                 }
 
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(
-                        action: {
-                            store.send(.showAddPeopleView)
-                        }, label: {
-                            Image(systemName: "person.fill.badge.plus")
-                                .renderingMode(.template)
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .tint(.black)
-                        }
-                    )
+                    NavigationLink {
+                        AddPeopleView(store: store.scope(state: \.addPeople, action: \.addPeople))
+                    } label: {
+                        Image(systemName: "person.fill.badge.plus")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .tint(.black)
+                    }
+
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(
-                item: $store.scope(
-                    state: \.addPeople,
-                    action: \.addPeople
-                )
-            ) { addPeopleStore in
-                AddPeopleView(store: addPeopleStore)
-            }
         }
     }
 }

@@ -50,14 +50,14 @@ struct SplitAmountCore {
                     firstname: "You",
                     lastname: "",
                     password: nil,
-                    picturelink: account?.picturelink ?? "",
-                    bankdetail: nil
+                    picturelink: account?.picturelink ?? ""
                 )
             ] + addedPeople
             self.addedPeople = addedPeopleIncludingMyself
 
             self.expenses = addedPeopleIncludingMyself.map { person in
                 Expense(
+                    id: 0,
                     creatorId: account?.id ?? 0,
                     debtorId: person.id,
                     expenseDescription: expenseDescription,
@@ -81,7 +81,7 @@ struct SplitAmountCore {
         case binding(BindingAction<State>)
     }
 
-    @Dependency(\.addPaymentService) var service
+    @Dependency(\.addExpenseService) var service
 
     var body: some ReducerOf<Self> {
         BindingReducer()
@@ -94,6 +94,7 @@ struct SplitAmountCore {
 
                 state.expenses = state.expenses.compactMap {
                     Expense(
+                        id: $0.id,
                         creatorId: $0.creatorId,
                         debtorId: $0.debtorId,
                         expenseDescription: $0.expenseDescription,

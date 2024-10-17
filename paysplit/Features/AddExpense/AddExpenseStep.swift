@@ -1,17 +1,17 @@
 //
-//  AddPaymentStep.swift
+//  AddExpenseStep.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 12.10.24.
 //
 
-enum AddPaymentStep: String, Hashable, CaseIterable {
+enum AddExpenseStep: String, Hashable, CaseIterable {
     case searchPeople
     case fullAmount
     case splitAmount
     case sendPushNotification
 
-    func nextStep() -> AddPaymentStep? {
+    func nextStep() -> AddExpenseStep? {
         switch self {
         case .searchPeople:
             return .fullAmount

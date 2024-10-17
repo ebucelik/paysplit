@@ -13,12 +13,9 @@ struct AppCore {
     @ObservableState
     struct State {
         var showOverview = false
-        var selectedTab = 0
-        var previousSelectedTab = 0
 
         var overview = OverviewCore.State()
-        @Presents
-        var addPayment: AddPaymentCore.State?
+        var expenseOverview = ExpenseOverviewCore.State()
         var accountState: AccountCore.State = AccountCore.State(accountState: .none)
         @Presents
         var entry: EntryCore.State?
@@ -31,11 +28,10 @@ struct AppCore {
         case onViewAppear
         case checkAccount
         case showEntry
-        case showAddPaymentView
         case logout
 
         case overview(OverviewCore.Action)
-        case addPayment(PresentationAction<AddPaymentCore.Action>)
+        case expenseOverview(ExpenseOverviewCore.Action)
         case account(AccountCore.Action)
         case entry(PresentationAction<EntryCore.Action>)
 
@@ -50,6 +46,13 @@ struct AppCore {
             action: \.overview
         ) {
             OverviewCore()
+        }
+
+        Scope(
+            state: \.expenseOverview,
+            action: \.expenseOverview
+        ) {
+            ExpenseOverviewCore()
         }
 
         Scope(
@@ -76,9 +79,10 @@ struct AppCore {
                     do {
                         let account = try JSONDecoder().decode(Account.self, from: accountData)
 
-                        state.overview = OverviewCore.State(account: account)
-                        state.accountState = AccountCore.State(accountState: .loaded(account))
                         state.account = account
+                        state.overview = OverviewCore.State(account: account)
+                        state.expenseOverview = ExpenseOverviewCore.State(account: account)
+                        state.accountState = AccountCore.State(accountState: .loaded(account))
                         state.entry = nil
 
                         return .none
@@ -96,11 +100,6 @@ struct AppCore {
 
                 return .none
 
-            case .showAddPaymentView:
-                state.addPayment = AddPaymentCore.State(account: state.account)
-
-                return .none
-
             case .logout:
                 UserDefaults.standard.set(nil, forKey: "account")
                 UserDefaults.standard.set(nil, forKey: "accessToken")
@@ -111,17 +110,7 @@ struct AppCore {
             case .overview:
                 return .none
 
-            case let .addPayment(.presented(action)):
-                switch action {
-                case .delegate(.dismiss):
-                    return .send(.addPayment(.dismiss))
-                default:
-                    return .none
-                }
-
-            case .addPayment(.dismiss):
-                state.addPayment = nil
-
+            case .expenseOverview:
                 return .none
 
             case .account:
@@ -136,9 +125,6 @@ struct AppCore {
             case .binding:
                 return .none
             }
-        }
-        .ifLet(\.$addPayment, action: \.addPayment) {
-            AddPaymentCore()
         }
         .ifLet(\.$entry, action: \.entry) {
             EntryCore()

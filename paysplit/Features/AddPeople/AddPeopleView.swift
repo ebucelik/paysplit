@@ -32,7 +32,7 @@ struct AddPeopleView: View {
                         if people.isEmpty {
                             InfoView(
                                 state: .general,
-                                message: "No added people available. Search to find new persons to add.",
+                                message: "Search to find new persons to add.",
                                 refreshableAction: {
                                     await store.send(.loadAddedPeople).finish()
                                 }
