@@ -55,38 +55,37 @@ struct ExpenseOverviewView: View {
                         )
                     } else {
                         List(groupedExpenses, id: \.id) { groupedExpense in
-                            NavigationLink {
-                                Text("s")
-                            } label: {
-                                HStack(spacing: 16) {
-                                    VStack {
-                                        Spacer()
-
-                                        Text(groupedExpense.expenseDescription)
-                                            .font(.app(.subtitle1(.regular)))
-                                            .foregroundStyle(Color.app(.primary))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                                        Text("\(groupedExpense.timestamp.toStringDate), \(groupedExpense.timestamp.toStringTime)")
-                                            .font(.app(.body2(.regular)))
-                                            .foregroundStyle(Color.app(.primary))
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                                        Spacer()
-                                    }
-
+                            HStack(spacing: 16) {
+                                VStack {
                                     Spacer()
 
-                                    Text("\(groupedExpense.expenseAmount) €")
-                                        .font(.app(.subtitle1(.bold)))
+                                    Text(groupedExpense.expenseDescription)
+                                        .font(.app(.subtitle1(.regular)))
                                         .foregroundStyle(Color.app(.primary))
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                    Text("\(groupedExpense.timestamp.toStringDate), \(groupedExpense.timestamp.toStringTime)")
+                                        .font(.app(.body2(.regular)))
+                                        .foregroundStyle(Color.app(.primary))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                    Spacer()
                                 }
+
+                                Spacer()
+
+                                Text("\(groupedExpense.expenseAmount) €")
+                                    .font(.app(.subtitle1(.bold)))
+                                    .foregroundStyle(Color.app(.primary))
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
                             }
                             .padding(8)
                             .ignoresSafeArea()
                             .listRowInsets(EdgeInsets())
                             .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                store.send(.showExpenseDetail(groupedExpense))
+                            }
                         }
                         .listStyle(.plain)
                         .refreshable {
@@ -134,6 +133,14 @@ struct ExpenseOverviewView: View {
             }
             .fullScreenCover(isPresented: $store.isAddExpenseShown) {
                 AddExpenseView(store: store.scope(state: \.addExpense, action: \.addExpense))
+            }
+            .navigationDestination(
+                item: $store.scope(
+                    state: \.expenseDetail,
+                    action: \.expenseDetail
+                )
+            ) { expenseDetailStore in
+                ExpenseDetailView(store: expenseDetailStore)
             }
         }
     }

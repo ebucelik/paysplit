@@ -29,6 +29,9 @@ struct ExpenseOverviewCore {
 
         var sorting: SortingKeys = .newest
 
+        @Presents
+        var expenseDetail: ExpenseDetailCore.State?
+
         init(account: Account? = nil) {
             self.account = account
             self.addExpense = AddExpenseCore.State(account: account)
@@ -41,6 +44,8 @@ struct ExpenseOverviewCore {
         case loadGroupedExpenses
         case setGroupedExpenses(ViewState<[Expense]>)
         case sortingChanged
+        case showExpenseDetail(Expense)
+        case expenseDetail(PresentationAction<ExpenseDetailCore.Action>)
         case showAddExpense
         case addExpense(AddExpenseCore.Action)
         case binding(BindingAction<State>)
@@ -114,6 +119,22 @@ struct ExpenseOverviewCore {
 
                 return .send(.setGroupedExpenses(.loaded(sortedGroupedExpenses)))
 
+            case let .showExpenseDetail(expense):
+                state.expenseDetail = ExpenseDetailCore.State(
+                    account: state.account,
+                    expense: expense
+                )
+                
+                return .none
+
+            case .expenseDetail(.presented):
+                return .none
+
+            case .expenseDetail(.dismiss):
+                state.expenseDetail = nil
+
+                return .none
+
             case .showAddExpense:
                 state.isAddExpenseShown = true
 
@@ -136,6 +157,9 @@ struct ExpenseOverviewCore {
             case .binding:
                 return .none
             }
+        }
+        .ifLet(\.$expenseDetail, action: \.expenseDetail) {
+            ExpenseDetailCore()
         }
     }
 }

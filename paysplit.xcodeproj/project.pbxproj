@@ -12,6 +12,7 @@
 		710ABBB12CC2ECA1007DEF4F /* ExpenseDetailCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710ABBB02CC2EC9C007DEF4F /* ExpenseDetailCore.swift */; };
 		710ABBB32CC2ECE1007DEF4F /* ExpenseDetailCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710ABBB22CC2ECDD007DEF4F /* ExpenseDetailCalls.swift */; };
 		710ABBB52CC2ED29007DEF4F /* ExpenseDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710ABBB42CC2ED23007DEF4F /* ExpenseDetailService.swift */; };
+		710ABBB72CC30016007DEF4F /* ExpenseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710ABBB62CC30011007DEF4F /* ExpenseDetail.swift */; };
 		710D68D92C825438000912DE /* AuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D68D82C825438000912DE /* AuthenticationRequest.swift */; };
 		712A84412C7F722800AE50EB /* EntryCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84402C7F722800AE50EB /* EntryCore.swift */; };
 		712A84432C7F726600AE50EB /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712A84422C7F726600AE50EB /* EntryView.swift */; };
@@ -95,6 +96,7 @@
 		710ABBB02CC2EC9C007DEF4F /* ExpenseDetailCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailCore.swift; sourceTree = "<group>"; };
 		710ABBB22CC2ECDD007DEF4F /* ExpenseDetailCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailCalls.swift; sourceTree = "<group>"; };
 		710ABBB42CC2ED23007DEF4F /* ExpenseDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailService.swift; sourceTree = "<group>"; };
+		710ABBB62CC30011007DEF4F /* ExpenseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetail.swift; sourceTree = "<group>"; };
 		710D68D82C825438000912DE /* AuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequest.swift; sourceTree = "<group>"; };
 		712A84402C7F722800AE50EB /* EntryCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCore.swift; sourceTree = "<group>"; };
 		712A84422C7F726600AE50EB /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 		71B30D452C5F6D71005D3BE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				710ABBB62CC30011007DEF4F /* ExpenseDetail.swift */,
 				718E8CE42CBC1FF600D63FE8 /* Expense.swift */,
 				71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */,
 				71B30D522C5F7D0C005D3BE0 /* MessageResponse.swift */,
@@ -557,6 +560,7 @@
 				71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */,
 				71F9AF012CBB242E00561697 /* SearchAddedPeopleCore.swift in Sources */,
 				7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */,
+				710ABBB72CC30016007DEF4F /* ExpenseDetail.swift in Sources */,
 				715DAE8A2C831E75000941B6 /* RegisterRequest.swift in Sources */,
 				7138F4882C63CDB70067CE35 /* PaidExpenseView.swift in Sources */,
 				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,

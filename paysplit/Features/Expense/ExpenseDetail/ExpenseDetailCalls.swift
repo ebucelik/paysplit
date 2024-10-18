@@ -6,13 +6,21 @@
 //
 
 struct GetExpenseDetailCall: Call {
-    typealias Parser = [Expense]
+    typealias Parser = [ExpenseDetail]
 
-    var ressource: String = "api/v1/expense"
+    var ressource: String = "v1/expense/details"
     var httpMethod: HttpMethod = .GET
     var parameters: [String : Any]?
 
-    init(id: Int) {
-        parameters = ["id": id]
+    init(
+        id: Int,
+        expenseDescription: String,
+        timestamp: Double
+    ) {
+        parameters = [
+            "id": id,
+            "expenseDescription": expenseDescription,
+            "timestamp": timestamp
+        ]
     }
 }

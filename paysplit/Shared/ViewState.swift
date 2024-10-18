@@ -48,4 +48,12 @@ extension ViewState {
 
         return false
     }
+
+    var item: Item? {
+        if case let .loaded(item) = self {
+            return item
+        } else {
+            return nil
+        }
+    }
 }
