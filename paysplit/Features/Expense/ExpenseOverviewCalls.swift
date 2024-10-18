@@ -5,10 +5,10 @@
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 17.10.24.
 //
 
-struct GetExpenseCall: Call {
+struct GetGroupedExpenseCall: Call {
     typealias Parser = [Expense]
     
-    var ressource: String = "v1/expense"
+    var ressource: String = "v1/expense/grouped"
     var httpMethod: HttpMethod = .GET
     var parameters: [String : Any]?
 

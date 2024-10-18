@@ -25,8 +25,13 @@ struct OverviewView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 if let account = store.account {
-                    Text("Welcome \(account.firstname)")
-                        .font(.app(.subtitle(.bold)))
+                    Text("Welcome \(account.firstname)!")
+                        .font(.app(.title2(.bold)))
+                        .foregroundStyle(Color.app(.primary))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Text("Keep track of open and paid expenses.")
+                        .font(.app(.subtitle1(.regular)))
                         .foregroundStyle(Color.app(.primary))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 16)
@@ -47,10 +52,10 @@ struct OverviewView: View {
 
                 switch store.selection {
                 case .open:
-                    OpenPaymentView(store: store.scope(state: \.openPayment, action: \.openPayment))
+                    OpenExpenseView(store: store.scope(state: \.openExpense, action: \.openExpense))
 
                 case .paid:
-                    PaidPaymentView(store: store.scope(state: \.paidPayment, action: \.paidPayment))
+                    PaidExpenseView(store: store.scope(state: \.paidExpense, action: \.paidExpense))
                 }
 
                 Spacer()

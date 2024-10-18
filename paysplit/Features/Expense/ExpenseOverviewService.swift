@@ -8,12 +8,12 @@
 import ComposableArchitecture
 
 protocol ExpenseOverviewServiceProtocol {
-    func getExpenses(id: Int) async throws -> [Expense]
+    func getGroupedExpenses(id: Int) async throws -> [Expense]
 }
 
 class ExpenseOverviewService: APIClient, ExpenseOverviewServiceProtocol {
-    func getExpenses(id: Int) async throws -> [Expense] {
-        try await start(call: GetExpenseCall(id: id))
+    func getGroupedExpenses(id: Int) async throws -> [Expense] {
+        try await start(call: GetGroupedExpenseCall(id: id))
     }
 }
 

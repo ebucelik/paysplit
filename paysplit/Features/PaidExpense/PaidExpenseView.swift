@@ -1,5 +1,5 @@
 //
-//  PaidPaymentView.swift
+//  PaidExpenseView.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 07.08.24.
@@ -8,13 +8,13 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct PaidPaymentView: View {
+struct PaidExpenseView: View {
 
-    let store: StoreOf<PaidPaymentCore>
+    let store: StoreOf<PaidExpenseCore>
 
     var body: some View {
         VStack {
-            switch store.paidPayments {
+            switch store.paidExpenses {
             case .none, .loading:
                 VStack {
                     Spacer()
@@ -25,17 +25,17 @@ struct PaidPaymentView: View {
                     Spacer()
                 }
 
-            case .loaded(let paidPayments), .refreshing(let paidPayments):
-                List(paidPayments, id: \.id) { paidPayment in
+            case .loaded(let paidExpenses), .refreshing(let paidExpenses):
+                List(paidExpenses, id: \.id) { paidExpense in
                     HStack(spacing: 16) {
                         VStack {
                             Spacer()
 
-                            Text("\(paidPayment.firstname) \(paidPayment.lastname)")
+                            Text("\(paidExpense.firstname) \(paidExpense.lastname)")
                                 .font(.app(.subtitle1(.regular)))
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
-                            Text(paidPayment.username)
+                            Text(paidExpense.username)
                                 .font(.app(.body2(.regular)))
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -44,11 +44,11 @@ struct PaidPaymentView: View {
 
                         Spacer()
 
-                        Text("\(paidPayment.amount) \(paidPayment.currencyCode)")
+                        Text("\(paidExpense.amount) \(paidExpense.currencyCode)")
                             .font(.app(.subtitle1(.regular)))
                             .frame(alignment: .trailing)
 
-                        switch paidPayment.transactionStatus {
+                        switch paidExpense.transactionStatus {
                         case .pending:
                             Image(systemName: "info.circle.fill")
                                 .renderingMode(.template)
@@ -78,11 +78,11 @@ struct PaidPaymentView: View {
                 }
                 .listStyle(.plain)
                 .refreshable {
-                    await store.send(.loadPaidPayments).finish()
+                    await store.send(.loadPaidExpenses).finish()
                 }
 
             case .error:
-                Text("Error occurde")
+                Text("Error occurd")
             }
         }
         .onAppear {

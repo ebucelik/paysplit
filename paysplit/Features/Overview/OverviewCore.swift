@@ -19,8 +19,8 @@ struct OverviewCore {
         var selection: OverviewSelection = .open
 
         var addPeople: AddPeopleCore.State
-        var openPayment = OpenPaymentCore.State()
-        var paidPayment = PaidPaymentCore.State()
+        var openExpense = OpenExpenseCore.State()
+        var paidExpense = PaidExpenseCore.State()
 
         var account: Account?
 
@@ -37,8 +37,8 @@ struct OverviewCore {
     @CasePathable
     enum Action: BindableAction {
         case addPeople(AddPeopleCore.Action)
-        case openPayment(OpenPaymentCore.Action)
-        case paidPayment(PaidPaymentCore.Action)
+        case openExpense(OpenExpenseCore.Action)
+        case paidExpense(PaidExpenseCore.Action)
         case binding(BindingAction<State>)
     }
 
@@ -53,17 +53,17 @@ struct OverviewCore {
         }
 
         Scope(
-            state: \.openPayment,
-            action: \.openPayment
+            state: \.openExpense,
+            action: \.openExpense
         ) {
-            OpenPaymentCore()
+            OpenExpenseCore()
         }
 
         Scope(
-            state: \.paidPayment,
-            action: \.paidPayment
+            state: \.paidExpense,
+            action: \.paidExpense
         ) {
-            PaidPaymentCore()
+            PaidExpenseCore()
         }
 
         Reduce { state, action in
@@ -71,10 +71,10 @@ struct OverviewCore {
             case .addPeople:
                 return .none
 
-            case .openPayment:
+            case .openExpense:
                 return .none
 
-            case .paidPayment:
+            case .paidExpense:
                 return .none
 
             case .binding:

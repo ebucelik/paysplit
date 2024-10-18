@@ -1,5 +1,5 @@
 //
-//  OpenPaymentView.swift
+//  OpenExpenseView.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 07.08.24.
@@ -8,13 +8,13 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct OpenPaymentView: View {
+struct OpenExpenseView: View {
 
-    let store: StoreOf<OpenPaymentCore>
+    let store: StoreOf<OpenExpenseCore>
 
     var body: some View {
         VStack {
-            switch store.openPayments {
+            switch store.openExpenses {
             case .none, .loading:
                 VStack {
                     Spacer()
@@ -25,20 +25,20 @@ struct OpenPaymentView: View {
                     Spacer()
                 }
 
-            case .loaded(let openPayments), .refreshing(let openPayments):
-                if openPayments.isEmpty {
+            case .loaded(let openExpenses), .refreshing(let openExpenses):
+                if openExpenses.isEmpty {
                     InfoView(
                         state: .emptyPayments,
                         message: "No open payments available at the moment. All splitted bills were paid.",
                         refreshableAction: {
-                            await store.send(.loadOpenPayments).finish()
+                            await store.send(.loadOpenExpenses).finish()
                         }
                     )
                 } else {
-                    List(openPayments, id: \.id) { openPayment in
+                    List(openExpenses, id: \.id) { openExpense in
                         HStack(spacing: 16) {
                             Group {
-                                if openPayment.expectsPayment {
+                                if openExpense.expectsPayment {
                                     Image("givePayment")
                                         .renderingMode(.template)
                                         .resizable()
@@ -55,11 +55,11 @@ struct OpenPaymentView: View {
                                 VStack {
                                     Spacer()
 
-                                    Text("\(openPayment.firstname) \(openPayment.lastname)")
+                                    Text("\(openExpense.firstname) \(openExpense.lastname)")
                                         .font(.app(.subtitle1(.regular)))
                                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                                    Text(openPayment.username)
+                                    Text(openExpense.username)
                                         .font(.app(.body2(.regular)))
                                         .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -68,11 +68,11 @@ struct OpenPaymentView: View {
 
                                 Spacer()
 
-                                Text("\(openPayment.amount) \(openPayment.currencyCode)")
+                                Text("\(openExpense.amount) \(openExpense.currencyCode)")
                                     .font(.app(.subtitle1(.regular)))
                                     .frame(alignment: .trailing)
                             }
-                            .foregroundStyle(Color.app(openPayment.expectsPayment ? .error : .success))
+                            .foregroundStyle(Color.app(openExpense.expectsPayment ? .error : .success))
                         }
                         .padding(8)
                         .ignoresSafeArea()
@@ -81,7 +81,7 @@ struct OpenPaymentView: View {
                     }
                     .listStyle(.plain)
                     .refreshable {
-                        await store.send(.loadOpenPayments).finish()
+                        await store.send(.loadOpenExpenses).finish()
                     }
                 }
 

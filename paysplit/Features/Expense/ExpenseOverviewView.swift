@@ -16,13 +16,21 @@ struct ExpenseOverviewView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                switch store.expenses {
+                Text("Expense Overview")
+                    .font(.app(.title2(.bold)))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Text("Here you can find your added expenses.")
+                    .font(.app(.subtitle1(.regular)))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                switch store.groupedExpenses {
                 case .none:
                     InfoView(
                         state: .general,
                         message: "No expenses found.",
                         refreshableAction: {
-                            await store.send(.loadExpenses).finish()
+                            await store.send(.loadGroupedExpenses).finish()
                         }
                     )
 
@@ -36,17 +44,17 @@ struct ExpenseOverviewView: View {
                         Spacer()
                     }
 
-                case .loaded(let expenses), .refreshing(let expenses):
-                    if expenses.isEmpty {
+                case .loaded(let groupedExpenses), .refreshing(let groupedExpenses):
+                    if groupedExpenses.isEmpty {
                         InfoView(
                             state: .general,
                             message: "No expenses found. Add your first expense now.",
                             refreshableAction: {
-                                await store.send(.loadExpenses).finish()
+                                await store.send(.loadGroupedExpenses).finish()
                             }
                         )
                     } else {
-                        List(expenses, id: \.id) { expense in
+                        List(groupedExpenses, id: \.id) { groupedExpense in
                             NavigationLink {
                                 Text("s")
                             } label: {
@@ -54,8 +62,13 @@ struct ExpenseOverviewView: View {
                                     VStack {
                                         Spacer()
 
-                                        Text(expense.expenseDescription)
+                                        Text(groupedExpense.expenseDescription)
                                             .font(.app(.subtitle1(.regular)))
+                                            .foregroundStyle(Color.app(.primary))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                                        Text("\(groupedExpense.timestamp.toStringDate), \(groupedExpense.timestamp.toStringTime)")
+                                            .font(.app(.body2(.regular)))
                                             .foregroundStyle(Color.app(.primary))
                                             .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -64,8 +77,8 @@ struct ExpenseOverviewView: View {
 
                                     Spacer()
 
-                                    Text("\(expense.expenseAmount) €")
-                                        .font(.app(.subtitle1(.regular)))
+                                    Text("\(groupedExpense.expenseAmount) €")
+                                        .font(.app(.subtitle1(.bold)))
                                         .foregroundStyle(Color.app(.primary))
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                 }
@@ -77,7 +90,7 @@ struct ExpenseOverviewView: View {
                         }
                         .listStyle(.plain)
                         .refreshable {
-                            await store.send(.loadExpenses).finish()
+                            await store.send(.loadGroupedExpenses).finish()
                         }
                     }
 
@@ -86,7 +99,7 @@ struct ExpenseOverviewView: View {
                         state: .general,
                         message: error.asErrorResponse?.message ?? "An error occured.",
                         refreshableAction: {
-                            await store.send(.loadExpenses).finish()
+                            await store.send(.loadGroupedExpenses).finish()
                         }
                     )
                 }
@@ -99,8 +112,26 @@ struct ExpenseOverviewView: View {
             .onAppear {
                 store.send(.onViewAppear)
             }
-            .navigationTitle("Expense Overview")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Expenses")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Picker("Sorting", selection: $store.sorting) {
+                            ForEach(ExpenseOverviewCore.State.SortingKeys.allCases, id: \.self) { sortingKey in
+                                Text(sortingKey.rawValue)
+                                    .tag(sortingKey)
+                            }
+                        }
+                    } label: {
+                        Text(store.sorting.rawValue)
+                            .font(.app(.body1(.regular)))
+                    }
+                }
+            }
+            .onChange(of: store.sorting) { _, _ in
+                store.send(.sortingChanged)
+            }
             .fullScreenCover(isPresented: $store.isAddExpenseShown) {
                 AddExpenseView(store: store.scope(state: \.addExpense, action: \.addExpense))
             }
