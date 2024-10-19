@@ -85,6 +85,8 @@ struct AppCore {
                         state.accountState = AccountCore.State(accountState: .loaded(account))
                         state.entry = nil
 
+                        NotificationCenter.default.post(name: .accountIsSet, object: nil)
+
                         return .none
                     } catch {
                         return .send(.showEntry)

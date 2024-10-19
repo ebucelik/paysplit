@@ -6,13 +6,31 @@
 //
 
 struct GetOpenExpenseCall: Call {
-    typealias Parser = [OpenExpense]
+    typealias Parser = [OpenPaidExpense]
 
     var ressource: String = "v1/expense/open"
     var httpMethod: HttpMethod = .GET
     var parameters: [String : Any]?
 
-    init(debtorId: Int) {
-        parameters = ["id": debtorId]
+    init(id: Int) {
+        parameters = ["id": id]
+    }
+}
+
+struct UpdateOpenExpenseCall: Call {
+    typealias Parser = Expense
+
+    var ressource: String = "v1/expense"
+    var httpMethod: HttpMethod = .PUT
+    var parameters: [String : Any]?
+
+    init(
+        id: Int,
+        paid: Bool
+    ) {
+        parameters = [
+            "id": id,
+            "paid": paid
+        ]
     }
 }

@@ -88,7 +88,6 @@ struct OpenExpenseView: View {
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundStyle(Color.app(.error))
-
                             }
 
                             VStack {
@@ -123,6 +122,10 @@ struct OpenExpenseView: View {
                         .ignoresSafeArea()
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            store.send(.presentUpdateExpenseSheet(openExpense))
+                        }
                     }
                     .scrollIndicators(.hidden)
                     .listStyle(.plain)
@@ -132,7 +135,13 @@ struct OpenExpenseView: View {
                 }
 
             case .error:
-                Text("Error occurd")
+                InfoView(
+                    state: .emptyPayments,
+                    message: "An error occured.",
+                    refreshableAction: {
+                        await store.send(.loadOpenExpenses).finish()
+                    }
+                )
             }
         }
         .onChange(of: store.filter) { _, _ in
@@ -145,5 +154,52 @@ struct OpenExpenseView: View {
             store.send(.onViewAppear)
         }
         .padding(.horizontal, 4)
+        .onReceive(NotificationCenter.default.publisher(for: .accountIsSet)) { @MainActor _ in
+            store.send(.loadOpenExpenses)
+        }
+        .sheet(item: $store.updateOpenExpense) { updateOpenExpense in
+            VStack {
+                Text(updateOpenExpense.expenseDescription)
+                    .font(.app(.title2(.bold)))
+                    .frame(maxWidth: .infinity, alignment: .center)
+
+                Spacer()
+
+                Image("givePayment")
+                    .renderingMode(.template)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .foregroundStyle(Color.app(.error))
+
+                Text(updateOpenExpense.creatorName)
+                    .font(.app(.subtitle(.regular)))
+                    .frame(alignment: .leading)
+
+                Spacer()
+
+                Text(updateOpenExpense.creatorUsername)
+                    .font(.app(.body1(.regular)))
+                    .frame(alignment: .leading)
+
+                Text(updateOpenExpense.expenseDescription)
+                    .font(.app(.body1(.regular)))
+                    .frame(alignment: .leading)
+
+                Text("\(updateOpenExpense.timestamp.toStringDate), \(updateOpenExpense.timestamp.toStringTime)")
+                    .font(.app(.body1(.regular)))
+                    .frame(alignment: .leading)
+
+                Spacer()
+
+                PaysplitButton(
+                    title: "Mark \(updateOpenExpense.expenseAmount) € as paid",
+                    isLoading: store.updatedExpense.isLoading
+                ) {
+                    store.send(.updateOpenExpense(updateOpenExpense, true))
+                }
+            }
+            .padding(16)
+            .presentationDetents([.medium])
+        }
     }
 }

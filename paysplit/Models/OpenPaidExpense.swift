@@ -1,5 +1,5 @@
 //
-//  OpenExpense.swift
+//  OpenPaidExpense.swift
 //  paysplit
 //
 //  Created by Ing. Ebu Bekir Celik, BSc, MSc on 19.10.24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OpenExpense: Codable, Hashable {
+struct OpenPaidExpense: Codable, Hashable, Identifiable {
     let id: Int
     let creatorId: Int
     let debtorId: Int

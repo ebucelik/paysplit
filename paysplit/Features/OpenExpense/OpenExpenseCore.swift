@@ -13,8 +13,10 @@ struct OpenExpenseCore {
     @ObservableState
     struct State: Equatable {
         var account: Account?
-        var openExpenses: ViewState<[OpenExpense]> = .none
-        var allOpenExpenses: [OpenExpense] = []
+        var openExpenses: ViewState<[OpenPaidExpense]> = .none
+        var allOpenExpenses: [OpenPaidExpense] = []
+        var updateOpenExpense: OpenPaidExpense?
+        var updatedExpense: ViewState<Expense> = .none
 
         enum SortingKeys: String, CaseIterable, Hashable {
             case newest = "Newest"
@@ -37,8 +39,11 @@ struct OpenExpenseCore {
     enum Action: BindableAction {
         case onViewAppear
         case loadOpenExpenses
-        case setOpenExpenses(ViewState<[OpenExpense]>)
-        case setAllOpenExpenses([OpenExpense])
+        case setOpenExpenses(ViewState<[OpenPaidExpense]>)
+        case setAllOpenExpenses([OpenPaidExpense])
+        case presentUpdateExpenseSheet(OpenPaidExpense)
+        case updateOpenExpense(OpenPaidExpense, Bool)
+        case setUpdatedExpense(ViewState<Expense>)
         case sortingChanged
         case filterChanged
         case binding(BindingAction<State>)
@@ -64,7 +69,7 @@ struct OpenExpenseCore {
                         await send(.setOpenExpenses(.loading))
                     }
 
-                    let openExpenses = try await self.service.openExpenses(debtorId: id)
+                    let openExpenses = try await self.service.openExpenses(id: id)
 
                     await send(.setAllOpenExpenses(openExpenses))
                     await send(.setOpenExpenses(.loaded(openExpenses.sorted { $0.timestamp > $1.timestamp })))
@@ -84,10 +89,39 @@ struct OpenExpenseCore {
 
                 return .none
 
+            case let .presentUpdateExpenseSheet(updateOpenExpense):
+                if updateOpenExpense.creatorId != state.account?.id {
+                    state.updateOpenExpense = updateOpenExpense
+                }
+
+                return .none
+
+            case let .updateOpenExpense(openExpense, paid):
+                return .run { [id = openExpense.id] send in
+                    await send(.setUpdatedExpense(.loading))
+
+                    let updatedExpense = try await self.service.updateExpense(id: id, paid: paid)
+
+                    await send(.setUpdatedExpense(.loaded(updatedExpense)))
+                } catch: { error, send in
+                    await send(.setUpdatedExpense(.error(error as? MessageResponse ?? error)))
+                }
+
+            case let .setUpdatedExpense(updatedExpense):
+                state.updatedExpense = updatedExpense
+
+                if case .loaded = updatedExpense {
+                    state.updateOpenExpense = nil
+                    
+                    return .send(.loadOpenExpenses)
+                }
+
+                return .none
+
             case .sortingChanged:
                 guard case let .loaded(openExpenses) = state.openExpenses else { return .none }
 
-                let sortedOpenExpenses: [OpenExpense]
+                let sortedOpenExpenses: [OpenPaidExpense]
 
                 switch state.sorting {
                 case .newest:
@@ -116,7 +150,7 @@ struct OpenExpenseCore {
 
             case .filterChanged:
                 let openExpenses = state.allOpenExpenses
-                let filteredOpenExpenses: [OpenExpense]
+                let filteredOpenExpenses: [OpenPaidExpense]
 
                 switch state.filter {
                 case .all:

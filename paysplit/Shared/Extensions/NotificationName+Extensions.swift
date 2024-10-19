@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static var logout: Notification.Name = Notification.Name("logout")
+    static var accountIsSet: Notification.Name = Notification.Name("accountIsSet")
 }
