@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct PaidExpenseCore {
     @ObservableState
     struct State: Equatable {
+        var account: Account?
         var paidExpenses: ViewState<[PaidPaymentAccount]> = .none
     }
 

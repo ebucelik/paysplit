@@ -25,6 +25,7 @@ struct paysplitApp: App {
                         $0.addExpenseService = AddExpenseServiceKey.liveValue
                         $0.expenseOverviewService = ExpenseOverviewServiceKey.liveValue
                         $0.expenseDetailService = ExpenseDetailServiceKey.liveValue
+                        $0.openExpenseService = OpenExpenseServiceKey.liveValue
                     }
                 )
             )

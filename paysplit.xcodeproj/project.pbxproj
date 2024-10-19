@@ -41,7 +41,6 @@
 		715DAE882C831DED000941B6 /* RegisterCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE872C831DED000941B6 /* RegisterCall.swift */; };
 		715DAE8A2C831E75000941B6 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE892C831E75000941B6 /* RegisterRequest.swift */; };
 		716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* AddPeopleCore.swift */; };
-		716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7762C65593800A80817 /* OpenPaymentAccount.swift */; };
 		716DE7792C655EE100A80817 /* PaidPaymentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */; };
 		71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D3C2C6E0D4000577E22 /* InfoView.swift */; };
 		71744D402C6E1E0000577E22 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 71744D3F2C6E1E0000577E22 /* Lottie */; };
@@ -65,6 +64,9 @@
 		718E8CE32CBBF9DE00D63FE8 /* SplitAmountCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE22CBBF9DA00D63FE8 /* SplitAmountCore.swift */; };
 		718E8CE52CBC1FFA00D63FE8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE42CBC1FF600D63FE8 /* Expense.swift */; };
 		718E8CE92CBC474800D63FE8 /* AddExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E8CE82CBC474100D63FE8 /* AddExpenseService.swift */; };
+		719789792CC3A40E005B0C59 /* OpenExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719789782CC3A40B005B0C59 /* OpenExpense.swift */; };
+		7197897B2CC3A7C4005B0C59 /* OpenExpenseCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197897A2CC3A7BD005B0C59 /* OpenExpenseCalls.swift */; };
+		7197897D2CC3A806005B0C59 /* OpenExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197897C2CC3A802005B0C59 /* OpenExpenseService.swift */; };
 		7197B6782C64243F00272918 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7197B6772C64243F00272918 /* Account.swift */; };
 		71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 71B30D3C2C5F6BA5005D3BE0 /* ComposableArchitecture */; };
 		71B30D422C5F6BC8005D3BE0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B30D412C5F6BC8005D3BE0 /* ViewState.swift */; };
@@ -126,7 +128,6 @@
 		715DAE872C831DED000941B6 /* RegisterCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCall.swift; sourceTree = "<group>"; };
 		715DAE892C831E75000941B6 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		716DE7742C651ECF00A80817 /* AddPeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleCore.swift; sourceTree = "<group>"; };
-		716DE7762C65593800A80817 /* OpenPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPaymentAccount.swift; sourceTree = "<group>"; };
 		716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidPaymentAccount.swift; sourceTree = "<group>"; };
 		71744D3C2C6E0D4000577E22 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		71744D442C6E22E700577E22 /* PaysplitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaysplitButton.swift; sourceTree = "<group>"; };
@@ -149,6 +150,9 @@
 		718E8CE22CBBF9DA00D63FE8 /* SplitAmountCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAmountCore.swift; sourceTree = "<group>"; };
 		718E8CE42CBC1FF600D63FE8 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		718E8CE82CBC474100D63FE8 /* AddExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseService.swift; sourceTree = "<group>"; };
+		719789782CC3A40B005B0C59 /* OpenExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenExpense.swift; sourceTree = "<group>"; };
+		7197897A2CC3A7BD005B0C59 /* OpenExpenseCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenExpenseCalls.swift; sourceTree = "<group>"; };
+		7197897C2CC3A802005B0C59 /* OpenExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenExpenseService.swift; sourceTree = "<group>"; };
 		7197B6772C64243F00272918 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		71B30D412C5F6BC8005D3BE0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSheetResponse.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 		7138F4832C63CD810067CE35 /* OpenExpense */ = {
 			isa = PBXGroup;
 			children = (
+				7197897C2CC3A802005B0C59 /* OpenExpenseService.swift */,
+				7197897A2CC3A7BD005B0C59 /* OpenExpenseCalls.swift */,
 				7138F4842C63CD920067CE35 /* OpenExpenseView.swift */,
 				713419F22C64C314000648A2 /* OpenExpenseCore.swift */,
 			);
@@ -425,12 +431,12 @@
 		71B30D452C5F6D71005D3BE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				719789782CC3A40B005B0C59 /* OpenExpense.swift */,
 				710ABBB62CC30011007DEF4F /* ExpenseDetail.swift */,
 				718E8CE42CBC1FF600D63FE8 /* Expense.swift */,
 				71B30D462C5F6D82005D3BE0 /* PaymentSheetResponse.swift */,
 				71B30D522C5F7D0C005D3BE0 /* MessageResponse.swift */,
 				7197B6772C64243F00272918 /* Account.swift */,
-				716DE7762C65593800A80817 /* OpenPaymentAccount.swift */,
 				716DE7782C655EE100A80817 /* PaidPaymentAccount.swift */,
 				71744D462C72311B00577E22 /* AuthorizationToken.swift */,
 				71744D4A2C72452800577E22 /* RefreshAccessTokenRequest.swift */,
@@ -562,6 +568,7 @@
 				7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */,
 				710ABBB72CC30016007DEF4F /* ExpenseDetail.swift in Sources */,
 				715DAE8A2C831E75000941B6 /* RegisterRequest.swift in Sources */,
+				7197897B2CC3A7C4005B0C59 /* OpenExpenseCalls.swift in Sources */,
 				7138F4882C63CDB70067CE35 /* PaidExpenseView.swift in Sources */,
 				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,
 				718E8CE32CBBF9DE00D63FE8 /* SplitAmountCore.swift in Sources */,
@@ -574,6 +581,7 @@
 				71F9AEFF2CBB240F00561697 /* SearchAddedPeopleView.swift in Sources */,
 				7138F4852C63CD920067CE35 /* OpenExpenseView.swift in Sources */,
 				71799EB52CC15D7C0062DEDB /* ExpenseOverviewCore.swift in Sources */,
+				7197897D2CC3A806005B0C59 /* OpenExpenseService.swift in Sources */,
 				716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */,
 				71F169E32C94CD7400FA2C61 /* AddPeopleCalls.swift in Sources */,
 				71744D472C72311B00577E22 /* AuthorizationToken.swift in Sources */,
@@ -597,7 +605,6 @@
 				712A84452C7F72C200AE50EB /* PaysplitTextField.swift in Sources */,
 				71F397CE2C8E02030073A5E8 /* LogoutCall.swift in Sources */,
 				710ABBB32CC2ECE1007DEF4F /* ExpenseDetailCalls.swift in Sources */,
-				716DE7772C65593800A80817 /* OpenPaymentAccount.swift in Sources */,
 				71B30D602C5FBECE005D3BE0 /* AppView.swift in Sources */,
 				718E8CE12CBBF9D700D63FE8 /* SplitAmountView.swift in Sources */,
 				71F397D02C8E051F0073A5E8 /* NotificationName+Extensions.swift in Sources */,
@@ -620,6 +627,7 @@
 				71B30D622C5FC1FE005D3BE0 /* AppService.swift in Sources */,
 				71744D4B2C72452800577E22 /* RefreshAccessTokenRequest.swift in Sources */,
 				71B30D492C5F6DC0005D3BE0 /* APIClient.swift in Sources */,
+				719789792CC3A40E005B0C59 /* OpenExpense.swift in Sources */,
 				71B30D6A2C5FC9EB005D3BE0 /* LaunchScreenView.swift in Sources */,
 				71799EB32CC15D5C0062DEDB /* ExpenseOverviewView.swift in Sources */,
 				712A84412C7F722800AE50EB /* EntryCore.swift in Sources */,

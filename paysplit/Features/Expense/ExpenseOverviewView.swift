@@ -83,6 +83,7 @@ struct ExpenseOverviewView: View {
                             .ignoresSafeArea()
                             .listRowInsets(EdgeInsets())
                             .listRowSeparator(.hidden)
+                            .contentShape(Rectangle())
                             .onTapGesture {
                                 store.send(.showExpenseDetail(groupedExpense))
                             }

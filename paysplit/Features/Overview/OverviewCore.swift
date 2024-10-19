@@ -19,8 +19,8 @@ struct OverviewCore {
         var selection: OverviewSelection = .open
 
         var addPeople: AddPeopleCore.State
-        var openExpense = OpenExpenseCore.State()
-        var paidExpense = PaidExpenseCore.State()
+        var openExpense: OpenExpenseCore.State
+        var paidExpense: PaidExpenseCore.State
 
         var account: Account?
 
@@ -30,6 +30,8 @@ struct OverviewCore {
         ) {
             self.selection = selection
             self.addPeople = AddPeopleCore.State(account: account)
+            self.openExpense = OpenExpenseCore.State(account: account)
+            self.paidExpense = PaidExpenseCore.State(account: account)
             self.account = account
         }
     }

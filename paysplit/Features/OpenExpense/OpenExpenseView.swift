@@ -10,12 +10,22 @@ import ComposableArchitecture
 
 struct OpenExpenseView: View {
 
-    let store: StoreOf<OpenExpenseCore>
+    @Bindable
+    var store: StoreOf<OpenExpenseCore>
 
     var body: some View {
         VStack {
             switch store.openExpenses {
-            case .none, .loading:
+            case .none:
+                InfoView(
+                    state: .emptyPayments,
+                    message: "No open expenses available at the moment. All splitted bills were paid.",
+                    refreshableAction: {
+                        await store.send(.loadOpenExpenses).finish()
+                    }
+                )
+
+            case .loading:
                 VStack {
                     Spacer()
 
@@ -26,10 +36,39 @@ struct OpenExpenseView: View {
                 }
 
             case .loaded(let openExpenses), .refreshing(let openExpenses):
+                HStack {
+                    Menu {
+                        Picker("Filter", selection: $store.filter) {
+                            ForEach(OpenExpenseCore.State.FilterKeys.allCases, id: \.self) { filterKey in
+                                Text(filterKey.rawValue)
+                                    .tag(filterKey)
+                            }
+                        }
+                    } label: {
+                        Text(store.filter.rawValue)
+                            .font(.app(.body1(.regular)))
+                    }
+
+                    Spacer()
+
+                    Menu {
+                        Picker("Sorting", selection: $store.sorting) {
+                            ForEach(OpenExpenseCore.State.SortingKeys.allCases, id: \.self) { sortingKey in
+                                Text(sortingKey.rawValue)
+                                    .tag(sortingKey)
+                            }
+                        }
+                    } label: {
+                        Text(store.sorting.rawValue)
+                            .font(.app(.body1(.regular)))
+                    }
+                }
+                .padding(.top, 16)
+
                 if openExpenses.isEmpty {
                     InfoView(
                         state: .emptyPayments,
-                        message: "No open payments available at the moment. All splitted bills were paid.",
+                        message: "No open expenses available at the moment. All splitted bills were paid.",
                         refreshableAction: {
                             await store.send(.loadOpenExpenses).finish()
                         }
@@ -37,48 +76,55 @@ struct OpenExpenseView: View {
                 } else {
                     List(openExpenses, id: \.id) { openExpense in
                         HStack(spacing: 16) {
-                            Group {
-                                if openExpense.expectsPayment {
-                                    Image("givePayment")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
-                                        .foregroundStyle(Color.app(.error))
-                                } else {
-                                    Image("getPayment")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
-                                        .foregroundStyle(Color.app(.success))
-                                }
+                            if openExpense.creatorId == store.account?.id {
+                                Image("getPayment")
+                                    .renderingMode(.template)
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundStyle(Color.app(.success))
+                            } else {
+                                Image("givePayment")
+                                    .renderingMode(.template)
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundStyle(Color.app(.error))
 
-                                VStack {
-                                    Spacer()
+                            }
 
-                                    Text("\(openExpense.firstname) \(openExpense.lastname)")
-                                        .font(.app(.subtitle1(.regular)))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                                    Text(openExpense.username)
-                                        .font(.app(.body2(.regular)))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                                    Spacer()
-                                }
-
+                            VStack {
                                 Spacer()
 
-                                Text("\(openExpense.amount) \(openExpense.currencyCode)")
+                                Text(openExpense.creatorName)
                                     .font(.app(.subtitle1(.regular)))
-                                    .frame(alignment: .trailing)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Text(openExpense.creatorUsername)
+                                    .font(.app(.body2(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Text(openExpense.expenseDescription)
+                                    .font(.app(.body2(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Text("\(openExpense.timestamp.toStringDate), \(openExpense.timestamp.toStringTime)")
+                                    .font(.app(.body2(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Spacer()
                             }
-                            .foregroundStyle(Color.app(openExpense.expectsPayment ? .error : .success))
+
+                            Spacer()
+
+                            Text("\(openExpense.expenseAmount) €")
+                                .font(.app(.subtitle1(.bold)))
+                                .frame(alignment: .trailing)
                         }
                         .padding(8)
                         .ignoresSafeArea()
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
                     }
+                    .scrollIndicators(.hidden)
                     .listStyle(.plain)
                     .refreshable {
                         await store.send(.loadOpenExpenses).finish()
@@ -86,8 +132,14 @@ struct OpenExpenseView: View {
                 }
 
             case .error:
-                Text("Error occurde")
+                Text("Error occurd")
             }
+        }
+        .onChange(of: store.filter) { _, _ in
+            store.send(.filterChanged)
+        }
+        .onChange(of: store.sorting) { _, _ in
+            store.send(.sortingChanged)
         }
         .onAppear {
             store.send(.onViewAppear)
