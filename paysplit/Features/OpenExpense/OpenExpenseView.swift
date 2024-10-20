@@ -114,9 +114,10 @@ struct OpenExpenseView: View {
 
                             Spacer()
 
-                            Text("\(openExpense.expenseAmount) €")
+                            Text("\(openExpense.creatorId == store.account?.id ? "+" : "-") \(openExpense.expenseAmount) €")
                                 .font(.app(.subtitle1(.bold)))
                                 .frame(alignment: .trailing)
+                                .foregroundStyle(Color.app(openExpense.creatorId == store.account?.id ? .success : .error))
                         }
                         .padding(8)
                         .ignoresSafeArea()

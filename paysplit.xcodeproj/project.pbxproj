@@ -40,6 +40,7 @@
 		715DAE862C831CEB000941B6 /* LoginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE852C831CEB000941B6 /* LoginCall.swift */; };
 		715DAE882C831DED000941B6 /* RegisterCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE872C831DED000941B6 /* RegisterCall.swift */; };
 		715DAE8A2C831E75000941B6 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE892C831E75000941B6 /* RegisterRequest.swift */; };
+		715EB3C22CC514DB00DBB075 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EB3C12CC514D600DBB075 /* String+Extensions.swift */; };
 		716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* AddPeopleCore.swift */; };
 		71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D3C2C6E0D4000577E22 /* InfoView.swift */; };
 		71744D402C6E1E0000577E22 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 71744D3F2C6E1E0000577E22 /* Lottie */; };
@@ -128,6 +129,7 @@
 		715DAE852C831CEB000941B6 /* LoginCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCall.swift; sourceTree = "<group>"; };
 		715DAE872C831DED000941B6 /* RegisterCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCall.swift; sourceTree = "<group>"; };
 		715DAE892C831E75000941B6 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		715EB3C12CC514D600DBB075 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		716DE7742C651ECF00A80817 /* AddPeopleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleCore.swift; sourceTree = "<group>"; };
 		71744D3C2C6E0D4000577E22 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		71744D442C6E22E700577E22 /* PaysplitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaysplitButton.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		715DAE8B2C83271F000941B6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				715EB3C12CC514D600DBB075 /* String+Extensions.swift */,
 				710ABBAB2CC2D53E007DEF4F /* Double+Extensions.swift */,
 				71F397CF2C8E051F0073A5E8 /* NotificationName+Extensions.swift */,
 			);
@@ -574,6 +577,7 @@
 				7197897B2CC3A7C4005B0C59 /* OpenExpenseCalls.swift in Sources */,
 				7138F4882C63CDB70067CE35 /* PaidExpenseView.swift in Sources */,
 				71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */,
+				715EB3C22CC514DB00DBB075 /* String+Extensions.swift in Sources */,
 				718E8CE32CBBF9DE00D63FE8 /* SplitAmountCore.swift in Sources */,
 				71B30D512C5F71B5005D3BE0 /* APIError.swift in Sources */,
 				71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */,

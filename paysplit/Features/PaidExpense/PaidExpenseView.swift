@@ -115,9 +115,10 @@ struct PaidExpenseView: View {
 
                             Spacer()
 
-                            Text("\(paidExpense.expenseAmount) €")
+                            Text("\(paidExpense.creatorId == store.account?.id ? "+" : "-") \(paidExpense.expenseAmount) €")
                                 .font(.app(.subtitle1(.bold)))
                                 .frame(alignment: .trailing)
+                                .foregroundStyle(Color.app(paidExpense.creatorId == store.account?.id ? .success : .error))
 
                             Image(systemName: "checkmark.circle.fill")
                                 .renderingMode(.template)
@@ -129,6 +130,10 @@ struct PaidExpenseView: View {
                         .ignoresSafeArea()
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            store.send(.presentUpdateExpenseSheet(paidExpense))
+                        }
                     }
                     .scrollIndicators(.hidden)
                     .listStyle(.plain)
@@ -157,5 +162,49 @@ struct PaidExpenseView: View {
             store.send(.onViewAppear)
         }
         .padding(.horizontal, 4)
+        .sheet(item: $store.updatePaidExpense) { updatePaidExpense in
+            VStack {
+                Text(updatePaidExpense.expenseDescription)
+                    .font(.app(.title2(.bold)))
+                    .frame(maxWidth: .infinity, alignment: .center)
+
+                Spacer()
+
+                Image("getPayment")
+                    .renderingMode(.template)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .foregroundStyle(Color.app(.success))
+
+                Text(updatePaidExpense.creatorName)
+                    .font(.app(.subtitle(.regular)))
+                    .frame(alignment: .leading)
+
+                Spacer()
+
+                Text(updatePaidExpense.creatorUsername)
+                    .font(.app(.body1(.regular)))
+                    .frame(alignment: .leading)
+
+                Text(updatePaidExpense.expenseDescription)
+                    .font(.app(.body1(.regular)))
+                    .frame(alignment: .leading)
+
+                Text("\(updatePaidExpense.timestamp.toStringDate), \(updatePaidExpense.timestamp.toStringTime)")
+                    .font(.app(.body1(.regular)))
+                    .frame(alignment: .leading)
+
+                Spacer()
+
+                PaysplitButton(
+                    title: "Mark \(updatePaidExpense.expenseAmount) € as open",
+                    isLoading: store.updatedExpense.isLoading
+                ) {
+                    store.send(.updatePaidExpense(updatePaidExpense, false))
+                }
+            }
+            .padding(16)
+            .presentationDetents([.medium])
+        }
     }
 }

@@ -9,11 +9,16 @@ import ComposableArchitecture
 
 protocol PaidExpenseServiceProtocol {
     func paidExpenses(id: Int) async throws -> [OpenPaidExpense]
+    func updateExpense(id: Int, paid: Bool) async throws -> Expense
 }
 
 class PaidExpenseService: APIClient, PaidExpenseServiceProtocol {
     func paidExpenses(id: Int) async throws -> [OpenPaidExpense] {
         try await start(call: GetPaidExpenseCall(id: id))
+    }
+
+    func updateExpense(id: Int, paid: Bool) async throws -> Expense {
+        try await start(call: UpdateOpenExpenseCall(id: id, paid: paid))
     }
 }
 

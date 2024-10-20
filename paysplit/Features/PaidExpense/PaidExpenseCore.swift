@@ -15,6 +15,8 @@ struct PaidExpenseCore {
         var account: Account?
         var paidExpenses: ViewState<[OpenPaidExpense]> = .none
         var allPaidExpenses: [OpenPaidExpense] = []
+        var updatePaidExpense: OpenPaidExpense?
+        var updatedExpense: ViewState<Expense> = .none
 
         enum SortingKeys: String, CaseIterable, Hashable {
             case newest = "Newest"
@@ -39,6 +41,9 @@ struct PaidExpenseCore {
         case loadPaidExpenses
         case setPaidExpenses(ViewState<[OpenPaidExpense]>)
         case setAllPaidExpenses([OpenPaidExpense])
+        case presentUpdateExpenseSheet(OpenPaidExpense)
+        case updatePaidExpense(OpenPaidExpense, Bool)
+        case setUpdatedExpense(ViewState<Expense>)
         case sortingChanged
         case filterChanged
         case binding(BindingAction<State>)
@@ -81,6 +86,35 @@ struct PaidExpenseCore {
                 state.allPaidExpenses = paidExpenses
                 state.filter = .all
                 state.sorting = .newest
+
+                return .none
+
+            case let .presentUpdateExpenseSheet(updatePaidExpense):
+                if updatePaidExpense.creatorId == state.account?.id {
+                    state.updatePaidExpense = updatePaidExpense
+                }
+
+                return .none
+
+            case let .updatePaidExpense(openExpense, paid):
+                return .run { [id = openExpense.id] send in
+                    await send(.setUpdatedExpense(.loading))
+
+                    let updatedExpense = try await self.service.updateExpense(id: id, paid: paid)
+
+                    await send(.setUpdatedExpense(.loaded(updatedExpense)))
+                } catch: { error, send in
+                    await send(.setUpdatedExpense(.error(error as? MessageResponse ?? error)))
+                }
+
+            case let .setUpdatedExpense(updatedExpense):
+                state.updatedExpense = updatedExpense
+
+                if case .loaded = updatedExpense {
+                    state.updatePaidExpense = nil
+
+                    return .send(.loadPaidExpenses)
+                }
 
                 return .none
 

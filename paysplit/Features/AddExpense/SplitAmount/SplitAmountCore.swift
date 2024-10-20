@@ -98,7 +98,7 @@ struct SplitAmountCore {
                         creatorId: $0.creatorId,
                         debtorId: $0.debtorId,
                         expenseDescription: $0.expenseDescription,
-                        expenseAmount: $0.expenseAmount,
+                        expenseAmount: $0.expenseAmount.toTwoDigit(),
                         paid: $0.paid,
                         timestamp: timestamp
                     )

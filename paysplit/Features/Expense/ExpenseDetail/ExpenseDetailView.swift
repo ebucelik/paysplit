@@ -78,7 +78,7 @@ struct ExpenseDetailView: View {
 
                             Spacer()
 
-                            Text("\(expenseDetail.expenseAmount) €")
+                            Text("\(expenseDetail.expenseAmount.toTwoDigit()) €")
                                 .font(.app(.subtitle1(.bold)))
                                 .foregroundStyle(Color.app(.primary))
                                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -120,7 +120,7 @@ struct ExpenseDetailView: View {
                             .font(.app(.subtitle1(.regular)))
                             .frame(alignment: .trailing)
 
-                        Text("\(store.expense.expenseAmount) €")
+                        Text("\(store.expense.expenseAmount.toTwoDigit()) €")
                             .font(.app(.subtitle1(.bold)))
                             .frame(alignment: .leading)
                     }
