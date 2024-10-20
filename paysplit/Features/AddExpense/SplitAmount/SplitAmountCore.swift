@@ -40,6 +40,7 @@ struct SplitAmountCore {
             expenseAmount: String,
             addedPeople: [Account]
         ) {
+            self.account = account
             self.expenseDescription = expenseDescription
             self.expenseAmount = expenseAmount
 
@@ -104,10 +105,19 @@ struct SplitAmountCore {
                     )
                 }
 
-                return .run { [expenses = state.expenses] send in
+                return .run { [account = state.account, expenses = state.expenses] send in
                     await send(.setCreatedExpenses(.loading))
 
                     let expenses = try await self.service.addExpenses(expenses: expenses)
+
+                    expenses.filter{ $0.debtorId != account?.id }.forEach { expense in
+                        OneSignalClient.shared.sendPush(
+                            with: " asks you to pay \(expense.expenseAmount) € for \(expense.expenseDescription)",
+                            username: "\(account?.username ?? "")",
+                            title: "New Expense",
+                            id: expense.debtorId
+                        )
+                    }
 
                     await send(.setCreatedExpenses(.loaded(expenses)))
                 } catch: { error, send in

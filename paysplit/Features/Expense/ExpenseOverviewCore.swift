@@ -143,6 +143,8 @@ struct ExpenseOverviewCore {
             case let .addExpense(action):
                 switch action {
                 case .delegate(.didCreatedExpense):
+                    state.addExpense = AddExpenseCore.State(account: state.account)
+
                     return .send(.loadGroupedExpenses)
 
                 case .delegate(.dismiss):

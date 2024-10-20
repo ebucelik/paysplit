@@ -142,6 +142,7 @@ struct OpenExpenseView: View {
                     }
                     .scrollIndicators(.hidden)
                     .listStyle(.plain)
+                    .id(UUID())
                     .refreshable {
                         await store.send(.loadOpenExpenses).finish()
                     }

@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Foundation
+import OneSignalFramework
 
 @Reducer
 struct AppCore {
@@ -84,6 +85,7 @@ struct AppCore {
                         state.expenseOverview = ExpenseOverviewCore.State(account: account)
                         state.accountState = AccountCore.State(accountState: .loaded(account))
                         state.entry = nil
+                        OneSignal.login("\(account.id)")
 
                         NotificationCenter.default.post(name: .accountIsSet, object: nil)
 
@@ -106,6 +108,7 @@ struct AppCore {
                 UserDefaults.standard.set(nil, forKey: "account")
                 UserDefaults.standard.set(nil, forKey: "accessToken")
                 UserDefaults.standard.set(nil, forKey: "refreshToken")
+                OneSignal.logout()
 
                 return .send(.showEntry)
 

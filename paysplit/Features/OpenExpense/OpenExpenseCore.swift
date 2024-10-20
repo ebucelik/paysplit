@@ -97,10 +97,17 @@ struct OpenExpenseCore {
                 return .none
 
             case let .updateOpenExpense(openExpense, paid):
-                return .run { [id = openExpense.id] send in
+                return .run { [account = state.account, id = openExpense.id] send in
                     await send(.setUpdatedExpense(.loading))
 
                     let updatedExpense = try await self.service.updateExpense(id: id, paid: paid)
+
+                    OneSignalClient.shared.sendPush(
+                        with: " marked \(updatedExpense.expenseAmount) € for \(updatedExpense.expenseDescription) as paid",
+                        username: "\(account?.username ?? "")",
+                        title: "Paid Expense",
+                        id: updatedExpense.creatorId
+                    )
 
                     await send(.setUpdatedExpense(.loaded(updatedExpense)))
                 } catch: { error, send in
