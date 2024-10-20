@@ -54,6 +54,14 @@ struct ExpenseDetailView: View {
                 } else {
                     List(expenseDetails, id: \.id) { expenseDetail in
                         HStack(spacing: 16) {
+                            PaysplitImage(
+                                picture: expenseDetail.debtorPictureLink,
+                                frame: CGSize(
+                                    width: 30,
+                                    height: 30
+                                )
+                            )
+
                             VStack {
                                 Spacer()
 

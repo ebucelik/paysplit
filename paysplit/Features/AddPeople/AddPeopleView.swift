@@ -45,20 +45,13 @@ struct AddPeopleView: View {
 
                             List(people, id: \.id) { person in
                                 HStack(spacing: 16) {
-                                    if !person.picturelink.isEmpty {
-                                        // TODO: load image from server
-                                        Image(systemName: "person.circle.fill")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundStyle(.gray)
-                                    } else {
-                                        Image(systemName: "person.circle.fill")
-                                            .renderingMode(.template)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundStyle(.gray)
-                                    }
+                                    PaysplitImage(
+                                        picture: person.picturelink,
+                                        frame: CGSize(
+                                            width: 50,
+                                            height: 50
+                                        )
+                                    )
 
                                     VStack {
                                         Spacer()

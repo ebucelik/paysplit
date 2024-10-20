@@ -88,15 +88,26 @@ struct PaidExpenseView: View {
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundStyle(Color.app(.error))
-
                             }
 
                             VStack {
                                 Spacer()
 
-                                Text(paidExpense.creatorName)
-                                    .font(.app(.subtitle1(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                HStack(spacing: 4) {
+                                    PaysplitImage(
+                                        picture: paidExpense.creatorPictureLink,
+                                        frame: CGSize(
+                                            width: 30,
+                                            height: 30
+                                        )
+                                    )
+
+                                    Text(paidExpense.creatorName)
+                                        .font(.app(.subtitle1(.regular)))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                    Spacer()
+                                }
 
                                 Text(paidExpense.creatorUsername)
                                     .font(.app(.body2(.regular)))
@@ -176,9 +187,25 @@ struct PaidExpenseView: View {
                     .frame(width: 40, height: 40)
                     .foregroundStyle(Color.app(.success))
 
-                Text(updatePaidExpense.creatorName)
-                    .font(.app(.subtitle(.regular)))
-                    .frame(alignment: .leading)
+                Spacer()
+
+                HStack(spacing: 8) {
+                    Spacer()
+
+                    PaysplitImage(
+                        picture: updatePaidExpense.creatorPictureLink,
+                        frame: CGSize(
+                            width: 40,
+                            height: 40
+                        )
+                    )
+
+                    Text(updatePaidExpense.creatorName)
+                        .font(.app(.subtitle(.regular)))
+                        .frame(alignment: .leading)
+
+                    Spacer()
+                }
 
                 Spacer()
 

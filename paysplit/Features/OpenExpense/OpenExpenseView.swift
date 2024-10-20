@@ -93,9 +93,21 @@ struct OpenExpenseView: View {
                             VStack {
                                 Spacer()
 
-                                Text(openExpense.creatorName)
-                                    .font(.app(.subtitle1(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                HStack(spacing: 4) {
+                                    PaysplitImage(
+                                        picture: openExpense.creatorPictureLink,
+                                        frame: CGSize(
+                                            width: 30,
+                                            height: 30
+                                        )
+                                    )
+
+                                    Text(openExpense.creatorName)
+                                        .font(.app(.subtitle1(.regular)))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                    Spacer()
+                                }
 
                                 Text(openExpense.creatorUsername)
                                     .font(.app(.body2(.regular)))
@@ -172,9 +184,25 @@ struct OpenExpenseView: View {
                     .frame(width: 40, height: 40)
                     .foregroundStyle(Color.app(.error))
 
-                Text(updateOpenExpense.creatorName)
-                    .font(.app(.subtitle(.regular)))
-                    .frame(alignment: .leading)
+                Spacer()
+
+                HStack(spacing: 8) {
+                    Spacer()
+
+                    PaysplitImage(
+                        picture: updateOpenExpense.creatorPictureLink,
+                        frame: CGSize(
+                            width: 40,
+                            height: 40
+                        )
+                    )
+
+                    Text(updateOpenExpense.creatorName)
+                        .font(.app(.subtitle(.regular)))
+                        .frame(alignment: .leading)
+
+                    Spacer()
+                }
 
                 Spacer()
 

@@ -21,6 +21,7 @@ struct AccountCore {
     enum Action {
         case onViewAppear
         case setAccount(ViewState<Account>)
+        case updateUserDefaultAccount(Account)
         case didPickedImage(UIImage?)
         case uploadPickedImage
         case logout
@@ -36,6 +37,16 @@ struct AccountCore {
 
             case let .setAccount(account):
                 state.accountState = account
+
+                return .none
+
+            case let .updateUserDefaultAccount(account):
+                do {
+                    let accountData = try JSONEncoder().encode(account)
+                    UserDefaults.standard.set(accountData, forKey: "account")
+                } catch {
+                    print("Encoding failed.")
+                }
 
                 return .none
 
@@ -57,6 +68,7 @@ struct AccountCore {
                     let updatedAccount = try await self.service.updatePictureLink(id: account.id, link: pictureLink)
 
                     await send(.setAccount(.loaded(updatedAccount)))
+                    await send(.updateUserDefaultAccount(updatedAccount))
                 } catch: { error, send in
                     await send(.didPickedImage(nil))
                 }

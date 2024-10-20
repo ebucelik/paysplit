@@ -8,6 +8,10 @@
 import SwiftUI
 import CachedAsyncImage
 
+extension URLCache {
+    static let imageCache = URLCache(memoryCapacity: 512_000_000, diskCapacity: 10_000_000_000)
+}
+
 public struct PaysplitImage: View {
     let picture: String
     let frame: CGSize
@@ -25,7 +29,7 @@ public struct PaysplitImage: View {
                 .frame(width: frame.width, height: frame.height)
                 .foregroundColor(.gray)
         } else {
-            CachedAsyncImage(url: URL(string: picture)) { profilePicture in
+            CachedAsyncImage(url: URL(string: picture), urlCache: .imageCache) { profilePicture in
                 profilePicture
                     .resizable()
                     .aspectRatio(contentMode: .fill)
