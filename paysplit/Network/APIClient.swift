@@ -58,7 +58,9 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                     } else {
                         Task { [weak self] in
                             do {
-                                if let urlRequest = dataResponse.request,
+                                if case let .success(imageLink) = dataResponse.result {
+                                    continuation.resume(returning: imageLink)
+                                } else if let urlRequest = dataResponse.request,
                                    let response = try await self?.handleResponse(
                                     with: urlRequest,
                                     url: url,

@@ -21,7 +21,7 @@ struct AccountCore {
     enum Action {
         case onViewAppear
         case setAccount(ViewState<Account>)
-        case didPickedImage(UIImage)
+        case didPickedImage(UIImage?)
         case uploadPickedImage
         case logout
     }
@@ -58,7 +58,7 @@ struct AccountCore {
 
                     await send(.setAccount(.loaded(updatedAccount)))
                 } catch: { error, send in
-                    await send(.setAccount(.error(error as? MessageResponse ?? error)))
+                    await send(.didPickedImage(nil))
                 }
 
             case .logout:

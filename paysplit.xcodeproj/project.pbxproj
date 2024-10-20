@@ -47,7 +47,6 @@
 		715EB3CB2CC536D700DBB075 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 715EB3CA2CC536D700DBB075 /* CachedAsyncImage */; };
 		715EB3CD2CC536F900DBB075 /* PaysplitImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EB3CC2CC536E900DBB075 /* PaysplitImage.swift */; };
 		715EB3D02CC53C7800DBB075 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 715EB3CF2CC53C7800DBB075 /* Alamofire */; };
-		715EB3D22CC53C7800DBB075 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 715EB3D12CC53C7800DBB075 /* AlamofireDynamic */; };
 		715EB3D42CC53CA500DBB075 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715EB3D32CC53CA300DBB075 /* FormData.swift */; };
 		716DE7752C651ECF00A80817 /* AddPeopleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716DE7742C651ECF00A80817 /* AddPeopleCore.swift */; };
 		71744D3D2C6E0D4000577E22 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71744D3C2C6E0D4000577E22 /* InfoView.swift */; };
@@ -201,7 +200,6 @@
 			files = (
 				715EB3CB2CC536D700DBB075 /* CachedAsyncImage in Frameworks */,
 				715EB3D02CC53C7800DBB075 /* Alamofire in Frameworks */,
-				715EB3D22CC53C7800DBB075 /* AlamofireDynamic in Frameworks */,
 				71B30D3D2C5F6BA5005D3BE0 /* ComposableArchitecture in Frameworks */,
 				71744D402C6E1E0000577E22 /* Lottie in Frameworks */,
 			);
@@ -519,7 +517,6 @@
 				71744D3F2C6E1E0000577E22 /* Lottie */,
 				715EB3CA2CC536D700DBB075 /* CachedAsyncImage */,
 				715EB3CF2CC53C7800DBB075 /* Alamofire */,
-				715EB3D12CC53C7800DBB075 /* AlamofireDynamic */,
 			);
 			productName = paysplit;
 			productReference = 713323782C5CE92B00497475 /* paysplit.app */;
@@ -943,11 +940,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 715EB3CE2CC53C7800DBB075 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		715EB3D12CC53C7800DBB075 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 715EB3CE2CC53C7800DBB075 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 		71744D3F2C6E1E0000577E22 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
