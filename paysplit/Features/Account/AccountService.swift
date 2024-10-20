@@ -10,11 +10,21 @@ import ComposableArchitecture
 
 protocol AccountServiceProtocol {
     func logout() async throws
+    func uploadImage(imageData: Data) async throws -> String
+    func updatePictureLink(id: Int, link: String) async throws -> Account
 }
 
 class AccountService: APIClient, AccountServiceProtocol {
     func logout() async throws {
         _ = try await start(call: LogoutCall())
+    }
+
+    func uploadImage(imageData: Data) async throws -> String {
+        try await start(call: ImageCall(imageData: imageData))
+    }
+
+    func updatePictureLink(id: Int, link: String) async throws -> Account {
+        try await start(call: UpdatePictureLinkCall(id: id, link: link))
     }
 }
 

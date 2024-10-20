@@ -41,6 +41,14 @@ extension ViewState {
         return false
     }
 
+    var isLoadingOrRefreshing: Bool {
+        if case .refreshing = self {
+            return true
+        }
+
+        return isLoading
+    }
+
     var isError: Bool {
         if case .error = self {
             return true

@@ -1,6 +1,15 @@
 {
-  "originHash" : "a4cf2950f38b05a5a3ff1804408ca42faa827162adcae4d38827bd2900194a72",
+  "originHash" : "5d6a44bdcbc7bda3374c73faf219d0c615b572e5f2920cce5a3b3445745cec47",
   "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "e16d3481f5ed35f0472cb93350085853d754913f",
+        "version" : "5.10.1"
+      }
+    },
     {
       "identity" : "combine-schedulers",
       "kind" : "remoteSourceControl",
@@ -116,6 +125,15 @@
       "state" : {
         "revision" : "06b5cdc432e93b60e3bdf53aff2857c6b312991a",
         "version" : "600.0.0-prerelease-2024-07-30"
+      }
+    },
+    {
+      "identity" : "swiftui-cached-async-image",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lorenzofiamingo/swiftui-cached-async-image",
+      "state" : {
+        "revision" : "467a3d17479887943ab917a379e62bbaff60ac8a",
+        "version" : "2.1.1"
       }
     },
     {

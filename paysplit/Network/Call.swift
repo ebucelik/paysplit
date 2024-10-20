@@ -16,6 +16,7 @@ protocol Call {
     var httpMethod: HttpMethod { get }
     var body: Data? { get }
     var parameters: [String: Any]? { get }
+    var imageData: Data? { get }
 }
 
 extension Call {
@@ -23,4 +24,5 @@ extension Call {
     var path: String { domain + ressource }
     var body: Data? { nil }
     var parameters: [String: Any]? { nil }
+    var imageData: Data? { nil }
 }

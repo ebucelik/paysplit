@@ -7,17 +7,22 @@
 
 import ComposableArchitecture
 import Foundation
+import UIKit
 
 @Reducer
 struct AccountCore {
     @ObservableState
     struct State: Equatable {
-        let accountState: ViewState<Account>
+        var accountState: ViewState<Account>
+        var pickedImage: UIImage? = nil
     }
 
     @CasePathable
     enum Action {
         case onViewAppear
+        case setAccount(ViewState<Account>)
+        case didPickedImage(UIImage)
+        case uploadPickedImage
         case logout
     }
 
@@ -28,6 +33,33 @@ struct AccountCore {
             switch action {
             case .onViewAppear:
                 return .none
+
+            case let .setAccount(account):
+                state.accountState = account
+
+                return .none
+
+            case let .didPickedImage(image):
+                state.pickedImage = image
+                
+                return .send(.uploadPickedImage)
+
+            case .uploadPickedImage:
+                guard case let .loaded(account) = state.accountState,
+                      let pickedImage = state.pickedImage,
+                      let jpegData = pickedImage.jpegData(compressionQuality: 1.0) else { return .none }
+
+                return .run { send in
+                    await send(.setAccount(.refreshing(account)))
+
+                    let pictureLink = try await self.service.uploadImage(imageData: jpegData)
+
+                    let updatedAccount = try await self.service.updatePictureLink(id: account.id, link: pictureLink)
+
+                    await send(.setAccount(.loaded(updatedAccount)))
+                } catch: { error, send in
+                    await send(.setAccount(.error(error as? MessageResponse ?? error)))
+                }
 
             case .logout:
                 return .run { send in

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class APIClient: NSObject, URLSessionTaskDelegate {
     func start<C: Call>(call: C) async throws -> C.Parser {
@@ -31,6 +32,69 @@ class APIClient: NSObject, URLSessionTaskDelegate {
             urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
 
+        if let imageData = call.imageData,
+           case .POST = call.httpMethod {
+            // MARK: Start upload call
+            return try await withCheckedThrowingContinuation { continuation in
+                AF.upload(
+                    multipartFormData: { multiPartFormData in
+                        multiPartFormData.append(
+                            imageData,
+                            withName: FormData.withName,
+                            fileName: FormData.fileName,
+                            mimeType: FormData.mimeType
+                        )
+                    },
+                    to: url.absoluteString,
+                    method: .post,
+                    headers: urlRequest.headers
+                ).responseDecodable(of: C.Parser.self) { dataResponse in
+                    if let error = dataResponse.error {
+    #if DEBUG
+                        print("\nERROR: \(error)")
+    #endif
+
+                        continuation.resume(throwing: APIError.requestFailed(error))
+                    } else {
+                        Task { [weak self] in
+                            do {
+                                if let urlRequest = dataResponse.request,
+                                   let response = try await self?.handleResponse(
+                                    with: urlRequest,
+                                    url: url,
+                                    call: call
+                                   ) {
+                                    continuation.resume(returning: response)
+                                }
+                            } catch {
+                                continuation.resume(throwing: error)
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            return try await handleResponse(
+                with: urlRequest,
+                url: url,
+                call: call
+            )
+        }
+    }
+
+    private func isStatusCodeOk(code: Int) -> Bool {
+        (200...399).contains(code)
+    }
+
+    private func isStatusCodeNotOk(code: Int) -> Bool {
+        (400...599).contains(code)
+    }
+
+    private func handleResponse<C: Call>(
+        with urlRequest: URLRequest,
+        url: URL,
+        call: C
+    ) async throws -> C.Parser {
         let response = try await URLSession.shared.data(for: urlRequest)
 
         guard let httpUrlResponse = response.1 as? HTTPURLResponse else { throw APIError.response }
@@ -109,13 +173,5 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         }
 
         throw APIError.general
-    }
-
-    private func isStatusCodeOk(code: Int) -> Bool {
-        (200...399).contains(code)
-    }
-
-    private func isStatusCodeNotOk(code: Int) -> Bool {
-        (400...599).contains(code)
     }
 }
