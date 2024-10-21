@@ -11,6 +11,8 @@ struct AccountStatistics: Codable, Equatable {
     let paidDebts: String
     let openDebts: String
     let receivedDebts: String
+    let expectedDebts: String
+    let highestReceivedDebt: String
     let highestPaidDebt: String
 
     init(
@@ -19,6 +21,8 @@ struct AccountStatistics: Codable, Equatable {
         paidDebts: String,
         openDebts: String,
         receivedDebts: String,
+        expectedDebts: String,
+        highestReceivedDebt: String,
         highestPaidDebt: String
     ) {
         self.addedFriends = addedFriends
@@ -26,6 +30,8 @@ struct AccountStatistics: Codable, Equatable {
         self.paidDebts = paidDebts
         self.openDebts = openDebts
         self.receivedDebts = receivedDebts
+        self.expectedDebts = expectedDebts
+        self.highestReceivedDebt = highestReceivedDebt
         self.highestPaidDebt = highestPaidDebt
     }
 }

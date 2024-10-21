@@ -115,80 +115,9 @@ struct AccountView: View {
                 .padding(.bottom, 40)
 
                 if case let .loaded(statistics) = store.accountStatistics {
-                    Text("Statistics")
-                        .font(.app(.title2(.bold)))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 24)
-                        .padding(.bottom, 16)
-
-                    VStack(spacing: 24) {
-                        HStack {
-                            VStack(spacing: 8) {
-                                Text("Added Friends")
-                                    .font(.app(.body(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-
-                                Text("\(statistics.addedFriends)")
-                                    .font(.app(.subtitle(.bold)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-
-                            VStack(spacing: 8) {
-                                Text("Added Expenses")
-                                    .font(.app(.body(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-
-                                Text("\(statistics.addedExpenses)")
-                                    .font(.app(.subtitle(.bold)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-                        }
-
-                        HStack {
-                            VStack(spacing: 8) {
-                                Text("Paid Debts")
-                                    .font(.app(.body(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-
-                                Text("- \(statistics.paidDebts) €")
-                                    .font(.app(.subtitle(.bold)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-
-                            VStack(spacing: 8) {
-                                Text("Open Debts")
-                                    .font(.app(.body(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-
-                                Text("- \(statistics.openDebts) €")
-                                    .font(.app(.subtitle(.bold)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-                        }
-
-                        HStack {
-                            VStack(spacing: 8) {
-                                Text("Received Debts")
-                                    .font(.app(.body(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-
-                                Text("+ \(statistics.receivedDebts) €")
-                                    .font(.app(.subtitle(.bold)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-
-                            VStack(spacing: 8) {
-                                Text("Highest Paid Debt")
-                                    .font(.app(.body(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-
-                                Text("- \(statistics.highestPaidDebt) €")
-                                    .font(.app(.subtitle(.bold)))
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-                        }
-                    }
-                    .padding(.bottom, 24)
+                    statisticsBody(statistics)
+                } else if case let .refreshing(statistics) = store.accountStatistics {
+                    statisticsBody(statistics)
                 }
 
                 Divider()
@@ -216,11 +145,186 @@ struct AccountView: View {
                 .padding(.vertical, 4)
 
                 Divider()
+
+                credits()
             }
             .padding()
         }
         .onAppear {
             store.send(.onViewAppear)
         }
+    }
+
+    @ViewBuilder
+    private func statisticsBody(_ statistics: AccountStatistics) -> some View {
+        VStack {
+            VStack{
+                Text("Statistics")
+                    .font(.app(.title2(.bold)))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Text("Your activities summed up for each category.")
+                    .font(.app(.subtitle1(.regular)))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.top, 16)
+            .padding(.bottom, 16)
+
+            VStack(spacing: 24) {
+                HStack {
+                    VStack(spacing: 8) {
+                        Text("Added Friends")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.addedFriends)")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+
+                    VStack(spacing: 8) {
+                        Text("Added Expenses")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.addedExpenses)")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                }
+
+                HStack {
+                    VStack(spacing: 8) {
+                        Text("Paid Debts")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.paidDebts != "0" ? "-" : "") \(statistics.paidDebts) €")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+
+                    VStack(spacing: 8) {
+                        Text("Open Debts")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.openDebts != "0" ? "-" : "") \(statistics.openDebts) €")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                }
+
+                HStack {
+                    VStack(spacing: 8) {
+                        Text("Received Debts")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.receivedDebts != "0" ? "+" : "") \(statistics.receivedDebts) €")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+
+                    VStack(spacing: 8) {
+                        Text("Expected Debts")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.expectedDebts != "0" ? "+" : "") \(statistics.expectedDebts) €")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                }
+
+                HStack {
+                    VStack(spacing: 8) {
+                        Text("Highest Received Debt")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.highestReceivedDebt != "0" ? "+" : "") \(statistics.highestReceivedDebt) €")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+
+                    VStack(spacing: 8) {
+                        Text("Highest Paid Debt")
+                            .font(.app(.body(.regular)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Text("\(statistics.highestPaidDebt != "0" ? "-" : "") \(statistics.highestPaidDebt) €")
+                            .font(.app(.title2(.bold)))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                }
+            }
+        }
+        .padding(.bottom, 16)
+    }
+
+    @ViewBuilder
+    private func credits() -> some View {
+        VStack {
+            VStack{
+                Text("Credits")
+                    .font(.app(.title2(.bold)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.top, 16)
+            .padding(.bottom, 16)
+
+            HStack {
+                Text("Inspirations & Feedback:")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Spacer()
+
+                Text("P. Aydin, S. Djudic")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+
+            HStack {
+                Text("Testing:")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Spacer()
+
+                Text("P. Aydin, S. Djudic")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+
+            HStack {
+                Text("Idea, Concept & Development:")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Spacer()
+
+                Text("Ebu Bekir Celik")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+
+            if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                Text("Version \(version)")
+                    .font(.app(.body(.regular)))
+                    .foregroundStyle(Color.app(.info))
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.vertical, 4)
+            }
+        }
+        .padding(.vertical, 8)
     }
 }
