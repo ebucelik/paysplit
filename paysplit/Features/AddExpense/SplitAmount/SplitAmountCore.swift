@@ -25,13 +25,19 @@ struct SplitAmountCore {
 
         var isExpensesAmountFulfilled: Bool {
             numberFormatter.decimalSeparator = ","
+            numberFormatter.maximumFractionDigits = 2
 
-            let expensesAmount = expenses.compactMap {
-                numberFormatter.number(from: $0.expenseAmount)?.doubleValue
-            }.reduce(0, +)
+            let expensesAmount = Float(
+                String(
+                    format: "%.2f",
+                    expenses.compactMap {
+                        numberFormatter.number(from: $0.expenseAmount)?.floatValue
+                    }.reduce(0, +)
+                )
+            )
 
-            return expensesAmount == numberFormatter.number(from: expenseAmount)?.doubleValue
-            && expenses.allSatisfy({ (numberFormatter.number(from: $0.expenseAmount)?.doubleValue ?? 0) > 0 })
+            return expensesAmount == numberFormatter.number(from: expenseAmount)?.floatValue
+            && expenses.allSatisfy({ (numberFormatter.number(from: $0.expenseAmount)?.floatValue ?? 0) > 0 })
         }
 
         init(
