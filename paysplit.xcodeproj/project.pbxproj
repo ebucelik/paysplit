@@ -36,6 +36,7 @@
 		7138F4882C63CDB70067CE35 /* PaidExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F4872C63CDB70067CE35 /* PaidExpenseView.swift */; };
 		7138F48C2C63D11C0067CE35 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F48B2C63D11C0067CE35 /* AddExpenseView.swift */; };
 		7138F48E2C63D13B0067CE35 /* AddExpenseCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138F48D2C63D13B0067CE35 /* AddExpenseCore.swift */; };
+		71459D732CC6AEDB00B768AE /* AccountStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71459D722CC6AED300B768AE /* AccountStatistics.swift */; };
 		715DAE842C831CE3000941B6 /* EntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE832C831CE3000941B6 /* EntryService.swift */; };
 		715DAE862C831CEB000941B6 /* LoginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE852C831CEB000941B6 /* LoginCall.swift */; };
 		715DAE882C831DED000941B6 /* RegisterCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DAE872C831DED000941B6 /* RegisterCall.swift */; };
@@ -161,6 +162,7 @@
 		7138F4872C63CDB70067CE35 /* PaidExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidExpenseView.swift; sourceTree = "<group>"; };
 		7138F48B2C63D11C0067CE35 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		7138F48D2C63D13B0067CE35 /* AddExpenseCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseCore.swift; sourceTree = "<group>"; };
+		71459D722CC6AED300B768AE /* AccountStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStatistics.swift; sourceTree = "<group>"; };
 		715DAE832C831CE3000941B6 /* EntryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryService.swift; sourceTree = "<group>"; };
 		715DAE852C831CEB000941B6 /* LoginCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCall.swift; sourceTree = "<group>"; };
 		715DAE872C831DED000941B6 /* RegisterCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCall.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 		71B30D452C5F6D71005D3BE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71459D722CC6AED300B768AE /* AccountStatistics.swift */,
 				71BC92562CC5783E001A8A79 /* OneSignalPush.swift */,
 				719789782CC3A40B005B0C59 /* OpenPaidExpense.swift */,
 				710ABBB62CC30011007DEF4F /* ExpenseDetail.swift */,
@@ -692,6 +695,7 @@
 				71744D452C6E22E700577E22 /* PaysplitButton.swift in Sources */,
 				71F9AF012CBB242E00561697 /* SearchAddedPeopleCore.swift in Sources */,
 				7138F47F2C63CB010067CE35 /* OverviewCore.swift in Sources */,
+				71459D732CC6AEDB00B768AE /* AccountStatistics.swift in Sources */,
 				715EB3C42CC5305500DBB075 /* ImagePickerController.swift in Sources */,
 				710ABBB72CC30016007DEF4F /* ExpenseDetail.swift in Sources */,
 				715DAE8A2C831E75000941B6 /* RegisterRequest.swift in Sources */,

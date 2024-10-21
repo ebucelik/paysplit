@@ -34,14 +34,40 @@ struct UpdatePictureLinkCall: Call {
     }
 }
 
+struct DeletePictureLinkCall: Call {
+    typealias Parser = String
+    let ressource: String = "v1/image"
+    let httpMethod: HttpMethod = .DELETE
+    let parameters: [String : Any]?
+
+    init(link: String) {
+        parameters = [
+            "link": link
+        ]
+    }
+}
+
 struct ImageCall: Call {
     typealias Parser = String
 
-    let ressource: String = "v1/image/upload"
+    let ressource: String = "v1/image"
     let httpMethod: HttpMethod = .POST
     let imageData: Data?
 
     init(imageData: Data) {
         self.imageData = imageData
+    }
+}
+
+struct StatisticsCall: Call {
+    typealias Parser = AccountStatistics
+    let ressource: String = "v1/account/statistics"
+    let httpMethod: HttpMethod = .GET
+    let parameters: [String : Any]?
+
+    init(id: Int) {
+        parameters = [
+            "id": id
+        ]
     }
 }

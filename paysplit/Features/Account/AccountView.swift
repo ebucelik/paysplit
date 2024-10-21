@@ -114,6 +114,83 @@ struct AccountView: View {
                 }
                 .padding(.bottom, 40)
 
+                if case let .loaded(statistics) = store.accountStatistics {
+                    Text("Statistics")
+                        .font(.app(.title2(.bold)))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 24)
+                        .padding(.bottom, 16)
+
+                    VStack(spacing: 24) {
+                        HStack {
+                            VStack(spacing: 8) {
+                                Text("Added Friends")
+                                    .font(.app(.body(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+
+                                Text("\(statistics.addedFriends)")
+                                    .font(.app(.subtitle(.bold)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+
+                            VStack(spacing: 8) {
+                                Text("Added Expenses")
+                                    .font(.app(.body(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+
+                                Text("\(statistics.addedExpenses)")
+                                    .font(.app(.subtitle(.bold)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                        }
+
+                        HStack {
+                            VStack(spacing: 8) {
+                                Text("Paid Debts")
+                                    .font(.app(.body(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+
+                                Text("- \(statistics.paidDebts) €")
+                                    .font(.app(.subtitle(.bold)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+
+                            VStack(spacing: 8) {
+                                Text("Open Debts")
+                                    .font(.app(.body(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+
+                                Text("- \(statistics.openDebts) €")
+                                    .font(.app(.subtitle(.bold)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                        }
+
+                        HStack {
+                            VStack(spacing: 8) {
+                                Text("Received Debts")
+                                    .font(.app(.body(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+
+                                Text("+ \(statistics.receivedDebts) €")
+                                    .font(.app(.subtitle(.bold)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+
+                            VStack(spacing: 8) {
+                                Text("Highest Paid Debt")
+                                    .font(.app(.body(.regular)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+
+                                Text("- \(statistics.highestPaidDebt) €")
+                                    .font(.app(.subtitle(.bold)))
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 24)
+                }
+
                 Divider()
 
                 Button {
@@ -141,6 +218,9 @@ struct AccountView: View {
                 Divider()
             }
             .padding()
+        }
+        .onAppear {
+            store.send(.onViewAppear)
         }
     }
 }
