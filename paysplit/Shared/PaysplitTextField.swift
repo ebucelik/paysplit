@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PaysplitTextField: View {
 
@@ -14,6 +15,8 @@ struct PaysplitTextField: View {
     var text: String
     let prompt: Text
     let isSecure: Bool
+    let isAmount: Bool
+    let maxCharacterCount: Int
 
     @FocusState var isFocused: Bool
 
@@ -21,12 +24,16 @@ struct PaysplitTextField: View {
         imageSystemName: String,
         text: Binding<String>,
         prompt: Text,
-        isSecure: Bool = false
+        isSecure: Bool = false,
+        isAmount: Bool = false,
+        maxCharacterCount: Int
     ) {
         self.imageSystemName = imageSystemName
         self._text = text
         self.prompt = prompt
         self.isSecure = isSecure
+        self.isAmount = isAmount
+        self.maxCharacterCount = maxCharacterCount
     }
 
     var body: some View {
@@ -55,6 +62,15 @@ struct PaysplitTextField: View {
                 .focused($isFocused)
                 .frame(maxWidth: .infinity)
                 .font(.app(.subtitle1(.regular)))
+                .onReceive(Just(text)) { _ in
+                    if text.count > maxCharacterCount {
+                        text = String(text.prefix(maxCharacterCount))
+                    }
+
+                    if isAmount, text.contains(".") {
+                        text = text.replacingOccurrences(of: ".", with: ",")
+                    }
+                }
             }
         }
         .padding()
@@ -69,6 +85,7 @@ struct PaysplitTextField: View {
     PaysplitTextField(
         imageSystemName: "house",
         text: .constant(""),
-        prompt: Text("Test prompt")
+        prompt: Text("Test prompt"),
+        maxCharacterCount: 60
     )
 }

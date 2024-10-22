@@ -29,13 +29,16 @@ struct FullAmountView: View {
             PaysplitTextField(
                 imageSystemName: "square.and.pencil.circle.fill",
                 text: $store.expenseDescription,
-                prompt: Text("Expense description (e.g. Pizza)")
+                prompt: Text("Expense description (e.g. Pizza)"),
+                maxCharacterCount: 30
             )
 
             PaysplitTextField(
                 imageSystemName: "eurosign.circle.fill",
                 text: $store.expenseAmount,
-                prompt: Text("0,00")
+                prompt: Text("0,00"),
+                isAmount: true,
+                maxCharacterCount: 7
             )
             .keyboardType(.decimalPad)
             .textSelection(.disabled)
@@ -43,7 +46,8 @@ struct FullAmountView: View {
             Spacer()
 
             if !store.expenseDescription.isEmpty,
-               !store.expenseAmount.isEmpty {
+               !store.expenseAmount.isEmpty,
+               store.isExpensesAmountFulfilled {
                 PaysplitButton(title: "Next Step") {
                     store.send(
                         .delegate(

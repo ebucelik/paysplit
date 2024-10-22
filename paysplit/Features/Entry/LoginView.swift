@@ -41,7 +41,8 @@ struct LoginView: View {
                     PaysplitTextField(
                         imageSystemName: "person.circle.fill",
                         text: $store.authenticationRequest.username,
-                        prompt: Text("Username")
+                        prompt: Text("Username"),
+                        maxCharacterCount: 30
                     )
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
@@ -51,7 +52,8 @@ struct LoginView: View {
                         imageSystemName: "lock.circle.fill",
                         text: $store.authenticationRequest.password,
                         prompt: Text("Password"),
-                        isSecure: true
+                        isSecure: true,
+                        maxCharacterCount: 50
                     )
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)

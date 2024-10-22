@@ -130,12 +130,6 @@ struct PaidExpenseView: View {
                                 .font(.app(.subtitle1(.bold)))
                                 .frame(alignment: .trailing)
                                 .foregroundStyle(Color.app(paidExpense.creatorId == store.account?.id ? .success : .error))
-
-                            Image(systemName: "checkmark.circle.fill")
-                                .renderingMode(.template)
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .foregroundStyle(Color.app(.success))
                         }
                         .padding(8)
                         .ignoresSafeArea()

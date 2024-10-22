@@ -82,7 +82,9 @@ struct SplitAmountView: View {
                     PaysplitTextField(
                         imageSystemName: "eurosign.circle.fill",
                         text: $store.expenses[index].expenseAmount,
-                        prompt: Text("0,00")
+                        prompt: Text("0,00"),
+                        isAmount: true,
+                        maxCharacterCount: 7
                     )
                     .keyboardType(.decimalPad)
                     .textSelection(.disabled)
@@ -99,7 +101,7 @@ struct SplitAmountView: View {
             if store.expenses.allSatisfy({ !$0.expenseAmount.isEmpty }),
                store.isExpensesAmountFulfilled {
                 PaysplitButton(
-                    title: "Create Payment",
+                    title: "Create Expense",
                     isLoading: store.createdExpenses.isLoading
                 ) {
                     store.send(.createExpenses)

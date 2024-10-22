@@ -201,6 +201,7 @@ struct AccountView: View {
 
                         Text("\(statistics.paidDebts != "0" ? "-" : "") \(statistics.paidDebts) €")
                             .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(statistics.paidDebts != "0" ? .error : .primary))
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
 
@@ -211,6 +212,7 @@ struct AccountView: View {
 
                         Text("\(statistics.openDebts != "0" ? "-" : "") \(statistics.openDebts) €")
                             .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(statistics.openDebts != "0" ? .error : .primary))
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
@@ -223,6 +225,7 @@ struct AccountView: View {
 
                         Text("\(statistics.receivedDebts != "0" ? "+" : "") \(statistics.receivedDebts) €")
                             .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(statistics.receivedDebts != "0" ? .success : .primary))
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
 
@@ -233,6 +236,7 @@ struct AccountView: View {
 
                         Text("\(statistics.expectedDebts != "0" ? "+" : "") \(statistics.expectedDebts) €")
                             .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(statistics.expectedDebts != "0" ? .success : .primary))
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
@@ -245,6 +249,7 @@ struct AccountView: View {
 
                         Text("\(statistics.highestReceivedDebt != "0" ? "+" : "") \(statistics.highestReceivedDebt) €")
                             .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(statistics.highestReceivedDebt != "0" ? .success : .primary))
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
 
@@ -255,6 +260,7 @@ struct AccountView: View {
 
                         Text("\(statistics.highestPaidDebt != "0" ? "-" : "") \(statistics.highestPaidDebt) €")
                             .font(.app(.title2(.bold)))
+                            .foregroundStyle(Color.app(statistics.highestPaidDebt != "0" ? .error : .primary))
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
