@@ -1,0 +1,636 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "@%@" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ %@ €" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ €"
+          }
+        }
+      }
+    },
+    "%@ €" : {
+
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld persons added" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Personen hinzugefügt"
+          }
+        }
+      }
+    },
+    "0,00" : {
+
+    },
+    "Account" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konto"
+          }
+        }
+      }
+    },
+    "Add Expense" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgabe Hinzufügen"
+          }
+        }
+      }
+    },
+    "Add people from your List" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personen aus der Liste hinzufügen"
+          }
+        }
+      }
+    },
+    "Added Expenses" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzugefügte Ausgaben"
+          }
+        }
+      }
+    },
+    "Added Friends" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzugefügte Freunde"
+          }
+        }
+      }
+    },
+    "All persons who owns you money are listed here." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Personen die dir Geld schulden sind hier aufgelistet."
+          }
+        }
+      }
+    },
+    "Already have an account?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konto bereits vorhanden?"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        }
+      }
+    },
+    "Create Your Account" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle dein Konto"
+          }
+        }
+      }
+    },
+    "Credits" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danksagung"
+          }
+        }
+      }
+    },
+    "Delete Account" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konto Löschen"
+          }
+        }
+      }
+    },
+    "Don't have an account?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Konto vorhanden?"
+          }
+        }
+      }
+    },
+    "Ebu Bekir Celik" : {
+
+    },
+    "Enter the full expense amount." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge die ausgegebene Summe ein."
+          }
+        }
+      }
+    },
+    "Expected Debts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erwartete Schulden"
+          }
+        }
+      }
+    },
+    "Expense description (e.g. Pizza)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgabenbeschreibung (z.B.: Pizza)"
+          }
+        }
+      }
+    },
+    "Expense Overview" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgabenüberblick"
+          }
+        }
+      }
+    },
+    "Expenses" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgaben"
+          }
+        }
+      }
+    },
+    "Filter" : {
+
+    },
+    "Find added people to split a Payment." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finde hinzugefügte Personen um eine Zahlung aufzuteilen."
+          }
+        }
+      }
+    },
+    "Firstname" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorname"
+          }
+        }
+      }
+    },
+    "Full Amount for %@: " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voller Betrag für %@"
+          }
+        }
+      }
+    },
+    "Here you can find your added expenses." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hier findest du deine hinzugefügten Ausgaben."
+          }
+        }
+      }
+    },
+    "Highest Paid Debt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Höchste bezahlte Ausgabe"
+          }
+        }
+      }
+    },
+    "Highest Received Debt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Höchste erhaltene Ausgabe"
+          }
+        }
+      }
+    },
+    "Idea, Concept & Development:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idee, Konzept & Entwicklung"
+          }
+        }
+      }
+    },
+    "Inspirations & Feedback:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspiration & Feedback"
+          }
+        }
+      }
+    },
+    "Keep track of open and paid expenses." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Behalte den Überblick von offenen und bezahlten Ausgaben."
+          }
+        }
+      }
+    },
+    "Last Step" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzter Schritt"
+          }
+        }
+      }
+    },
+    "Lastname" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nachname"
+          }
+        }
+      }
+    },
+    "Login" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einloggen"
+          }
+        }
+      }
+    },
+    "Logout" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausloggen"
+          }
+        }
+      }
+    },
+    "Open Debts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offene Schulden"
+          }
+        }
+      }
+    },
+    "P. Aydin, S. Djudic" : {
+
+    },
+    "Paid Debts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezahlte Schulden"
+          }
+        }
+      }
+    },
+    "Password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwort"
+          }
+        }
+      }
+    },
+    "People" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personen"
+          }
+        }
+      }
+    },
+    "Persons in your list" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personen in deiner Liste"
+          }
+        }
+      }
+    },
+    "Received Debts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhaltene Schulden"
+          }
+        }
+      }
+    },
+    "Retype Password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwort erneut eingeben"
+          }
+        }
+      }
+    },
+    "Search for new People to add" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suche neue Personen zum Hinzufügen"
+          }
+        }
+      }
+    },
+    "Sign In" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einloggen"
+          }
+        }
+      }
+    },
+    "Sign up" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrieren"
+          }
+        }
+      }
+    },
+    "Something went wrong. Please try again." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etwas ging schief. Bitte erneut versuchen."
+          }
+        }
+      }
+    },
+    "Sorting" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sortieren"
+          }
+        }
+      }
+    },
+    "Split the expense onto the added people." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teile die Ausgabe über die hinzugefügten Personen."
+          }
+        }
+      }
+    },
+    "Statistics" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistik"
+          }
+        }
+      }
+    },
+    "Step 1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schritt 1"
+          }
+        }
+      }
+    },
+    "Step 2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schritt 2"
+          }
+        }
+      }
+    },
+    "Testing:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Testen:"
+          }
+        }
+      }
+    },
+    "To use the app please login with your personal info." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um diese App zu benutzen logge dich mit deinen persönlichen Informationen ein."
+          }
+        }
+      }
+    },
+    "To use the app please register with your personal info." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um diese App zu benutzen registriere dich mit deinen persönlichen Informationen."
+          }
+        }
+      }
+    },
+    "Total: " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamt:"
+          }
+        }
+      }
+    },
+    "Username" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzername"
+          }
+        }
+      }
+    },
+    "Username or Password invalid." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzername oder Passwort ungültig."
+          }
+        }
+      }
+    },
+    "Version %@" : {
+
+    },
+    "Welcome %@!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen %@!"
+          }
+        }
+      }
+    },
+    "Welcome back" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen zurück"
+          }
+        }
+      }
+    },
+    "Welcome to Paysplit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen bei Paysplit"
+          }
+        }
+      }
+    },
+    "Your activities summed up for each category." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Aktivitäten sind zusammengefasst für jede Kategorie hier ersichtlich."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

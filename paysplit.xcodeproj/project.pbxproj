@@ -97,6 +97,8 @@
 		71BC92532CC57334001A8A79 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 71BC92522CC57334001A8A79 /* OneSignalInAppMessages */; };
 		71BC92552CC574E8001A8A79 /* OneSignalClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BC92542CC574E4001A8A79 /* OneSignalClient.swift */; };
 		71BC92572CC57841001A8A79 /* OneSignalPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BC92562CC5783E001A8A79 /* OneSignalPush.swift */; };
+		71CB54212CC82F5F00575FD1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 71CB54202CC82F5F00575FD1 /* Localizable.xcstrings */; };
+		71CB54222CC82F5F00575FD1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 71CB54202CC82F5F00575FD1 /* Localizable.xcstrings */; };
 		71F169E32C94CD7400FA2C61 /* AddPeopleCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F169E22C94CD7400FA2C61 /* AddPeopleCalls.swift */; };
 		71F169E52C94CEDC00FA2C61 /* AddPeopleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F169E42C94CEDC00FA2C61 /* AddPeopleService.swift */; };
 		71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CB2C8E01AE0073A5E8 /* AccountService.swift */; };
@@ -218,6 +220,7 @@
 		71BC923F2CC57254001A8A79 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BC92542CC574E4001A8A79 /* OneSignalClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalClient.swift; sourceTree = "<group>"; };
 		71BC92562CC5783E001A8A79 /* OneSignalPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalPush.swift; sourceTree = "<group>"; };
+		71CB54202CC82F5F00575FD1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = paysplit/Shared/Localizable.xcstrings; sourceTree = "<group>"; };
 		71F169E22C94CD7400FA2C61 /* AddPeopleCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleCalls.swift; sourceTree = "<group>"; };
 		71F169E42C94CEDC00FA2C61 /* AddPeopleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleService.swift; sourceTree = "<group>"; };
 		71F397CB2C8E01AE0073A5E8 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 		7133236F2C5CE92B00497475 = {
 			isa = PBXGroup;
 			children = (
+				71CB54202CC82F5F00575FD1 /* Localizable.xcstrings */,
 				7133237A2C5CE92B00497475 /* paysplit */,
 				71BC92402CC57254001A8A79 /* OneSignalNotificationServiceExtension */,
 				713323792C5CE92B00497475 /* Products */,
@@ -638,6 +642,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 7133236F2C5CE92B00497475;
 			packageReferences = (
@@ -668,6 +673,7 @@
 				718E8CD42CBBC3C400D63FE8 /* Lato-Italic.ttf in Resources */,
 				718E8CD52CBBC3C400D63FE8 /* Lato-Light.ttf in Resources */,
 				718E8CD62CBBC3C400D63FE8 /* Lato-Black.ttf in Resources */,
+				71CB54222CC82F5F00575FD1 /* Localizable.xcstrings in Resources */,
 				718E8CD72CBBC3C400D63FE8 /* Lato-Regular.ttf in Resources */,
 				718E8CD82CBBC3C400D63FE8 /* Lato-Hairline.ttf in Resources */,
 				718E8CD92CBBC3C400D63FE8 /* Lato-Bold.ttf in Resources */,
@@ -678,6 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CB54212CC82F5F00575FD1 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,6 +856,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -905,6 +913,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
