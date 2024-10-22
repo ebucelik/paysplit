@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Foundation
+import SwiftUICore
 
 @Reducer
 struct ExpenseOverviewCore {
@@ -20,7 +21,7 @@ struct ExpenseOverviewCore {
 
         var groupedExpenses: ViewState<[Expense]> = .none
 
-        enum SortingKeys: String, CaseIterable, Hashable {
+        enum SortingKeys: LocalizedStringKey, CaseIterable, Hashable {
             case newest = "Newest"
             case oldest = "Oldest"
             case mostExpensive = "Most Expensive"

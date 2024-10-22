@@ -69,7 +69,7 @@ struct InfoView: View {
                         Spacer()
 
                         PaysplitButton(
-                            title: buttonTitle,
+                            title: LocalizedStringResource(stringLiteral: buttonTitle),
                             action: buttonAction
                         )
                     } else {

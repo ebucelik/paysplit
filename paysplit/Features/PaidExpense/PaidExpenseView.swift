@@ -168,64 +168,69 @@ struct PaidExpenseView: View {
         }
         .padding(.horizontal, 4)
         .sheet(item: $store.updatePaidExpense) { updatePaidExpense in
-            VStack {
-                Text(updatePaidExpense.expenseDescription)
-                    .font(.app(.title2(.bold)))
-                    .frame(maxWidth: .infinity, alignment: .center)
-
-                Spacer()
-
-                Image("getPayment")
-                    .renderingMode(.template)
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .foregroundStyle(Color.app(.success))
-
-                Spacer()
-
-                HStack(spacing: 8) {
-                    Spacer()
-
-                    PaysplitImage(
-                        picture: updatePaidExpense.creatorPictureLink,
-                        frame: CGSize(
-                            width: 40,
-                            height: 40
-                        )
-                    )
-
-                    Text(updatePaidExpense.creatorName)
-                        .font(.app(.subtitle(.regular)))
-                        .frame(alignment: .leading)
-
-                    Spacer()
-                }
-
-                Spacer()
-
-                Text(updatePaidExpense.creatorUsername)
-                    .font(.app(.body1(.regular)))
-                    .frame(alignment: .leading)
-
-                Text(updatePaidExpense.expenseDescription)
-                    .font(.app(.body1(.regular)))
-                    .frame(alignment: .leading)
-
-                Text("\(updatePaidExpense.timestamp.toStringDate), \(updatePaidExpense.timestamp.toStringTime)")
-                    .font(.app(.body1(.regular)))
-                    .frame(alignment: .leading)
-
-                Spacer()
-
-                PaysplitButton(
-                    title: "Mark \(updatePaidExpense.expenseAmount) € as open",
-                    isLoading: store.updatedExpense.isLoading
-                ) {
-                    store.send(.updatePaidExpense(updatePaidExpense, false))
-                }
-            }
-            .padding(16)
-            .presentationDetents([.medium])
+            sheetUpdatePaidExpenseBody(updatePaidExpense: updatePaidExpense)
         }
+    }
+
+    @ViewBuilder
+    private func sheetUpdatePaidExpenseBody(updatePaidExpense: OpenPaidExpense) -> some View {
+        VStack {
+            Text(updatePaidExpense.expenseDescription)
+                .font(.app(.title2(.bold)))
+                .frame(maxWidth: .infinity, alignment: .center)
+
+            Spacer()
+
+            Image("getPayment")
+                .renderingMode(.template)
+                .resizable()
+                .frame(width: 40, height: 40)
+                .foregroundStyle(Color.app(.success))
+
+            Spacer()
+
+            HStack(spacing: 8) {
+                Spacer()
+
+                PaysplitImage(
+                    picture: updatePaidExpense.creatorPictureLink,
+                    frame: CGSize(
+                        width: 40,
+                        height: 40
+                    )
+                )
+
+                Text(updatePaidExpense.creatorName)
+                    .font(.app(.subtitle(.regular)))
+                    .frame(alignment: .leading)
+
+                Spacer()
+            }
+
+            Spacer()
+
+            Text(updatePaidExpense.creatorUsername)
+                .font(.app(.body1(.regular)))
+                .frame(alignment: .leading)
+
+            Text(updatePaidExpense.expenseDescription)
+                .font(.app(.body1(.regular)))
+                .frame(alignment: .leading)
+
+            Text("\(updatePaidExpense.timestamp.toStringDate), \(updatePaidExpense.timestamp.toStringTime)")
+                .font(.app(.body1(.regular)))
+                .frame(alignment: .leading)
+
+            Spacer()
+
+            PaysplitButton(
+                title: "Mark \(updatePaidExpense.expenseAmount) € as open",
+                isLoading: store.updatedExpense.isLoading
+            ) {
+                store.send(.updatePaidExpense(updatePaidExpense, false))
+            }
+        }
+        .padding(16)
+        .presentationDetents([.medium])
     }
 }

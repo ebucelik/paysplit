@@ -6,12 +6,13 @@
 //
 
 import ComposableArchitecture
+import SwiftUICore
 
 @Reducer
 struct OverviewCore {
     @ObservableState
     struct State: Equatable {
-        enum OverviewSelection: String {
+        enum OverviewSelection: LocalizedStringKey {
             case open = "Open"
             case paid = "Paid"
         }

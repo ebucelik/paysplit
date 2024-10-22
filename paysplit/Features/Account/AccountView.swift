@@ -176,6 +176,7 @@ struct AccountView: View {
                         Text("Added Friends")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.addedFriends)")
                             .font(.app(.title2(.bold)))
@@ -186,6 +187,7 @@ struct AccountView: View {
                         Text("Added Expenses")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.addedExpenses)")
                             .font(.app(.title2(.bold)))
@@ -198,6 +200,7 @@ struct AccountView: View {
                         Text("Paid Debts")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.paidDebts != "0" ? "-" : "") \(statistics.paidDebts) €")
                             .font(.app(.title2(.bold)))
@@ -209,6 +212,7 @@ struct AccountView: View {
                         Text("Open Debts")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.openDebts != "0" ? "-" : "") \(statistics.openDebts) €")
                             .font(.app(.title2(.bold)))
@@ -222,6 +226,7 @@ struct AccountView: View {
                         Text("Received Debts")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.receivedDebts != "0" ? "+" : "") \(statistics.receivedDebts) €")
                             .font(.app(.title2(.bold)))
@@ -233,6 +238,7 @@ struct AccountView: View {
                         Text("Expected Debts")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.expectedDebts != "0" ? "+" : "") \(statistics.expectedDebts) €")
                             .font(.app(.title2(.bold)))
@@ -246,6 +252,7 @@ struct AccountView: View {
                         Text("Highest Received Debt")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.highestReceivedDebt != "0" ? "+" : "") \(statistics.highestReceivedDebt) €")
                             .font(.app(.title2(.bold)))
@@ -257,6 +264,7 @@ struct AccountView: View {
                         Text("Highest Paid Debt")
                             .font(.app(.body(.regular)))
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
 
                         Text("\(statistics.highestPaidDebt != "0" ? "-" : "") \(statistics.highestPaidDebt) €")
                             .font(.app(.title2(.bold)))

@@ -117,9 +117,9 @@ struct AddPeopleCore {
                     _ = try await self.service.addPerson(firstId: account.id, secondId: id)
 
                     OneSignalClient.shared.sendPush(
-                        with: " has added you as a friend.",
+                        with: String(localized: " has added you as a friend."),
                         username: "\(account.username)",
-                        title: "New Message",
+                        title: String(localized: "New Message"),
                         id: id
                     )
 

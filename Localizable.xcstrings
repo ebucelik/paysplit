@@ -2,16 +2,101 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    " asks you to pay %@ € for %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " bittet dich %1$@ € zu bezahlen für %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " asks you to pay %1$@ € for %2$@"
+          }
+        }
+      }
+    },
+    " has added you as a friend." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " hat dich als Freund hinzugefügt."
+          }
+        }
+      }
+    },
+    " marked %@ € for %@ as open" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " hat %1$@ € für %2$@ als offen markiert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " marked %1$@ € for %2$@ as open"
+          }
+        }
+      }
+    },
+    " marked %@ € for %@ as paid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " hat %1$@ € für %2$@ als bezahlt markiert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " marked %1$@ € for %2$@ as paid"
+          }
+        }
+      }
     },
     "@%@" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@%@"
+          }
+        }
+      }
     },
     "%@" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "%@ %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -22,6 +107,12 @@
     },
     "%@ %@ €" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ €"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -31,10 +122,23 @@
       }
     },
     "%@ €" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ €"
+          }
+        }
+      }
     },
     "%@, %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -44,11 +148,18 @@
       }
     },
     "%lld" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "%lld persons added" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld Personen hinzugefügt"
@@ -57,11 +168,18 @@
       }
     },
     "0,00" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "0,00"
+          }
+        }
+      }
     },
     "Account" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Konto"
@@ -71,7 +189,7 @@
     },
     "Add Expense" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ausgabe Hinzufügen"
@@ -81,17 +199,17 @@
     },
     "Add people from your List" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Personen aus der Liste hinzufügen"
+            "value" : "Füge Personen aus deiner Liste hinzu"
           }
         }
       }
     },
     "Added Expenses" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hinzugefügte Ausgaben"
@@ -101,7 +219,7 @@
     },
     "Added Friends" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hinzugefügte Freunde"
@@ -109,9 +227,19 @@
         }
       }
     },
+    "All" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle"
+          }
+        }
+      }
+    },
     "All persons who owns you money are listed here." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alle Personen die dir Geld schulden sind hier aufgelistet."
@@ -121,7 +249,7 @@
     },
     "Already have an account?" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Konto bereits vorhanden?"
@@ -131,7 +259,7 @@
     },
     "Cancel" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbrechen"
@@ -139,9 +267,19 @@
         }
       }
     },
+    "Create Expense" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle Ausgabe"
+          }
+        }
+      }
+    },
     "Create Your Account" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erstelle dein Konto"
@@ -151,7 +289,7 @@
     },
     "Credits" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Danksagung"
@@ -161,7 +299,7 @@
     },
     "Delete Account" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Konto Löschen"
@@ -171,7 +309,7 @@
     },
     "Don't have an account?" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kein Konto vorhanden?"
@@ -180,21 +318,28 @@
       }
     },
     "Ebu Bekir Celik" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ebu Bekir Celik"
+          }
+        }
+      }
     },
     "Enter the full expense amount." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Füge die ausgegebene Summe ein."
+            "value" : "Den vollen, ausgegebenen Betrag eingeben."
           }
         }
       }
     },
     "Expected Debts" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erwartete Schulden"
@@ -204,7 +349,7 @@
     },
     "Expense description (e.g. Pizza)" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ausgabenbeschreibung (z.B.: Pizza)"
@@ -214,7 +359,7 @@
     },
     "Expense Overview" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ausgabenüberblick"
@@ -224,7 +369,7 @@
     },
     "Expenses" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ausgaben"
@@ -233,21 +378,28 @@
       }
     },
     "Filter" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filter"
+          }
+        }
+      }
     },
     "Find added people to split a Payment." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finde hinzugefügte Personen um eine Zahlung aufzuteilen."
+            "value" : "Finde hinzugefügte Personen um eine Zahlung zu teilen."
           }
         }
       }
     },
     "Firstname" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vorname"
@@ -257,47 +409,47 @@
     },
     "Full Amount for %@: " : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Voller Betrag für %@"
+            "value" : "Voller Betrag für %@:"
           }
         }
       }
     },
     "Here you can find your added expenses." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hier findest du deine hinzugefügten Ausgaben."
+            "value" : "Hier kannst du deine hinzugefügten Ausgaben sehen:"
           }
         }
       }
     },
     "Highest Paid Debt" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Höchste bezahlte Ausgabe"
+            "value" : "Höchster bezahlter Betrag"
           }
         }
       }
     },
     "Highest Received Debt" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Höchste erhaltene Ausgabe"
+            "value" : "Höchster erhaltener Betrag"
           }
         }
       }
     },
     "Idea, Concept & Development:" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idee, Konzept & Entwicklung"
@@ -307,7 +459,7 @@
     },
     "Inspirations & Feedback:" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inspiration & Feedback"
@@ -317,17 +469,17 @@
     },
     "Keep track of open and paid expenses." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Behalte den Überblick von offenen und bezahlten Ausgaben."
+            "value" : "Behalte ein Überblick über die offenen und bezahlten Ausgaben."
           }
         }
       }
     },
     "Last Step" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Letzter Schritt"
@@ -337,7 +489,7 @@
     },
     "Lastname" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nachname"
@@ -345,29 +497,129 @@
         }
       }
     },
-    "Login" : {
+    "Least Expensive" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einloggen"
+            "value" : "Nach Billigste"
+          }
+        }
+      }
+    },
+    "Login" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden"
           }
         }
       }
     },
     "Logout" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ausloggen"
+            "value" : "Abmelden"
+          }
+        }
+      }
+    },
+    "Mark %@ € as open" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Markiere %@ € als offen"
+          }
+        }
+      }
+    },
+    "Mark %@ € as paid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Markiere %@ € als bezahlt"
+          }
+        }
+      }
+    },
+    "Most Expensive" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Teuerste"
+          }
+        }
+      }
+    },
+    "New Expense" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Ausgabe"
+          }
+        }
+      }
+    },
+    "New Message" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Nachricht"
+          }
+        }
+      }
+    },
+    "Newest" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neueste"
+          }
+        }
+      }
+    },
+    "Next Step" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächster Schritt"
+          }
+        }
+      }
+    },
+    "Oldest" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Älteste"
+          }
+        }
+      }
+    },
+    "Open" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offen"
           }
         }
       }
     },
     "Open Debts" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Offene Schulden"
@@ -375,12 +627,39 @@
         }
       }
     },
+    "Open Expense" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offene Ausgabe"
+          }
+        }
+      }
+    },
     "P. Aydin, S. Djudic" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "P. Aydin, S. Djudic"
+          }
+        }
+      }
+    },
+    "Paid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezahlt"
+          }
+        }
+      }
     },
     "Paid Debts" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bezahlte Schulden"
@@ -388,9 +667,19 @@
         }
       }
     },
+    "Paid Expense" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezahlte Ausgabe"
+          }
+        }
+      }
+    },
     "Password" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passwort"
@@ -400,7 +689,7 @@
     },
     "People" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personen"
@@ -410,7 +699,7 @@
     },
     "Persons in your list" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personen in deiner Liste"
@@ -420,7 +709,7 @@
     },
     "Received Debts" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erhaltene Schulden"
@@ -430,7 +719,7 @@
     },
     "Retype Password" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passwort erneut eingeben"
@@ -440,7 +729,7 @@
     },
     "Search for new People to add" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suche neue Personen zum Hinzufügen"
@@ -450,7 +739,7 @@
     },
     "Sign In" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einloggen"
@@ -460,7 +749,17 @@
     },
     "Sign up" : {
       "localizations" : {
-        "en" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrieren"
+          }
+        }
+      }
+    },
+    "Sign Up" : {
+      "localizations" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registrieren"
@@ -470,7 +769,7 @@
     },
     "Something went wrong. Please try again." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Etwas ging schief. Bitte erneut versuchen."
@@ -480,7 +779,7 @@
     },
     "Sorting" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sortieren"
@@ -490,17 +789,17 @@
     },
     "Split the expense onto the added people." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Teile die Ausgabe über die hinzugefügten Personen."
+            "value" : "Teile die Ausgabe auf die hinzugefügten Personen auf."
           }
         }
       }
     },
     "Statistics" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Statistik"
@@ -510,7 +809,7 @@
     },
     "Step 1" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schritt 1"
@@ -520,7 +819,7 @@
     },
     "Step 2" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schritt 2"
@@ -530,7 +829,7 @@
     },
     "Testing:" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Testen:"
@@ -540,27 +839,27 @@
     },
     "To use the app please login with your personal info." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um diese App zu benutzen logge dich mit deinen persönlichen Informationen ein."
+            "value" : "Mit persönlichen Informationen anmelden um die App verwenden zu können."
           }
         }
       }
     },
     "To use the app please register with your personal info." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um diese App zu benutzen registriere dich mit deinen persönlichen Informationen."
+            "value" : "Mit persönlichen Informationen registrieren um die App verwenden zu können."
           }
         }
       }
     },
     "Total: " : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gesamt:"
@@ -570,7 +869,7 @@
     },
     "Username" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzername"
@@ -580,7 +879,7 @@
     },
     "Username or Password invalid." : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzername oder Passwort ungültig."
@@ -589,11 +888,18 @@
       }
     },
     "Version %@" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        }
+      }
     },
     "Welcome %@!" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willkommen %@!"
@@ -603,7 +909,7 @@
     },
     "Welcome back" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willkommen zurück"
@@ -613,7 +919,7 @@
     },
     "Welcome to Paysplit" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willkommen bei Paysplit"
@@ -621,12 +927,52 @@
         }
       }
     },
-    "Your activities summed up for each category." : {
+    "You Get" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deine Aktivitäten sind zusammengefasst für jede Kategorie hier ersichtlich."
+            "value" : "Du Bekommst"
+          }
+        }
+      }
+    },
+    "You Got" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du Hast Bekommen"
+          }
+        }
+      }
+    },
+    "You Owe" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du Schuldest"
+          }
+        }
+      }
+    },
+    "You Paid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du Hast Bezahlt"
+          }
+        }
+      }
+    },
+    "Your activities summed up for each category." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Aktivitäten sind zusammengefasst für jede Kategorie ersichtlich."
           }
         }
       }

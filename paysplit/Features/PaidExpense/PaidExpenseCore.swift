@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Foundation
+import SwiftUICore
 
 @Reducer
 struct PaidExpenseCore {
@@ -18,14 +19,14 @@ struct PaidExpenseCore {
         var updatePaidExpense: OpenPaidExpense?
         var updatedExpense: ViewState<Expense> = .none
 
-        enum SortingKeys: String, CaseIterable, Hashable {
+        enum SortingKeys: LocalizedStringKey, CaseIterable, Hashable {
             case newest = "Newest"
             case oldest = "Oldest"
             case mostExpensive = "Most Expensive"
             case leastExpensive = "Least Expensive"
         }
 
-        enum FilterKeys: String, CaseIterable, Hashable {
+        enum FilterKeys: LocalizedStringKey, CaseIterable, Hashable {
             case all = "All"
             case youPaid = "You Paid"
             case youGot = "You Got"
@@ -103,9 +104,9 @@ struct PaidExpenseCore {
                     let updatedExpense = try await self.service.updateExpense(id: id, paid: paid)
 
                     OneSignalClient.shared.sendPush(
-                        with: " marked \(updatedExpense.expenseAmount) € for \(updatedExpense.expenseDescription) as open",
+                        with: String(localized: " marked \(updatedExpense.expenseAmount) € for \(updatedExpense.expenseDescription) as open"),
                         username: "\(account?.username ?? "")",
-                        title: "Open Expense",
+                        title: String(localized: "Open Expense"),
                         id: updatedExpense.debtorId
                     )
 

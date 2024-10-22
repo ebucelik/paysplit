@@ -9,13 +9,13 @@ import SwiftUI
 
 struct PaysplitButton: View {
 
-    let title: String
+    let title: LocalizedStringResource
     let isDisabled: Bool
     let isLoading: Bool
     let action: () -> Void
 
     init(
-        title: String,
+        title: LocalizedStringResource,
         isDisabled: Bool = false,
         isLoading: Bool = false,
         action: @escaping () -> Void

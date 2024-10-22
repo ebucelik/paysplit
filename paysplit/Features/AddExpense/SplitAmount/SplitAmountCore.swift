@@ -118,9 +118,9 @@ struct SplitAmountCore {
 
                     expenses.filter{ $0.debtorId != account?.id }.forEach { expense in
                         OneSignalClient.shared.sendPush(
-                            with: " asks you to pay \(expense.expenseAmount) € for \(expense.expenseDescription)",
+                            with: String(localized: " asks you to pay \(expense.expenseAmount) € for \(expense.expenseDescription)"),
                             username: "\(account?.username ?? "")",
-                            title: "New Expense",
+                            title: String(localized: "New Expense"),
                             id: expense.debtorId
                         )
                     }
