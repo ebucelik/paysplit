@@ -20,9 +20,14 @@ protocol Call {
 }
 
 extension Call {
-    var domain: String { "http://127.0.0.1:8080/api/" }
+    var domain: String { Deployment.dev.rawValue }
     var path: String { domain + ressource }
     var body: Data? { nil }
     var parameters: [String: Any]? { nil }
     var imageData: Data? { nil }
+}
+
+enum Deployment: String {
+    case dev = "http://localhost:8080/api/"
+    case prod = "http://85.215.128.216:8082/api/"
 }
