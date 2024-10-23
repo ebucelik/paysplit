@@ -14,6 +14,7 @@ protocol AccountServiceProtocol {
     func uploadImage(imageData: Data) async throws -> String
     func updatePictureLink(id: Int, link: String) async throws -> Account
     func getStatistics(id: Int) async throws -> AccountStatistics
+    func deleteAccount(id: Int) async throws
 }
 
 class AccountService: APIClient, AccountServiceProtocol {
@@ -35,6 +36,10 @@ class AccountService: APIClient, AccountServiceProtocol {
 
     func getStatistics(id: Int) async throws -> AccountStatistics {
         try await start(call: StatisticsCall(id: id))
+    }
+
+    func deleteAccount(id: Int) async throws {
+        _ = try await start(call: DeleteCall(id: id))
     }
 }
 

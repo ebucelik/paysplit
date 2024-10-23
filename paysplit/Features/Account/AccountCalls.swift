@@ -66,8 +66,18 @@ struct StatisticsCall: Call {
     let parameters: [String : Any]?
 
     init(id: Int) {
-        parameters = [
-            "id": id
-        ]
+        parameters = ["id": id]
+    }
+}
+
+struct DeleteCall: Call {
+    typealias Parser = MessageResponse
+    
+    let ressource: String = "v1/account"
+    let httpMethod: HttpMethod = .DELETE
+    let parameters: [String : Any]?
+
+    init(id: Int) {
+        parameters = ["id": id]
     }
 }

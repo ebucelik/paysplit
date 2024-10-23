@@ -11,7 +11,8 @@ import ComposableArchitecture
 struct AccountView: View {
 
     let imagePickerController = ImagePickerController(placeholder: "")
-    let store: StoreOf<AccountCore>
+    @Bindable
+    var store: StoreOf<AccountCore>
 
     var body: some View {
         NavigationStack {
@@ -42,6 +43,7 @@ struct AccountView: View {
             }
             .navigationTitle("Account")
             .navigationBarTitleDisplayMode(.inline)
+            .alert($store.scope(state: \.alert, action: \.alert))
         }
     }
 
@@ -135,7 +137,7 @@ struct AccountView: View {
                 Divider()
 
                 Button {
-                    print("delete")
+                    store.send(.deleteButtonTapped)
                 } label: {
                     Text("Delete Account")
                         .font(.app(.body(.regular)))

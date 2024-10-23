@@ -16,10 +16,13 @@ struct AccountCore {
         var accountState: ViewState<Account>
         var accountStatistics: ViewState<AccountStatistics> = .none
         var pickedImage: UIImage? = nil
+
+        @Presents
+        var alert: AlertState<Action.Alert>?
     }
 
     @CasePathable
-    enum Action {
+    enum Action: Equatable {
         case onViewAppear
         case loadAccountStatistics
         case setAccountStatistics(ViewState<AccountStatistics>)
@@ -28,6 +31,14 @@ struct AccountCore {
         case didPickedImage(UIImage?)
         case uploadPickedImage
         case logout
+        case deleteButtonTapped
+
+        case alert(PresentationAction<Alert>)
+
+        @CasePathable
+        enum Alert: Equatable {
+            case deleteAccount
+        }
     }
 
     @Dependency(\.accountService) var service
@@ -112,7 +123,51 @@ struct AccountCore {
                 } catch: { _, _ in
                     print("Logged out.")
                 }
+
+            case .deleteButtonTapped:
+                state.alert = AlertState(
+                    title: {
+                        TextState("Attention")
+                    },
+                    actions: {
+                        ButtonState(
+                            role: .cancel,
+                            label: {
+                                TextState("Cancel")
+                            }
+                        )
+                        ButtonState(
+                            role: .destructive,
+                            action: .deleteAccount,
+                            label: {
+                                TextState("Delete")
+                            }
+                        )
+                    },
+                    message: {
+                        TextState("Do you want to delete your account?")
+                    }
+                )
+
+                return .none
+
+            case .alert(.presented(.deleteAccount)):
+                guard case let .loaded(account) = state.accountState else { return .none }
+
+                return .run { [id = account.id] send in
+                    try await self.service.deleteAccount(id: id)
+
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .logout, object: nil)
+                    }
+                } catch: { _, _ in
+                    print("Delete account failed.")
+                }
+
+            case .alert(.dismiss):
+                return .none
             }
         }
+        .ifLet(\.$alert, action: \.alert)
     }
 }

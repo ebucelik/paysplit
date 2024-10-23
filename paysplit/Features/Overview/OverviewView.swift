@@ -72,11 +72,11 @@ struct OverviewView: View {
                     NavigationLink {
                         AddPeopleView(store: store.scope(state: \.addPeople, action: \.addPeople))
                     } label: {
-                        Image(systemName: "person.fill.badge.plus")
+                        Image(systemName: "plus")
                             .renderingMode(.template)
                             .resizable()
-                            .frame(width: 30, height: 30)
-                            .tint(.black)
+                            .frame(width: 20, height: 20)
+                            .tint(Color.app(.primary))
                     }
 
                 }

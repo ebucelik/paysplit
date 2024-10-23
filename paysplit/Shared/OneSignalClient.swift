@@ -37,7 +37,7 @@ class OneSignalClient {
             targetChannel: "push",
             headings: [
                 "en": title,
-                "de": title
+                "de": title.localize(defaultLanguage: "de")
             ],
             contents: [
                 "en": username + message,
