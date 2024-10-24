@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import OneSignalFramework
 
 struct OpenExpenseView: View {
 
@@ -170,6 +171,15 @@ struct OpenExpenseView: View {
         .padding(.horizontal, 4)
         .onReceive(NotificationCenter.default.publisher(for: .accountIsSet)) { @MainActor _ in
             store.send(.loadOpenExpenses)
+
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
+                if let error = error {
+                    print(error)
+                } else if success {
+                    OneSignal.User.pushSubscription.optIn()
+                }
+            }
         }
         .sheet(item: $store.updateOpenExpense) { updateOpenExpense in
             VStack {

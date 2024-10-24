@@ -28,6 +28,6 @@ extension Call {
 }
 
 enum Deployment: String {
-    case dev = "http://localhost:8080/api/"
+    case dev = "http://127.0.0.1:8080/api/"
     case prod = "http://85.215.128.216:8082/api/"
 }
