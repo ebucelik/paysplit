@@ -67,7 +67,7 @@ struct ExpenseDetailView: View {
 
                                 Text(
                                     expenseDetail.debtorId == store.account?.id
-                                    ? "You"
+                                    ? String(localized: "You")
                                     : expenseDetail.debtorName
                                 )
                                 .font(.app(.subtitle1(.regular)))
@@ -91,18 +91,23 @@ struct ExpenseDetailView: View {
                                 .foregroundStyle(Color.app(.primary))
                                 .frame(maxWidth: .infinity, alignment: .trailing)
 
-                            if expenseDetail.paid {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .renderingMode(.template)
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundStyle(Color.app(.success))
+                            if expenseDetail.debtorId != store.account?.id {
+                                if expenseDetail.paid {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                        .foregroundStyle(Color.app(.success))
+                                } else {
+                                    Image(systemName: "questionmark.circle.fill")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                        .foregroundStyle(Color.app(.info))
+                                }
                             } else {
-                                Image(systemName: "questionmark.circle.fill")
-                                    .renderingMode(.template)
-                                    .resizable()
+                                Spacer()
                                     .frame(width: 25, height: 25)
-                                    .foregroundStyle(Color.app(.info))
                             }
                         }
                         .padding(8)
@@ -138,7 +143,7 @@ struct ExpenseDetailView: View {
             case let .error(error):
                 InfoView(
                     state: .general,
-                    message: error.asErrorResponse?.message ?? "An error occured.",
+                    message: error.asErrorResponse?.message ?? String(localized: "An error occurred."),
                     refreshableAction: {
                         await store.send(.loadExpenseDetails).finish()
                     }

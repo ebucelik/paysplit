@@ -111,7 +111,7 @@ struct SplitAmountView: View {
         .padding(16)
         .contentShape(Rectangle())
         .onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            UniversalHelper.resignFirstResponder()
         }
     }
 }

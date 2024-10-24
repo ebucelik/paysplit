@@ -139,7 +139,7 @@ struct RegisterView: View {
             )
             .ignoresSafeArea()
             .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                UniversalHelper.resignFirstResponder()
             }
         }
         .background(Color.app(.primary))

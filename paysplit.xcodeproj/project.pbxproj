@@ -99,6 +99,7 @@
 		71BC92572CC57841001A8A79 /* OneSignalPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BC92562CC5783E001A8A79 /* OneSignalPush.swift */; };
 		71CB54242CC8357200575FD1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 71CB54232CC8357200575FD1 /* Localizable.xcstrings */; };
 		71CB54252CC8357200575FD1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 71CB54232CC8357200575FD1 /* Localizable.xcstrings */; };
+		71E21E482CCAC44F006CF111 /* UniversalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E21E472CCAC44A006CF111 /* UniversalHelper.swift */; };
 		71F169E32C94CD7400FA2C61 /* AddPeopleCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F169E22C94CD7400FA2C61 /* AddPeopleCalls.swift */; };
 		71F169E52C94CEDC00FA2C61 /* AddPeopleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F169E42C94CEDC00FA2C61 /* AddPeopleService.swift */; };
 		71F397CC2C8E01AE0073A5E8 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F397CB2C8E01AE0073A5E8 /* AccountService.swift */; };
@@ -221,6 +222,7 @@
 		71BC92542CC574E4001A8A79 /* OneSignalClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalClient.swift; sourceTree = "<group>"; };
 		71BC92562CC5783E001A8A79 /* OneSignalPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalPush.swift; sourceTree = "<group>"; };
 		71CB54232CC8357200575FD1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		71E21E472CCAC44A006CF111 /* UniversalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalHelper.swift; sourceTree = "<group>"; };
 		71F169E22C94CD7400FA2C61 /* AddPeopleCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleCalls.swift; sourceTree = "<group>"; };
 		71F169E42C94CEDC00FA2C61 /* AddPeopleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleService.swift; sourceTree = "<group>"; };
 		71F397CB2C8E01AE0073A5E8 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 		71B30D3E2C5F6BAB005D3BE0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				71E21E472CCAC44A006CF111 /* UniversalHelper.swift */,
 				71BC92542CC574E4001A8A79 /* OneSignalClient.swift */,
 				715EB3CC2CC536E900DBB075 /* PaysplitImage.swift */,
 				715EB3C52CC530BE00DBB075 /* ViewControllerRepresentable.swift */,
@@ -734,6 +737,7 @@
 				713419F32C64C314000648A2 /* OpenExpenseCore.swift in Sources */,
 				715DAE882C831DED000941B6 /* RegisterCall.swift in Sources */,
 				713419F72C64FB5E000648A2 /* AppStyler.swift in Sources */,
+				71E21E482CCAC44F006CF111 /* UniversalHelper.swift in Sources */,
 				710ABBAF2CC2EC85007DEF4F /* ExpenseDetailView.swift in Sources */,
 				718E8CDC2CBBF99200D63FE8 /* FullAmountView.swift in Sources */,
 				71B30D5E2C5FBE9F005D3BE0 /* AppCore.swift in Sources */,

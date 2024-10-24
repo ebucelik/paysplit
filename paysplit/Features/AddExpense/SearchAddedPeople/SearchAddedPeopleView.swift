@@ -109,54 +109,67 @@ struct SearchAddedPeopleView: View {
                         }
                     )
                 } else {
-                    List(searchAddedPeople, id: \.id) { person in
-                        HStack(spacing: 16) {
-                            VStack {
-                                Spacer()
+                    VStack {
+                        List(searchAddedPeople, id: \.id) { person in
+                            HStack(spacing: 16) {
+                                VStack {
+                                    Spacer()
 
-                                Text("\(person.firstname) \(person.lastname)")
-                                    .font(.app(.subtitle1(.regular)))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    Text("\(person.firstname) \(person.lastname)")
+                                        .font(.app(.subtitle1(.regular)))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                                Text(person.username)
-                                    .font(.app(.body2(.regular)))
-                                    .foregroundStyle(Color.app(.divider))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    Text(person.username)
+                                        .font(.app(.body2(.regular)))
+                                        .foregroundStyle(Color.app(.divider))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                                Spacer()
-                            }
-
-                            Spacer()
-
-                            Button {
-                                store.send(.addOrRemovePerson(person))
-                            } label: {
-                                if store.addedPeopleToSplitAmount.contains(where: { $0.id == person.id }) {
-                                    Image(systemName: "checkmark.square.fill")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .foregroundStyle(Color.app(.success))
-                                } else {
-                                    Image(systemName: "plus.app")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
+                                    Spacer()
                                 }
+
+                                Spacer()
+
+                                Button {
+                                    store.send(.addOrRemovePerson(person))
+                                } label: {
+                                    if store.addedPeopleToSplitAmount.contains(where: { $0.id == person.id }) {
+                                        Image(systemName: "checkmark.square.fill")
+                                            .renderingMode(.template)
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                            .foregroundStyle(Color.app(.success))
+                                    } else {
+                                        Image(systemName: "plus.app")
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                    }
+                                }
+                                .buttonStyle(.plain)
+                                .contentShape(Rectangle())
                             }
-                            .buttonStyle(.plain)
+                            .padding(8)
+                            .ignoresSafeArea()
+                            .listRowInsets(EdgeInsets())
+                            .listRowSeparator(.hidden)
                         }
-                        .padding(8)
-                        .ignoresSafeArea()
-                        .listRowInsets(EdgeInsets())
-                        .listRowSeparator(.hidden)
+                        .listStyle(.plain)
+
+                        if !store.addedPeopleToSplitAmount.isEmpty {
+                            PaysplitButton(title: "Next Step") {
+                                store.send(.delegate(.evaluateNextStep))
+                            }
+                        }
                     }
-                    .listStyle(.plain)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        UniversalHelper.resignFirstResponder()
+                    }
                 }
 
             case let .error(error):
                 InfoView(
                     state: .general,
-                    message: error.asErrorResponse?.message ?? "An error occured."
+                    message: error.asErrorResponse?.message ?? String(localized: "An error occurred.")
                 )
             }
         }

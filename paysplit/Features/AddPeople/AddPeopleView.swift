@@ -76,15 +76,40 @@ struct AddPeopleView: View {
                                             .frame(width: 30, height: 30)
                                     } else {
                                         Button {
-                                            store.send(.removePerson(person.id))
+                                            store.send(.removeButtonTapped(id: person.id, username: person.username))
                                         } label: {
                                             Image(systemName: "minus.square.fill")
                                                 .renderingMode(.template)
                                                 .resizable()
                                                 .frame(width: 30, height: 30)
+                                                .foregroundStyle(Color.app(.primary))
+                                        }
+                                        .buttonStyle(.plain)
+                                        .contentShape(Rectangle())
+
+                                        Button {
+                                            store.send(.reportButtonTapped(id: person.id, username: person.username))
+                                        } label: {
+                                            Image(systemName: "exclamationmark.square.fill")
+                                                .renderingMode(.template)
+                                                .resizable()
+                                                .frame(width: 30, height: 30)
+                                                .foregroundStyle(Color.app(.warning))
+                                        }
+                                        .buttonStyle(.plain)
+                                        .contentShape(Rectangle())
+
+                                        Button {
+                                            store.send(.blockButtonTapped(id: person.id, username: person.username))
+                                        } label: {
+                                            Image(systemName: "hand.raised.fill")
+                                                .renderingMode(.template)
+                                                .resizable()
+                                                .frame(width: 25, height: 30)
                                                 .foregroundStyle(Color.app(.error))
                                         }
                                         .buttonStyle(.plain)
+                                        .contentShape(Rectangle())
                                     }
                                 }
                                 .padding(8)
@@ -96,11 +121,12 @@ struct AddPeopleView: View {
                             .refreshable {
                                 await store.send(.loadAddedPeople).finish()
                             }
+                            .alert($store.scope(state: \.alert, action: \.alert))
                         }
                     case let .error(error):
                         InfoView(
                             state: .general,
-                            message: error.asErrorResponse?.message ?? "An error occured.",
+                            message: error.asErrorResponse?.message ?? String(localized: "An error occurred."),
                             refreshableAction: {
                                 await store.send(.loadAddedPeople).finish()
                             }
@@ -185,7 +211,7 @@ struct AddPeopleView: View {
                     case let .error(error):
                         InfoView(
                             state: .general,
-                            message: error.asErrorResponse?.message ?? "An error occured."
+                            message: error.asErrorResponse?.message ?? String(localized: "An error occurred.")
                         )
                     }
                 }

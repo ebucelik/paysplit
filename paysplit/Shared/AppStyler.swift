@@ -20,6 +20,7 @@ class AppStyler {
         case success
         case error
         case info
+        case warning
     }
 
     enum Font {
@@ -57,6 +58,8 @@ class AppStyler {
             return #colorLiteral(red: 0.6584659219, green: 0, blue: 0.05306704342, alpha: 1)
         case .info:
             return #colorLiteral(red: 0.6472735405, green: 0.6472735405, blue: 0.6472735405, alpha: 1)
+        case .warning:
+            return #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         }
     }
 

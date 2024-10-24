@@ -19,6 +19,9 @@ struct AddPeopleCore {
         var searchTerm = ""
         var selectedIdToAdd: Int? = nil
         var selectedIdToRemove: Int? = nil
+
+        @Presents
+        var alert: AlertState<Action.Alert>?
     }
 
     @CasePathable
@@ -30,8 +33,19 @@ struct AddPeopleCore {
         case setSearchedPeople(ViewState<[Account]>)
         case addPerson(Int)
         case setSelectedIdToAdd(Int?)
-        case removePerson(Int)
         case setSelectedIdToRemove(Int?)
+
+        case removeButtonTapped(id: Int, username: String)
+        case blockButtonTapped(id: Int, username: String)
+        case reportButtonTapped(id: Int, username: String)
+        case alert(PresentationAction<Alert>)
+
+        @CasePathable
+        enum Alert: Equatable {
+            case removePerson(Int)
+            case blockAccount(Int)
+            case reportAccount
+        }
 
         case binding(BindingAction<State>)
     }
@@ -135,7 +149,93 @@ struct AddPeopleCore {
 
                 return .none
 
-            case let .removePerson(id):
+            case let .setSelectedIdToRemove(id):
+                state.selectedIdToRemove = id
+
+                return .none
+
+            case let .removeButtonTapped(id, username):
+                state.alert = AlertState(
+                    title: {
+                        TextState("Attention")
+                    },
+                    actions: {
+                        ButtonState(
+                            role: .cancel,
+                            label: {
+                                TextState("Cancel")
+                            }
+                        )
+                        ButtonState(
+                            role: .destructive,
+                            action: .removePerson(id),
+                            label: {
+                                TextState("Remove")
+                            }
+                        )
+                    },
+                    message: {
+                        TextState("Do you want to remove \(username) from your list?")
+                    }
+                )
+
+                return .none
+
+            case let .blockButtonTapped(id, username):
+                state.alert = AlertState(
+                    title: {
+                        TextState("Attention")
+                    },
+                    actions: {
+                        ButtonState(
+                            role: .cancel,
+                            label: {
+                                TextState("Cancel")
+                            }
+                        )
+                        ButtonState(
+                            role: .destructive,
+                            action: .blockAccount(id),
+                            label: {
+                                TextState("Block")
+                            }
+                        )
+                    },
+                    message: {
+                        TextState("Do you want to block \(username)?")
+                    }
+                )
+
+                return .none
+
+            case let .reportButtonTapped(_, username):
+                state.alert = AlertState(
+                    title: {
+                        TextState("Attention")
+                    },
+                    actions: {
+                        ButtonState(
+                            role: .cancel,
+                            label: {
+                                TextState("Cancel")
+                            }
+                        )
+                        ButtonState(
+                            role: .destructive,
+                            action: .reportAccount,
+                            label: {
+                                TextState("Report")
+                            }
+                        )
+                    },
+                    message: {
+                        TextState("Do you want to report \(username) for spam, abuse or any other harmful content?")
+                    }
+                )
+
+                return .none
+
+            case let .alert(.presented(.removePerson(id))):
                 guard let account = state.account else { return .none }
 
                 return .run { send in
@@ -149,9 +249,24 @@ struct AddPeopleCore {
                     await send(.setSelectedIdToRemove(nil))
                 }
 
-            case let .setSelectedIdToRemove(id):
-                state.selectedIdToRemove = id
+            case let .alert(.presented(.blockAccount(id))):
+                guard let account = state.account else { return .none }
 
+                return .run { send in
+                    await send(.setSelectedIdToRemove(id))
+
+                    _ = try await self.service.removePerson(firstId: account.id, secondId: id)
+
+                    await send(.loadAddedPeople)
+                    await send(.setSelectedIdToRemove(nil))
+                } catch: { _, send in
+                    await send(.setSelectedIdToRemove(nil))
+                }
+
+            case .alert(.presented(.reportAccount)):
+                return .none
+
+            case .alert(.dismiss):
                 return .none
 
             case .binding(\.searchTerm):
@@ -163,5 +278,6 @@ struct AddPeopleCore {
                 return .none
             }
         }
+        .ifLet(\.$alert, action: \.alert)
     }
 }

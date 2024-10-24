@@ -61,7 +61,7 @@ struct PaidExpenseCore {
                 return .send(.loadPaidExpenses)
 
             case .loadPaidExpenses:
-                guard let account = state.account else { return .none }
+                guard let account = state.account, !state.paidExpenses.isLoadingOrRefreshing else { return .none }
 
                 return .run { [id = account.id, paidExpensesState = state.paidExpenses] send in
                     if case let .loaded(paidExpenses) = paidExpensesState {

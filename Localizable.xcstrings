@@ -257,12 +257,32 @@
         }
       }
     },
+    "An error occurred." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Fehler ist aufgetreten."
+          }
+        }
+      }
+    },
     "Attention" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Achtung"
+          }
+        }
+      }
+    },
+    "Block" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blockieren"
           }
         }
       }
@@ -327,12 +347,42 @@
         }
       }
     },
+    "Do you want to block %@?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchtest du %@ blockieren?"
+          }
+        }
+      }
+    },
     "Do you want to delete your account?" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Möchtest du dein Konto wirklich löschen?"
+          }
+        }
+      }
+    },
+    "Do you want to remove %@ from your list?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchtest du %@ aus deiner Liste entfernen?"
+          }
+        }
+      }
+    },
+    "Do you want to report %@ for spam, abuse or any other harmful content?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchtest du %@ wegen Spam, Missbrauch oder sonstigem, schädlichen Inhalt melden?"
           }
         }
       }
@@ -502,7 +552,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Behalte ein Überblick über die offenen und bezahlten Ausgaben."
+            "value" : "Behalte den Überblick über offene und bezahlte Ausgaben."
           }
         }
       }
@@ -747,6 +797,26 @@
         }
       }
     },
+    "Remove" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfernen"
+          }
+        }
+      }
+    },
+    "Report" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Melden"
+          }
+        }
+      }
+    },
     "Retype Password" : {
       "localizations" : {
         "de" : {
@@ -953,6 +1023,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willkommen bei Paysplit"
+          }
+        }
+      }
+    },
+    "You" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du"
           }
         }
       }

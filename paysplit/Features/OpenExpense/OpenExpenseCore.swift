@@ -61,7 +61,7 @@ struct OpenExpenseCore {
                 return .send(.loadOpenExpenses)
 
             case .loadOpenExpenses:
-                guard let account = state.account else { return .none }
+                guard let account = state.account, !state.openExpenses.isLoadingOrRefreshing else { return .none }
 
                 return .run { [id = account.id, openExpensesState = state.openExpenses] send in
                     if case let .loaded(openExpenses) = openExpensesState {

@@ -37,7 +37,7 @@ struct SplitAmountCore {
             )
 
             return expensesAmount == numberFormatter.number(from: expenseAmount)?.floatValue
-            && expenses.allSatisfy({ (numberFormatter.number(from: $0.expenseAmount)?.floatValue ?? 0) > 0 })
+            && expenses.allSatisfy({ (numberFormatter.number(from: $0.expenseAmount)?.floatValue ?? -1) >= 0 })
         }
 
         init(
@@ -54,7 +54,7 @@ struct SplitAmountCore {
                 Account(
                     id: account?.id ?? 0,
                     username: "",
-                    firstname: "You",
+                    firstname: String(localized: "You"),
                     lastname: "",
                     password: nil,
                     picturelink: account?.picturelink ?? ""
