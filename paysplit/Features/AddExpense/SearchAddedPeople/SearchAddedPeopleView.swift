@@ -145,7 +145,6 @@ struct SearchAddedPeopleView: View {
                                     }
                                 }
                                 .buttonStyle(.plain)
-                                .contentShape(Rectangle())
                             }
                             .padding(8)
                             .ignoresSafeArea()
@@ -161,9 +160,6 @@ struct SearchAddedPeopleView: View {
                         }
                     }
                     .contentShape(Rectangle())
-                    .onTapGesture {
-                        UniversalHelper.resignFirstResponder()
-                    }
                 }
 
             case let .error(error):
